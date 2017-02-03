@@ -1,0 +1,90 @@
+<template>
+	<div class="photo-item clearfix">
+		<router-link class="item-link" :to="'detail'">
+			<img src="../assets/FONT.jpg">
+			<span>{{ pictureList.name }}</span>
+		</router-link>
+		<div class="photo-thumbnail">
+			<img src="../assets/58447_1262335109I868.jpg" alt="">
+		</div>
+		<div class="oper">
+			<div class="favor"></div>
+			<div class="comment" v-on:click="changeSendBlock"></div>
+		</div>
+		<Comment :comments="pictureList.comment"></Comment>
+	</div>
+</template>
+<script>
+	import Comment from './Comment'
+	export default {
+		props:['pictureList','index'],
+		components:{
+			Comment
+		},
+		methods: {
+			changeSendBlock: function() {
+				this.$store.dispatch('changeSendBlock')
+				console.log(this.$store.getters)
+			}
+		}
+	}
+</script>
+<style lang="scss">
+	.photo-item {
+		height: 10rem;
+		padding-top: 1.5rem;
+		text-align: left;
+		border-bottom: 1px solid #efefef;
+		position: relative;
+		.item-link {
+			display: inline-block;
+			width: 5rem;
+			height: 5rem;
+			overflow: hidden;
+			padding-left: .5rem;
+			text-align: center;
+			float: left;
+			img {
+				width: 3rem;
+				height: 3rem;
+				border-radius: 50%;
+			}
+			span {
+				display: inline-block;
+				width: 100%;
+				text-align: center;
+			}
+		}
+		.photo-thumbnail {
+			width: 11rem;
+			// height: 14rem;
+			padding-bottom: 1rem;
+			float: left;
+			overflow: hidden;
+			img {
+				width: 85%;
+				padding: 0.2rem;
+				// box-shadow: 0 0 1rem rgba(0,0,0,0.3);
+				border: 1px solid #efefef;
+				margin-left: 0.5rem;
+				margin-top: 0.5rem;
+			}
+		}
+		.oper {
+			.favor, .comment{
+				width: 1.5rem;
+				height: 1.5rem;
+				background-color: #57a97f;
+				position: absolute;
+				top: 12rem;
+				border-radius: 50%;
+			}
+			.favor {
+				right: 2.5rem;
+			}
+			.comment {
+				right: .5rem;
+			}
+		}
+	}
+</style>

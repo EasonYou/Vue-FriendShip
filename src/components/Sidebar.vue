@@ -1,0 +1,154 @@
+<template>
+	<div class="container side-container" id="side-bar">
+		<transition name="side-bar">
+			<div  v-show="show" class="side-bar">
+				<div class="top-pic">
+					<img src="../assets/FONT.jpg" alt="">
+				</div>
+				<div class="shadow"></div>
+				<ul>
+					<li v-for="list in sideList" @click="hide">
+						<router-link :to="list.link">{{ list.desc }}</router-link>
+					</li>
+				</ul>
+			</div>
+		</transition>
+		<transition name="mask">
+			<div v-show="show" class="mask" @click="hide" ></div>
+		</transition>
+	</div>
+</template>
+<script>
+	export default {
+		computed:{
+		    show:function() {
+		      return this.$store.getters.sideShow
+		  },
+		  	sideList:function() {
+		  	 return this.$store.getters.sideList
+		  }
+		},
+		methods:{
+			hide:function() {
+				this.$store.dispatch('changeSide')
+				console.log(this.$store.getters.sideList)
+			},
+			tab: function(e) {
+				console.log(e)
+			}
+		},
+		created: function(){
+			console.log('aaa')
+		}
+	}
+</script>
+<style lang="scss">
+	.side-container {
+		position: absolute;
+		top: 0;
+	}
+	.mask {
+		background-color: #000;
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		opacity: 0.7;
+		z-index: 100;
+		z-index: 9999;
+	}
+	.mask-enter, .mask-leave-active {
+		opacity: 0;
+	}
+	.mask-enter-active ,.mask-leave-active {
+		transition: 0.3s;
+	}
+
+	.side-bar-enter{
+	  transform: translate(-100%);
+	  opacity: 0;
+	}
+	.side-bar-enter-active {
+	  transition:0.3s ease-in-out; 
+	}
+	.side-bar-leave-active {
+	  transition:0.3s ease-in-out;
+	  opacity: 0;
+	  transform: translate(-100%)
+	}
+	#side-bar .side-bar {
+		width: 70%;
+		height: 100%;
+		background-color: #f1f1f1;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 10000;
+		.top-pic {
+			width: 100%;
+			height: 13rem;
+			overflow: hidden;
+			position: relative;
+
+			img{
+				width: 150%;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-50%)
+			}
+		}
+		.shadow {
+				width: 100%;
+				height: 13rem;
+				top: 0;
+				position: absolute;
+				box-shadow: 0 -0rem 10rem black inset;
+				// background-color: #fff;
+			}
+		ul{
+			padding: 0;
+			margin: 0;
+			li{
+				border-top: 1px solid #dedede;
+				height: 3.5rem;
+				line-height: 3.5rem;
+				// border-bottom: 1px solid #aeaeae;
+				list-style: none;
+				position: relative;
+				text-align: left;
+				// padding-left: 3rem;
+				a {
+					text-indent: 3rem;
+					text-decoration: none;
+					color: #2c3e50;
+					width: 100%;
+					height: 100%;
+					display: inline-block;
+				}
+			}
+			li:hover {
+				background-color: #fff;
+			}
+			li:before{
+				content:'';
+				background: url(../assets/logo.png);
+				height: 100%;
+				width: 1.5rem;
+				background-size: 100%;
+				background-repeat: no-repeat;
+				background-position: 0 1rem;
+				position: absolute;
+				left: 0.5rem;
+
+				img {
+					height: 100%;
+				}
+
+			}
+			li:last-child{
+				border-bottom: 1px solid #dedede;
+			}
+
+		}
+	}
+</style>
