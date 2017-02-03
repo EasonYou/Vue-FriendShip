@@ -16,8 +16,11 @@
 		props: ['comments'],
 		methods: {
 			changeSendBlock: function(el) {
-				if(el.target.tagName !== 'A')
-				this.$store.dispatch('changeSendBlock')
+				if(el.target.tagName !== 'A') {
+					let userName = el.target.getElementsByTagName('a')[0].innerHTML
+					this.$store.dispatch('changeSendBlock')
+					this.$store.dispatch('editReplyUser', ' @' + userName)
+				}
 			}
 		}
 	}

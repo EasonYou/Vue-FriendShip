@@ -16,7 +16,9 @@ export default {
 				desc: 'Dwyane Wade',
 				link: 'personal'
 			}
-		]
+		],
+		replyUser:'sss',
+		fadeDirection: 'right-to-left-fade'
 	},
 	getters: {
 		sideShow: state => {
@@ -27,6 +29,12 @@ export default {
 		},
 		sendBlock: state => {
 			return state.sendBlock
+		},
+		replyUser: state => {
+			return state.replyUser
+		},
+		fadeDirection: state => {
+			return state.fadeDirection
 		}
 	},
 	mutations: {
@@ -35,6 +43,12 @@ export default {
 	  	},
 	  	CHANGE_SEND_BLOCK (state) {
 	  		state.sendBlock = !state.sendBlock
+	  	},
+	  	EDIT_REPLY_USER (state, userName) {
+	  		state.replyUser = userName
+	  	},
+	  	CHANGE_DIRECTION (state, direction) {
+	  		state.fadeDirection = direction
 	  	}
 	},
 	actions: {
@@ -43,6 +57,12 @@ export default {
 	    },
 	    changeSendBlock (context) {
 	    	context.commit(types.CHANGE_SEND_BLOCK)
+	    },
+	    editReplyUser (context, userName) {
+	    	context.commit(types.EDIT_REPLY_USER, userName)
+	    },
+	    changeDirection (context, direction) {
+	    	context.commit(types.CHANGE_DIRECTION, direction)
 	    }
     }
 }

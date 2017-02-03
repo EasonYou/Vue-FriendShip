@@ -1,8 +1,9 @@
 <template>
   <div id="app">
       <Sidebar></Sidebar>
-      <Navs></Navs>
-      <router-view></router-view>
+      <transition :name="direction">
+        <router-view></router-view>
+      </transition>
       <SendMessage v-if="sendBlock"></SendMessage>
   </div>
 </template>
@@ -20,8 +21,11 @@ export default {
   },
   computed: {
     sendBlock: function() {
-        return this.$store.getters.sendBlock
-      }
+      return this.$store.getters.sendBlock
+    },
+    direction: function() {
+      return this.$store.getters.fadeDirection
+    }
   },
   store
 }
@@ -32,14 +36,35 @@ body,html{
   margin: 0;
   height: 100%;
 }
+.right-to-left-fade-enter {
+  transform: translate(100%);
+  opacity: 0;
+}
+.right-to-left-fade-enter-active ,.right-to-left-fade-leave-active{
+  transition: all .3s;
+}
+.right-to-left-fade-leave-active {
+  // transform: translate(80%);
+  opacity: 0.2;
+}
 
+.left-to-right-fade-enter {
+  // transform: translate(-80%);
+  opacity: 0.2;
+}
+.left-to-right-fade-enter-active ,.left-to-right-fade-leave-active{
+  transition: all .3s;
+}
+.left-to-right-fade-leave-active {
+  transform: translate(100%);
+  z-index: 100;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  padding-top: 4rem;
   .clearfix:after{
     content:".";
     display:block;
@@ -54,7 +79,10 @@ body,html{
     text-decoration: none;
   }
   .container {
-    // padding-top: 1px;
+    // margin-top: 4rem;
+    position: absolute;
+    top: 0;
+    background-color: #fff;
   }
 }
 </style>

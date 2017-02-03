@@ -24,7 +24,8 @@
 		methods: {
 			changeSendBlock: function() {
 				this.$store.dispatch('changeSendBlock')
-				console.log(this.$store.getters)
+				this.$store.dispatch('editReplyUser', '')
+				console.log('aaaa')
 			}
 		}
 	}

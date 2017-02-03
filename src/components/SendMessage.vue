@@ -1,10 +1,12 @@
 <template>
+<transition name="send-block">
 	<div class="send-block">
 		<div class="block">
-			<textarea type="text" v-focus class="send-block-text"></textarea>
+			<textarea type="text" v-focus class="send-block-text" :placeholder="replyUser"></textarea>
 			<button>发送</button>
 		</div>
 	</div>
+</transition>
 </template>
 <script>
 	export default {
@@ -14,18 +16,28 @@
 			sendBlockText.addEventListener('blur', function() {
 				that.$store.dispatch('changeSendBlock')
 			}, false)
+		},
+		computed: {
+			replyUser: function() {
+				return this.$store.getters.replyUser
+			}
 		}
 	}
 </script>
 <style lang="scss">
+	.send-block-enter ,.send-block-leave-active{
+		transform: translateY(3.4rem);
+	}
+	.send-block-enter-active ,.send-block-leave-active {
+		transition:  0.2s;
+	}
 	.send-block {
+		position: fixed;
+		width: 100%;
+		height: 3.4rem;
+		bottom: 0;
+		background-color: #fafafa;
 		.block {
-			width: 100%;
-			height: 3.4rem;
-			position: fixed;
-			bottom: 0;
-			background-color: #fafafa;
-			z-index: 10;
 			textarea {
 				margin: 0.5rem 0;
 				margin-left: 2%;

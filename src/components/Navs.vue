@@ -13,7 +13,12 @@
 	      this.$store.dispatch('changeSide')
 	    },
       back:function() {
+        this.$store.dispatch('changeDirection', 'left-to-right-fade')
+        console.log(this.$store.getters.fadeDirection)
         window.history.back();
+        setTimeout(function() {
+          this.$store.dispatch('changeDirection', 'right-to-left-fade')
+        },400)
       }
 	  }
 	}

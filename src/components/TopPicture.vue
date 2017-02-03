@@ -13,11 +13,11 @@
 		height: 13rem;
 		position: relative;
 		overflow: hidden;
+		margin-top: 4rem;
 		.top-img-cont {
 			width: 100%;
 			height: 100%;
 			position: absolute;
-			z-index: -1;
 			img {
 				width: 100%;
 				position: absolute;
