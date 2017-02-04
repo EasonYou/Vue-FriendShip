@@ -18,7 +18,9 @@ export default {
 			}
 		],
 		replyUser:'sss',
-		fadeDirection: 'right-to-left-fade'
+		fadeDirection: 'right-to-left-fade',
+		pictureView: false,
+		pictureViewAdd: 'sss'
 	},
 	getters: {
 		sideShow: state => {
@@ -35,6 +37,12 @@ export default {
 		},
 		fadeDirection: state => {
 			return state.fadeDirection
+		},
+		pictureView: state => {
+			return state.pictureView
+		},
+		pictureViewAdd: state => {
+			return state.pictureViewAdd
 		}
 	},
 	mutations: {
@@ -49,6 +57,12 @@ export default {
 	  	},
 	  	CHANGE_DIRECTION (state, direction) {
 	  		state.fadeDirection = direction
+	  	},
+	  	SHOW_PICTURE_VIEW (state, type) {
+	  		state.pictureView = type
+	  	},
+	  	SET_PIC_ADD (state, add) {
+	  		state.pictureViewAdd = add
 	  	}
 	},
 	actions: {
@@ -63,6 +77,12 @@ export default {
 	    },
 	    changeDirection (context, direction) {
 	    	context.commit(types.CHANGE_DIRECTION, direction)
+	    },
+	    showPictureView (context, type) {
+	    	context.commit(types.SHOW_PICTURE_VIEW, type)
+	    },
+	    setPicAdd (context, add) {
+	    	context.commit(types.SET_PIC_ADD, add)
 	    }
     }
 }

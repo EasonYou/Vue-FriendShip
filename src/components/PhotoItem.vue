@@ -1,13 +1,13 @@
 <template>
 	<div class="photo-item clearfix">
 		<router-link class="item-link" :to="'detail'">
-			<img src="../assets/FONT.jpg">
+			<img :src="pictureList.src">
 			<span>{{ pictureList.name }}</span>
 		</router-link>
-		<div class="photo-thumbnail">
-			<img src="../assets/58447_1262335109I868.jpg" alt="">
+		<div class="photo-thumbnail" v-on:click="showPictureView">
+			<img :src="pictureList.pictureAdd" alt="">
 		</div>
-		<div class="oper">
+		<div class="oper clearfix">
 			<div class="favor"></div>
 			<div class="comment" v-on:click="changeSendBlock"></div>
 		</div>
@@ -26,13 +26,27 @@
 				this.$store.dispatch('changeSendBlock')
 				this.$store.dispatch('editReplyUser', '')
 				console.log('aaaa')
+			},
+			showPictureView: function(e) {
+				if (e.target.tagName === "IMG") {
+					let address = e.target.getAttribute('src')
+					console.log(e.target)
+					this.$store.dispatch('setPicAdd', address)
+				}
+				this.$store.dispatch('showPictureView', true)
+				document.body.style.overflow = 'hidden'
+			}
+		},
+		computed: {
+			avadar: function() {
+				console.log(this.$store.getters.pictureList)
+				return this.$store.getters.pictureList
 			}
 		}
 	}
 </script>
 <style lang="scss">
 	.photo-item {
-		height: 10rem;
 		padding-top: 1.5rem;
 		text-align: left;
 		border-bottom: 1px solid #efefef;
@@ -59,7 +73,7 @@
 		.photo-thumbnail {
 			width: 11rem;
 			// height: 14rem;
-			padding-bottom: 1rem;
+			// padding-bottom: 1rem;
 			float: left;
 			overflow: hidden;
 			img {
@@ -72,19 +86,20 @@
 			}
 		}
 		.oper {
+			float: right;
+			width: 100%;
 			.favor, .comment{
 				width: 1.5rem;
 				height: 1.5rem;
 				background-color: #57a97f;
-				position: absolute;
+				// position: absolute;
+				float: right;
 				top: 12rem;
 				border-radius: 50%;
+				margin-right: 0.5rem;
 			}
 			.favor {
-				right: 2.5rem;
-			}
-			.comment {
-				right: .5rem;
+				margin-right: 1rem;
 			}
 		}
 	}

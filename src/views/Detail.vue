@@ -5,33 +5,7 @@
 		<p>sassa</p>
 		<p>sassa</p>
 		<p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p><p>sassa</p>
-		<p>sassa</p>
-		<p>sassa</p>
+
 	</div>
 </template>
 <script>
@@ -48,6 +22,5 @@
 <style lang="scss">
 	.container {
 		width: 100%;
-		// background-color: #fff;
 	}
 </style>

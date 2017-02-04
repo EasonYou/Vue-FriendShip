@@ -37,26 +37,24 @@ body,html{
   height: 100%;
 }
 .right-to-left-fade-enter {
-  transform: translate(100%);
+  transform: translate(120%);
   opacity: 0;
 }
 .right-to-left-fade-enter-active ,.right-to-left-fade-leave-active{
   transition: all .3s;
 }
 .right-to-left-fade-leave-active {
-  // transform: translate(80%);
   opacity: 0.2;
 }
 
 .left-to-right-fade-enter {
-  // transform: translate(-80%);
   opacity: 0.2;
 }
 .left-to-right-fade-enter-active ,.left-to-right-fade-leave-active{
   transition: all .3s;
 }
 .left-to-right-fade-leave-active {
-  transform: translate(100%);
+  transform: translate(120%);
   z-index: 100;
 }
 #app {
@@ -83,6 +81,10 @@ body,html{
     position: absolute;
     top: 0;
     background-color: #fff;
+    min-height: 100%;
+    box-shadow: 0 0 2rem 1rem rgba(0,0,0,0.2);
+    height: 100%;
+    overflow-y: scroll;
   }
 }
 </style>

@@ -17,9 +17,27 @@ Vue.use(vueRouter)
 
 Vue.directive('focus', {
   inserted: function (el) {
+    console.log('aaa')
     el.focus()
   }
 })
+
+Vue.directive('autosize', {
+  inserted: function (el) {
+    let height = parseInt(getComputedStyle(el,null).height)
+    let width = parseInt(getComputedStyle(el,null).width)
+    let pictureScale = height/width;
+    let screenScale = window.screen.height / window.screen.width
+    console.log(pictureScale,screenScale)
+    if(screenScale >= pictureScale) {
+      el.style.width = '100%'
+    } else {
+      el.style.height = '100%'
+    }
+    
+  }
+})
+
 
 const routes = [{
 	path: '/',

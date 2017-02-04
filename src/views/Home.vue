@@ -2,10 +2,12 @@
 	<div class="container">
 		<Navs></Navs>
 		<TopPicture></TopPicture>
-		<PhotoItem v-for="(picL, index) in pictureList" 
-				   :pictureList="picL" 
-				   :index="index" ></PhotoItem>
-
+		<div class="photo-items-cont">
+			<PhotoItem v-for="(picL, index) in pictureList" 
+					   :pictureList="picL" 
+					   :index="index" ></PhotoItem>
+		</div>
+		<PictureView v-if="pictureView"></PictureView>
 	</div>
 </transition>
 </template>
@@ -13,11 +15,13 @@
 	import PhotoItem from '../components/PhotoItem'
 	import TopPicture from '../components/TopPicture'
 	import Navs from '../components/Navs'
+	import PictureView from '../components/PictureView'
 	export default {
 		components: {
 			PhotoItem,
 			TopPicture,
-			Navs
+			Navs,
+			PictureView
 		},
 		data: function() {
 			return {
@@ -31,10 +35,10 @@
 			pictureList: function() {
 				console.log(this.$store)
 				return this.$store.getters.pictureList
+			},
+			pictureView: function() {
+				return this.$store.getters.pictureView
 			}
-		},
-		mounted: function() {
-			this.$store.dispatch('changeDirection', 'right-to-left-fade')
 		}
 	}
 </script>
