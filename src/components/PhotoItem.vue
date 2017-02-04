@@ -15,7 +15,7 @@
 	</div>
 </template>
 <script>
-	import Comment from './Comment'
+	import Comment from './Comment'  
 	export default {
 		props:['pictureList','index'],
 		components:{
