@@ -3,6 +3,7 @@ import * as types from '../mutation-types'
 
 export default {
 	state: {
+		userName: 'Eason',
 		pictureItemList: [
 			{
 				name: 'one',
@@ -94,11 +95,28 @@ export default {
 				]
 			}
 			
-		]
+		],
+		replyMessage: ''
 	},
 	getters: {
 		pictureList: state => {
 			return state.pictureItemList
+		},
+		userName: state => {
+			return state.userName
+		},
+		replyMessage: state =>{
+			return state.replyMessage
+		}
+	},
+	mutations: {
+		REPLY_MESSAGE (state, message) {
+			state.replyMessage = message
+		}
+	},
+	actions: {
+		changeReplyMessage (context, message) {
+			context.commit(types.REPLY_MESSAGE, message)
 		}
 	}
 }

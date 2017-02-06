@@ -3,7 +3,7 @@
 	<div class="send-block">
 		<div class="block">
 			<textarea type="text" v-focus class="send-block-text" :placeholder="replyUser"></textarea>
-			<button>发送</button>
+			<button v-on:click="send">发送</button>
 		</div>
 	</div>
 </transition>
@@ -20,6 +20,24 @@
 		computed: {
 			replyUser: function() {
 				return this.$store.getters.replyUser
+			},
+			userName: function() {
+				return this.$store.getters.userName
+			},
+			replyMessage: function() {
+				return this.$store.getters.replyMessage
+			}
+		},
+		methods: {
+			send:function() {
+				let text = document.getElementsByClassName('send-block-text')[0].value;
+				let replyUser = this.replyUser
+				let arr = {
+					sent: this.userName,
+					receive: replyUser.substring(2),
+					text: text
+				}
+				this.replyMessage.push(arr)
 			}
 		}
 	}
