@@ -8,7 +8,7 @@
 			<img :src="pictureList.pictureAdd" alt="">
 		</div>
 		<div class="oper clearfix">
-			<div class="favor"></div>
+			<div class="favor" v-bind:class="{ like: pictureList.isLike}" @click="isLike(pictureList)"></div>
 			<div class="comment" v-on:click="changeSendBlock(pictureList.comment)"></div>
 		</div>
 		<Comment :comments="pictureList.comment"></Comment>
@@ -35,6 +35,9 @@
 				}
 				this.$store.dispatch('showPictureView', true)
 				document.body.style.overflow = 'hidden'
+			},
+			isLike: function(pictureList) {
+				pictureList.isLike = !pictureList.isLike
 			}
 		},
 		computed: {
@@ -95,6 +98,10 @@
 			}
 			.favor {
 				margin-right: 1rem;
+				transition: all 0.3s;
+			}
+			.like {
+				background-color: #d75858;
 			}
 		}
 	}

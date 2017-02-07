@@ -9,6 +9,7 @@ export default {
 				name: 'one',
 				src: '../../static/FONT.jpg',
 				pictureAdd: '../../static/FONT.jpg',
+				isLike: true,
 				comment: [
 					{
 						sent: 'Wade',
@@ -31,6 +32,7 @@ export default {
 				name: 'two',
 				src: '../../static/FONT.jpg',
 				pictureAdd: '../../static/FONT.jpg',
+				isLike: true,
 				comment: [
 					{
 						sent: 'Wade',
@@ -53,6 +55,7 @@ export default {
 				name: 'two',
 				src: '../../static/WADEpsd2.jpg',
 				pictureAdd: '../../static/58447_1262335109I868.jpg',
+				isLike: false,
 				comment: [
 					{
 						sent: 'Wade',
@@ -75,6 +78,7 @@ export default {
 				name: 'two',
 				src: '../../static/logo.png',
 				pictureAdd: '../../static/WADEpsd2.jpg',
+				isLike: true,
 				comment: [
 					{
 						sent: 'Wade',
