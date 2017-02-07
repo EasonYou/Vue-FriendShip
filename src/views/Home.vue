@@ -1,13 +1,15 @@
 <template>
 	<div class="container">
 		<Navs></Navs>
+		<Alert v-if="delAlertStatus"></Alert>
 		<TopPicture></TopPicture>
 		<div class="photo-items-cont">
 			<PhotoItem v-for="(picL, index) in pictureList" 
 					   :pictureList="picL" 
-					   :index="index" ></PhotoItem>
+					   :index="index" >
+			</PhotoItem>
 		</div>
-		<PictureView v-if="pictureView"></PictureView>
+		<PictureView v-show="pictureView"></PictureView>
 	</div>
 </transition>
 </template>
@@ -16,12 +18,14 @@
 	import TopPicture from '../components/TopPicture'
 	import Navs from '../components/Navs'
 	import PictureView from '../components/PictureView'
+	import Alert from '../components/Alert'
 	export default {
 		components: {
 			PhotoItem,
 			TopPicture,
 			Navs,
-			PictureView
+			PictureView,
+			Alert
 		},
 		data: function() {
 			return {
@@ -38,7 +42,14 @@
 			},
 			pictureView: function() {
 				return this.$store.getters.pictureView
+			},
+			delAlertStatus: function() {
+				return this.$store.getters.delAlertStatus
 			}
+		},
+		mounted: function() {
+			console.log(this)
+			this.$store.dispatch('changeDirection', 'right-to-left-fade')
 		}
 	}
 </script>

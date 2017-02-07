@@ -5,7 +5,7 @@
 				<router-link class="comment-user" :to="'detail'">{{ comment.sent }}</router-link>
 				<span v-if="!!comment.receive">@</span>
 				<router-link class="comment-user" :to="'detail'" v-if="!!comment.receive" >{{ comment.receive }}</router-link>
-				<span>: </span>
+				<span><b>: </b></span>
 			</div>
 			{{ comment.text }}
 		</div>
@@ -14,13 +14,24 @@
 <script>
 	export default {
 		props: ['comments'],
+		computed: {
+			userName: function() {
+				return this.$store.getters.userName
+			}
+		},
 		methods: {
 			changeSendBlock: function(ev,comments) {
 				if(ev.target.tagName !== 'A') {
-					let userName = ev.target.getElementsByTagName('a')[0].innerHTML
-					this.$store.dispatch('changeSendBlock')
-					this.$store.dispatch('editReplyUser', ' @' + userName)
-					this.$store.dispatch('changeReplyMessage', comments)
+					let replyName = ev.target.getElementsByTagName('a')[0].innerHTML
+					console.log(this.userName === replyName)
+					if(this.userName === replyName) {
+						this.$store.dispatch('changeDelAlert', true)
+					} else {
+						this.$store.dispatch('changeSendBlock')
+						this.$store.dispatch('editReplyUser', ' @' + replyName)
+						this.$store.dispatch('changeReplyMessage', comments)
+					}
+					
 				}
 			}
 		}
@@ -34,6 +45,7 @@
 		.comment {
 			margin-left: 5rem;
 			margin-right: 0.5rem;
+			line-height: 1.15rem;
 			.user {
 				float: left;
 				.comment-user {

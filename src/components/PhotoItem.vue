@@ -9,7 +9,7 @@
 		</div>
 		<div class="oper clearfix">
 			<div class="favor"></div>
-			<div class="comment" v-on:click="changeSendBlock"></div>
+			<div class="comment" v-on:click="changeSendBlock(pictureList.comment)"></div>
 		</div>
 		<Comment :comments="pictureList.comment"></Comment>
 	</div>
@@ -22,10 +22,10 @@
 			Comment
 		},
 		methods: {
-			changeSendBlock: function() {
+			changeSendBlock: function(comments) {
 				this.$store.dispatch('changeSendBlock')
 				this.$store.dispatch('editReplyUser', '')
-				console.log('aaaa')
+				this.$store.dispatch('changeReplyMessage', comments)
 			},
 			showPictureView: function(e) {
 				if (e.target.tagName === "IMG") {
@@ -39,7 +39,6 @@
 		},
 		computed: {
 			avadar: function() {
-				console.log(this.$store.getters.pictureList)
 				return this.$store.getters.pictureList
 			}
 		}
@@ -72,14 +71,11 @@
 		}
 		.photo-thumbnail {
 			width: 11rem;
-			// height: 14rem;
-			// padding-bottom: 1rem;
 			float: left;
 			overflow: hidden;
 			img {
 				width: 85%;
 				padding: 0.2rem;
-				// box-shadow: 0 0 1rem rgba(0,0,0,0.3);
 				border: 1px solid #efefef;
 				margin-left: 0.5rem;
 				margin-top: 0.5rem;
@@ -92,7 +88,6 @@
 				width: 1.5rem;
 				height: 1.5rem;
 				background-color: #57a97f;
-				// position: absolute;
 				float: right;
 				top: 12rem;
 				border-radius: 50%;

@@ -3,7 +3,7 @@ import * as types from '../mutation-types'
 
 export default {
 	state: {
-		userName: 'Eason',
+		userName: 'Wade',
 		pictureItemList: [
 			{
 				name: 'one',

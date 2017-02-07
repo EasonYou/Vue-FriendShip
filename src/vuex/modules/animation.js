@@ -20,7 +20,8 @@ export default {
 		replyUser:'sss',
 		fadeDirection: 'right-to-left-fade',
 		pictureView: false,
-		pictureViewAdd: 'sss'
+		pictureViewAdd: 'sss',
+		delAlertStatus: false
 	},
 	getters: {
 		sideShow: state => {
@@ -43,6 +44,9 @@ export default {
 		},
 		pictureViewAdd: state => {
 			return state.pictureViewAdd
+		},
+		delAlertStatus: state => {
+			return state.delAlertStatus
 		}
 	},
 	mutations: {
@@ -63,6 +67,9 @@ export default {
 	  	},
 	  	SET_PIC_ADD (state, add) {
 	  		state.pictureViewAdd = add
+	  	},
+	  	DEL_ALERT (state, status) {
+	  		state.delAlertStatus = status
 	  	}
 	},
 	actions: {
@@ -83,6 +90,9 @@ export default {
 	    },
 	    setPicAdd (context, add) {
 	    	context.commit(types.SET_PIC_ADD, add)
+	    },
+	    changeDelAlert (context, status) {
+	    	context.commit(types.DEL_ALERT, status)
 	    }
     }
 }

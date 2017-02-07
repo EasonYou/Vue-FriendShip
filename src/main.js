@@ -17,7 +17,7 @@ Vue.use(vueRouter)
 
 Vue.directive('focus', {
   inserted: function (el) {
-    console.log('aaa')
+    console.log(this)
     el.focus()
   }
 })
