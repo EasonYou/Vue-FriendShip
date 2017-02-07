@@ -1,7 +1,6 @@
 <template>
 	<div class="container">
-		<Navs></Navs>
-		<Alert v-if="delAlertStatus"></Alert>
+		<Navs nav-desc="Vue-FriendShip"></Navs>
 		<TopPicture></TopPicture>
 		<div class="photo-items-cont">
 			<PhotoItem v-for="(picL, index) in pictureList" 
@@ -9,7 +8,7 @@
 					   :index="index" >
 			</PhotoItem>
 		</div>
-		<PictureView v-show="pictureView"></PictureView>
+		<PictureView v-if="pictureView"></PictureView>
 	</div>
 </transition>
 </template>

@@ -1,6 +1,6 @@
 <template>
 	<div class="container">
-		<Navs></Navs>
+		<Navs navDesc="HomePage"></Navs>
 		<p>sassa</p>
 		<p>sassa</p>
 		<p>sassa</p>

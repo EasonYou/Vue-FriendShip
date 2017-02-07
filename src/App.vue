@@ -1,6 +1,7 @@
 <template>
   <div id="app">
       <Sidebar></Sidebar>
+      <Alert></Alert>
       <transition :name="direction">
         <router-view></router-view>
       </transition>
@@ -13,11 +14,13 @@ import Sidebar from './components/Sidebar'
 import SendMessage from './components/SendMessage'
 import Navs from './components/Navs'
 import store from './vuex'
+import Alert from './components/Alert'
 export default {
   components:{
     Sidebar,
     SendMessage,
-    Navs
+    Navs,
+    Alert
   },
   computed: {
     sendBlock: function() {
@@ -102,6 +105,9 @@ body,html{
     box-shadow: 0 0 2rem 1rem rgba(0,0,0,0.2);
     height: 100%;
     overflow-y: scroll;
+  }
+  .container::-webkit-scrollbar{
+    width: 0px;
   }
 }
 </style>

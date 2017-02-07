@@ -1,7 +1,7 @@
 <template>
 	<div class="container side-container" id="side-bar">
 		<transition name="side-bar">
-			<div  v-show="show" class="side-bar">
+			<div v-show="show" class="side-bar">
 				<div class="top-pic">
 					<img src="../assets/FONT.jpg" alt="">
 				</div>
@@ -54,7 +54,7 @@
 		position: fixed;
 		opacity: 0.7;
 		z-index: 100;
-		z-index: 9999;
+		z-index: 8888;
 	}
 	.mask-enter, .mask-leave-active {
 		opacity: 0;

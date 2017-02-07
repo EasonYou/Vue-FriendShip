@@ -1,23 +1,24 @@
 <template>
 	<nav>
 	    <span class="nav-left" v-on:click="back">back</span>
-	    <h3>hello</h3>
+	    <h3>{{ navDesc }}</h3>
 	    <span class="nav-right" v-on:click="change">=</span>
 	</nav>
 </template>
 <script>
 	export default {
+      props:['navDesc'],
 	  	methods:{
-	    change:function() {
-	      console.log(this.$store)
-	      this.$store.dispatch('changeSide')
-	    },
-      back:function() {
-        this.$store.dispatch('changeDirection', 'left-to-right-fade')
-        console.log(this.$store.getters.fadeDirection)
-        window.history.back();
-      }
-	  }
+  	    change:function() {
+  	      console.log(this.$store)
+  	      this.$store.dispatch('changeSide')
+  	    },
+        back:function() {
+          this.$store.dispatch('changeDirection', 'left-to-right-fade')
+          console.log(this.$store.getters.fadeDirection)
+          window.history.back();
+        }
+  	  }
 	}
 </script>
 <style lang="scss">
