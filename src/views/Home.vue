@@ -36,7 +36,6 @@
 		},
 		computed: {
 			pictureList: function() {
-				console.log(this.$store)
 				return this.$store.getters.pictureList
 			},
 			pictureView: function() {
@@ -47,7 +46,6 @@
 			}
 		},
 		mounted: function() {
-			console.log(this)
 			this.$store.dispatch('changeDirection', 'right-to-left-fade')
 		}
 	}

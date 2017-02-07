@@ -5,7 +5,7 @@
 		</transition>
 		<transition name="alert-fade">	
 				<div class="alert" v-show="show">
-					<div class="delete" >删除</div>
+					<div class="delete" @click="deleteComment">删除</div>
 					<div class="copy">复制</div>
 				</div>
 		</transition>
@@ -15,6 +15,10 @@
 	export default {
 		methods: {
 			closeAlert: function() {
+				this.$store.dispatch('changeDelAlert', false)
+			},
+			deleteComment: function() {
+				this.$store.dispatch('deleteComment')
 				this.$store.dispatch('changeDelAlert', false)
 			}
 		},

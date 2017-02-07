@@ -1,6 +1,6 @@
 <template>
 	<div class="comment-container">
-		<div class="comment" v-for="comment in comments" v-on:click="changeSendBlock($event, comments)" >
+		<div class="comment" v-for="(comment, index) in comments" v-on:click="changeSendBlock($event, comments, index)" >
 			<div class="user">
 				<router-link class="comment-user" :to="'detail'">{{ comment.sent }}</router-link>
 				<span v-if="!!comment.receive">@</span>
@@ -20,12 +20,13 @@
 			}
 		},
 		methods: {
-			changeSendBlock: function(ev,comments) {
+			changeSendBlock: function(ev, comments, index) {
+				
 				if(ev.target.tagName !== 'A') {
 					let replyName = ev.target.getElementsByTagName('a')[0].innerHTML
-					console.log(this.userName === replyName)
 					if(this.userName === replyName) {
 						this.$store.dispatch('changeDelAlert', true)
+						this.$store.dispatch('storeDelComment', {comments, index})
 					} else {
 						this.$store.dispatch('changeSendBlock')
 						this.$store.dispatch('editReplyUser', ' @' + replyName)

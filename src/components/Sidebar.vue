@@ -31,14 +31,7 @@
 		methods:{
 			hide:function() {
 				this.$store.dispatch('changeSide')
-				console.log(this.$store.getters.sideList)
-			},
-			tab: function(e) {
-				console.log(e)
 			}
-		},
-		created: function(){
-			console.log('aaa')
 		}
 	}
 </script>

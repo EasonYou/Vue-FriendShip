@@ -4,9 +4,18 @@
 			<img src="../assets/FONT.jpg" alt="">
 		</div>
 		<div class="shadow"></div>
-		<span>sss</span>
+		<span>{{ topPictureDesc }}</span>
 	</div>
 </template>
+<script>
+	export default {
+		computed: {
+			topPictureDesc: function() {
+				return this.$store.getters.topPictureDesc
+			}
+		}
+	}
+</script>
 <style lang="scss">
 	#top-item {
 		width: 100%;
@@ -38,6 +47,8 @@
 			color: #fff;
 			position: absolute;
 			bottom: 2rem;
+			width: 100%;
+			left: 0;
 		}
 	}
 </style>

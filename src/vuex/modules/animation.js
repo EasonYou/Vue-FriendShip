@@ -21,7 +21,8 @@ export default {
 		fadeDirection: 'right-to-left-fade',
 		pictureView: false,
 		pictureViewAdd: 'sss',
-		delAlertStatus: false
+		delAlertStatus: false,
+		replyMessage: ''
 	},
 	getters: {
 		sideShow: state => {
@@ -47,6 +48,9 @@ export default {
 		},
 		delAlertStatus: state => {
 			return state.delAlertStatus
+		},
+		replyMessage: state =>{
+			return state.replyMessage
 		}
 	},
 	mutations: {
@@ -70,7 +74,17 @@ export default {
 	  	},
 	  	DEL_ALERT (state, status) {
 	  		state.delAlertStatus = status
-	  	}
+	  	},
+		STORE_DEL_COMMENT (state, obj) {
+			state.delComment = obj
+		},
+		DELET_COMMENT (state) {
+			let index = state.delComment.index
+			state.delComment.comments.splice(index,1)
+		},
+		REPLY_MESSAGE (state, message) {
+			state.replyMessage = message
+		}
 	},
 	actions: {
     	changeSide (context) {
@@ -91,8 +105,17 @@ export default {
 	    setPicAdd (context, add) {
 	    	context.commit(types.SET_PIC_ADD, add)
 	    },
+	    changeReplyMessage (context, message) {
+			context.commit(types.REPLY_MESSAGE, message)
+		},
 	    changeDelAlert (context, status) {
 	    	context.commit(types.DEL_ALERT, status)
-	    }
+	    },
+		storeDelComment (context, obj) {
+			context.commit(types.STORE_DEL_COMMENT, obj)
+		},
+		deleteComment (context) {
+			context.commit(types.DELET_COMMENT)
+		}
     }
 }

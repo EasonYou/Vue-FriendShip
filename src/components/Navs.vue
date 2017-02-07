@@ -8,15 +8,21 @@
 <script>
 	export default {
       props:['navDesc'],
+      computed: {
+        hash: function() {
+          let flag = (this.$route.fullPath === '/' || this.$route.fullPath === '/home')?true : false
+          return !flag
+        }
+      },
 	  	methods:{
   	    change:function() {
-  	      console.log(this.$store)
   	      this.$store.dispatch('changeSide')
   	    },
         back:function() {
-          this.$store.dispatch('changeDirection', 'left-to-right-fade')
-          console.log(this.$store.getters.fadeDirection)
-          window.history.back();
+          if(this.hash) {
+            this.$store.dispatch('changeDirection', 'left-to-right-fade')
+            window.history.back();
+          }
         }
   	  }
 	}

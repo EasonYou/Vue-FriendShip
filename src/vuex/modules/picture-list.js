@@ -4,6 +4,7 @@ import * as types from '../mutation-types'
 export default {
 	state: {
 		userName: 'Wade',
+		topPictureDesc: 'Hello World!',
 		pictureItemList: [
 			{
 				name: 'one',
@@ -99,8 +100,7 @@ export default {
 				]
 			}
 			
-		],
-		replyMessage: ''
+		]
 	},
 	getters: {
 		pictureList: state => {
@@ -109,18 +109,14 @@ export default {
 		userName: state => {
 			return state.userName
 		},
-		replyMessage: state =>{
-			return state.replyMessage
+		topPictureDesc: state => {
+			return state.topPictureDesc
 		}
 	},
 	mutations: {
-		REPLY_MESSAGE (state, message) {
-			state.replyMessage = message
-		}
+		
 	},
 	actions: {
-		changeReplyMessage (context, message) {
-			context.commit(types.REPLY_MESSAGE, message)
-		}
+		
 	}
 }

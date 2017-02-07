@@ -8,8 +8,9 @@
 			<img :src="pictureList.pictureAdd" alt="">
 		</div>
 		<div class="oper clearfix">
-			<div class="favor" v-bind:class="{ like: pictureList.isLike}" @click="isLike(pictureList)"></div>
+			<div class="heart-shape" v-bind:class="{ like: pictureList.isLike}" @click="isLike(pictureList)"></div>
 			<div class="comment" v-on:click="changeSendBlock(pictureList.comment)"></div>
+
 		</div>
 		<Comment :comments="pictureList.comment"></Comment>
 	</div>
@@ -30,7 +31,6 @@
 			showPictureView: function(e) {
 				if (e.target.tagName === "IMG") {
 					let address = e.target.getAttribute('src')
-					console.log(e.target)
 					this.$store.dispatch('setPicAdd', address)
 				}
 				this.$store.dispatch('showPictureView', true)
@@ -88,18 +88,58 @@
 			float: right;
 			width: 100%;
 			.favor, .comment{
-				width: 1.5rem;
-				height: 1.5rem;
-				background-color: #57a97f;
+				width: 1.7rem;
+				height: .4rem;
+				// background-color: #57a97f;
 				float: right;
 				top: 12rem;
-				border-radius: 50%;
-				margin-right: 0.5rem;
+				border-radius: 0.2rem;
+				margin-right: 1rem;
+				margin-top: 0.1rem;
+			}
+			.comment{
+				border: 0.4rem solid #57a97f
 			}
 			.favor {
 				margin-right: 1rem;
 				transition: all 0.3s;
 			}
+			.heart-shape{
+			    top: 0;
+			    width: 1rem;  
+			    height: 1rem;  
+			    float: right;
+			    -webkit-transform: rotate(45deg);  
+			    -moz-transform: rotate(45deg);  
+			    -ms-transform: rotate(45deg);  
+			    -o-transform: rotate(45deg);  
+			    transform: rotate(45deg);  
+			    background-color: inherit; 
+			    margin-top: 0.3rem; 
+			    margin-right: 2rem;
+			    transition: 0.5s;
+			    background-color: #aeaeae;
+			}  
+			.heart-shape:before,  
+			.heart-shape:after{  
+			    position: absolute;  
+			    width: 1rem;  
+			    height: 1rem;  
+			    content: '';  
+			    -webkit-border-radius: 50%;  
+			    -moz-border-radius: 50%;  
+			    -o-border-radius: 50%;  
+			    border-radius: 50%;  
+			    background-color: inherit;  
+			}  
+			.heart-shape:before{  
+			    // bottombottom: 0px;  
+			    left: -0.45rem;  
+			}  
+			.heart-shape:after{  
+			    top: -0.4rem;  
+			    // rightright: 0px;  
+			}  
 			.like {
 				background-color: #d75858;
 			}

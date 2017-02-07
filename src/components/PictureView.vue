@@ -15,7 +15,6 @@
 		},
 		computed: {
 			pictureViewAdd: function() {
-				console.log(this.$store.getters.pictureViewAdd)
 				return this.$store.getters.pictureViewAdd
 			}
 		},
