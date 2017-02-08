@@ -11,10 +11,10 @@ export default {
 				link: 'home'
 			}, {
 				desc: '衣界',
-				link: 'detail'
+				link: 'profile'
 			}, {
 				desc: 'Dwyane Wade',
-				link: 'personal'
+				link: 'detail'
 			}
 		],
 		replyUser:'sss',

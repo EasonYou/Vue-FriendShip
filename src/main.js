@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import Home from './views/Home'
 import Detail from './views/Detail'
-import Personal from './views/Personal'
+import Profile from './views/Profile'
 
 
 import vueRouter from 'vue-router'
@@ -48,13 +48,12 @@ const routes = [{
 	path: '/detail',
 	component: Detail
 },{
-	path: '/personal',
-	component: Personal
+	path: '/profile',
+	component: Profile
 }]
 
 const router = new vueRouter({
-  routes,
-  mode: 'history'
+  routes
 })
 
 /* eslint-disable no-new */

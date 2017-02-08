@@ -68,7 +68,7 @@
 	opacity: 0;
 	}
 	.alert-mask-fade-enter-active ,.alert-mask-fade-leave-active {
-		transition: all .5s;
+		transition: all .3s;
 	}
 	.alert-fade-enter ,.alert-fade-leave-active {
 		opacity: 0;

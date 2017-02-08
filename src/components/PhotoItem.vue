@@ -1,6 +1,6 @@
 <template>
 	<div class="photo-item clearfix">
-		<router-link class="item-link" :to="'detail'">
+		<router-link class="item-link" :to="'profile'">
 			<img :src="pictureList.src">
 			<span>{{ pictureList.name }}</span>
 		</router-link>
@@ -29,12 +29,14 @@
 				this.$store.dispatch('changeReplyMessage', comments)
 			},
 			showPictureView: function(e) {
+				let address
 				if (e.target.tagName === "IMG") {
-					let address = e.target.getAttribute('src')
-					this.$store.dispatch('setPicAdd', address)
+					address = e.target.getAttribute('src')
+				} else {
+					address = e.target.getElementsByTagName('img')[0].getAttribute('src')
 				}
+				this.$store.dispatch('setPicAdd', address)
 				this.$store.dispatch('showPictureView', true)
-				document.body.style.overflow = 'hidden'
 			},
 			isLike: function(pictureList) {
 				pictureList.isLike = !pictureList.isLike

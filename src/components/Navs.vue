@@ -22,6 +22,8 @@
           if(this.hash) {
             this.$store.dispatch('changeDirection', 'left-to-right-fade')
             window.history.back();
+          } else {
+            /* native operation */
           }
         }
   	  }

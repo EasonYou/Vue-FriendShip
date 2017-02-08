@@ -28,7 +28,11 @@ export default {
     },
     direction: function() {
       return this.$store.getters.fadeDirection
-    }
+    },
+    hash: function() {
+      let flag = (this.$route.fullPath === '/' || this.$route.fullPath === '/home')?true : false
+      return !flag
+   }
   },
   store,
   created: function() {
@@ -42,7 +46,7 @@ export default {
     }, false)
     document.addEventListener('touchend', function(e) {
       end = e.changedTouches[0].pageX
-      if( (-(start - end)/screenWidth) >= 0.23) {
+      if( (-(start - end)/screenWidth) >= 0.23 && self.hash) {
         self.$store.dispatch('changeDirection', 'left-to-right-fade')
         window.history.back()
       }

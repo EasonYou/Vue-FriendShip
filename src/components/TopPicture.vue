@@ -1,9 +1,9 @@
 <template>
 	<div id="top-item">
-		<div class="top-img-cont">
-			<img src="../assets/FONT.jpg" alt="">
+		<div class="top-img-cont" >
+			<img :src="topPictureAddress">
 		</div>
-		<div class="shadow"></div>
+		<div class="shadow" @click="showPic"></div>
 		<span>{{ topPictureDesc }}</span>
 	</div>
 </template>
@@ -12,6 +12,15 @@
 		computed: {
 			topPictureDesc: function() {
 				return this.$store.getters.topPictureDesc
+			},
+			topPictureAddress: function() {
+				return this.$store.getters.topPictureAddress
+			}
+		},
+		methods: {
+			showPic: function(e) {
+				this.$store.dispatch('setPicAdd', this.topPictureAddress)
+				this.$store.dispatch('showPictureView', true)
 			}
 		}
 	}

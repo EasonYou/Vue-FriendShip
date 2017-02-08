@@ -5,101 +5,93 @@ export default {
 	state: {
 		userName: 'Wade',
 		topPictureDesc: 'Hello World!',
-		pictureItemList: [
-			{
+		topPictureAddress: '../../static/FONT.jpg',
+		pictureItemList: [{
 				name: 'one',
 				src: '../../static/FONT.jpg',
-				pictureAdd: '../../static/FONT.jpg',
+				pictureAdd: '../../static/104683.jpg',
 				isLike: true,
-				comment: [
-					{
-						sent: 'Wade',
-						receive: 'James',
-						text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
-					},{
-						sent: 'James',
-						receive: 'Wade',
-						text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
-					},{
-						sent: 'Wade',
-						receive: 'James',
-						text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
-					},{
-						sent: 'Wade',
-						text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
-					}
-				]
-			},{
+				comment: [{
+					sent: 'Wade',
+					receive: 'James',
+					text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
+				}, {
+					sent: 'James',
+					receive: 'Wade',
+					text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
+				}, {
+					sent: 'Wade',
+					receive: 'James',
+					text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
+				}, {
+					sent: 'Wade',
+					text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
+				}]
+			}, {
 				name: 'two',
 				src: '../../static/FONT.jpg',
 				pictureAdd: '../../static/FONT.jpg',
 				isLike: true,
-				comment: [
-					{
-						sent: 'Wade',
-						receive: 'James',
-						text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
-					},{
-						sent: 'James',
-						receive: 'Wade',
-						text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
-					},{
-						sent: 'Wade',
-						receive: 'James',
-						text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
-					},{
-						sent: 'Wade',
-						text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
-					}
-				]
-			},{
+				comment: [{
+					sent: 'Wade',
+					receive: 'James',
+					text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
+				}, {
+					sent: 'James',
+					receive: 'Wade',
+					text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
+				}, {
+					sent: 'Wade',
+					receive: 'James',
+					text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
+				}, {
+					sent: 'Wade',
+					text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
+				}]
+			}, {
 				name: 'two',
 				src: '../../static/WADEpsd2.jpg',
 				pictureAdd: '../../static/58447_1262335109I868.jpg',
 				isLike: false,
-				comment: [
-					{
-						sent: 'Wade',
-						receive: 'James',
-						text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
-					},{
-						sent: 'James',
-						receive: 'Wade',
-						text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
-					},{
-						sent: 'Wade',
-						receive: 'James',
-						text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
-					},{
-						sent: 'Wade',
-						text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
-					}
-				]
-			},{
+				comment: [{
+					sent: 'Wade',
+					receive: 'James',
+					text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
+				}, {
+					sent: 'James',
+					receive: 'Wade',
+					text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
+				}, {
+					sent: 'Wade',
+					receive: 'James',
+					text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
+				}, {
+					sent: 'Wade',
+					text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
+				}]
+			}, {
 				name: 'two',
 				src: '../../static/logo.png',
 				pictureAdd: '../../static/WADEpsd2.jpg',
 				isLike: true,
-				comment: [
-					{
-						sent: 'Wade',
-						receive: 'James',
-						text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
-					},{
-						sent: 'James',
-						receive: 'Wade',
-						text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
-					},{
-						sent: 'Wade',
-						receive: 'James',
-						text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
-					},{
-						sent: 'Wade',
-						text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
-					}
-				]
+				comment: [{
+					sent: 'Wade',
+					receive: 'James',
+					text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
+				}, {
+					sent: 'James',
+					receive: 'Wade',
+					text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
+				}, {
+					sent: 'Wade',
+					receive: 'James',
+					text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
+				}, {
+					sent: 'Wade',
+					text: 'sdassa aassda ssaaa s sdassa aas sd ass aaa ssdas s aaa ssdas saaas'
+				}]
 			}
-			
+
 		]
 	},
 	getters: {
@@ -111,12 +103,15 @@ export default {
 		},
 		topPictureDesc: state => {
 			return state.topPictureDesc
+		},
+		topPictureAddress: state => {
+			return state.topPictureAddress
 		}
 	},
 	mutations: {
-		
+
 	},
 	actions: {
-		
+
 	}
 }
