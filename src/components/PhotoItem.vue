@@ -57,7 +57,6 @@
 				// float: left;
 				display: block;
 				width: 100%;
-				max-width: 18rem;
 			}
 		}
 	}

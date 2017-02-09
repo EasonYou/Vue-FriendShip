@@ -62,9 +62,19 @@ export default {
 </script>
 
 <style lang="scss">
+@media screen and (min-width: 880px) {
+    body {
+        background-color:#3c3c3c;
+        .container {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+    }
+}
 body,html{
   margin: 0;
   height: 100%;
+  // background-color: #3c3c3c;
 }
 .right-to-left-fade-enter {
   transform: translate(120%);
@@ -115,6 +125,8 @@ body,html{
     box-shadow: 0 0 2rem 1rem rgba(0,0,0,0.2);
     height: 100%;
     overflow-y: scroll;
+    max-width: 880px;
+    margin: 0 auto;
   }
   .container::-webkit-scrollbar{
     width: 0px;

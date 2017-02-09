@@ -31,6 +31,7 @@
 		border: 1px solid #efefef;
 		margin-left: 0.5rem;
 		margin-top: 0.5rem;
+		box-shadow: 0 0 1rem rgba(0,0,0,0.2);
 	}
 }
 </style>

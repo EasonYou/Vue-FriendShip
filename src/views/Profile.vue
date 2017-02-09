@@ -35,6 +35,7 @@
 	}
 </script>
 <style lang="scss">
+	
 	.container {
 		width: 100%;
 		.profile-container {
@@ -48,21 +49,28 @@
 			}
 			.avadar-container {
 				position: absolute;
-				bottom: -4rem;
+				bottom: -6rem;
 			}
 		}
 		.picture-list {
-			margin-top: 4rem;
+			margin-top: 6rem;
 			.photo-thumbnail {
 				width: 32%;
 				height: 10rem;
 				position: relative;
+				max-width: 9rem;
+				margin-top: 0.8rem;
 				img {
 					position: absolute;
 					top: 50%;
 					left: 50%;
 					transform: translate(-50%, -50%)
 				}
+			}
+			@media screen and (max-width: 320px) {
+			    .photo-thumbnail {
+					height: 8rem;
+			    }
 			}
 		}
 	}

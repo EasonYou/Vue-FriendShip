@@ -4,11 +4,16 @@
 			<img :src="avdarAdress" alt="">
 		</div>
 		<span class="avadar-name">{{ avadarName }}</span>
+		<Button :btnDesc="'留言'" :bgColor="'#71d4a1'"></Button>
 	</div>
 </template>
 <script>
+	import Button from './Button'
 	export default {
-		props: ['avdarAdress', 'avadarName']
+		props: ['avdarAdress', 'avadarName'],
+		components: {
+			Button
+		}
 	}
 </script>
 <style lang="scss">
@@ -23,6 +28,7 @@
 			overflow: hidden;
 			background-color: #fff;
 			position: relative;
+			box-shadow: 0 0 1rem rgba(0,0,0,0.3);
 			img {
 				width: 94%;
 				height: 94%;

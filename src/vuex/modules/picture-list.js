@@ -8,7 +8,7 @@ export default {
 		topPictureAddress: '../../static/FONT.jpg',
 		pictureItemList: [{
 				name: 'one',
-				desc: 'Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! ',
+				desc: 'Hello World! Hello World! Hello World! Hello World!dsdsasda Hello World! Hello World! ',
 				src: '../../static/FONT.jpg',
 				pictureAdd: '../../static/104683.jpg',
 				isLike: true,
