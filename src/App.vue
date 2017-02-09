@@ -6,6 +6,7 @@
         <router-view></router-view>
       </transition>
       <SendMessage v-if="sendBlock"></SendMessage>
+      <PictureView v-if="pictureView"></PictureView>
   </div>
 </template>
 
@@ -15,14 +16,19 @@ import SendMessage from './components/SendMessage'
 import Navs from './components/Navs'
 import store from './vuex'
 import Alert from './components/Alert'
+import PictureView from './components/PictureView'
 export default {
   components:{
     Sidebar,
     SendMessage,
     Navs,
-    Alert
+    Alert,
+    PictureView
   },
   computed: {
+    pictureView: function() {
+      return this.$store.getters.pictureView
+    },
     sendBlock: function() {
       return this.$store.getters.sendBlock
     },

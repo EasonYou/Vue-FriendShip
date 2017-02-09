@@ -1,14 +1,13 @@
 <template>
-	<div class="container">
+	<div id="home" class="container">
 		<Navs nav-desc="Vue-FriendShip"></Navs>
-		<TopPicture></TopPicture>
+		<TopPicture :topPictureDesc="topPictureDesc" :topPictureAddress="topPictureAddress"></TopPicture>
 		<div class="photo-items-cont">
 			<PhotoItem v-for="(picL, index) in pictureList" 
 					   :pictureList="picL" 
 					   :index="index" >
 			</PhotoItem>
 		</div>
-		<PictureView v-if="pictureView"></PictureView>
 	</div>
 </transition>
 </template>
@@ -16,14 +15,12 @@
 	import PhotoItem from '../components/PhotoItem'
 	import TopPicture from '../components/TopPicture'
 	import Navs from '../components/Navs'
-	import PictureView from '../components/PictureView'
 	import Alert from '../components/Alert'
 	export default {
 		components: {
 			PhotoItem,
 			TopPicture,
 			Navs,
-			PictureView,
 			Alert
 		},
 		data: function() {
@@ -38,11 +35,14 @@
 			pictureList: function() {
 				return this.$store.getters.pictureList
 			},
-			pictureView: function() {
-				return this.$store.getters.pictureView
-			},
 			delAlertStatus: function() {
 				return this.$store.getters.delAlertStatus
+			},
+			topPictureDesc: function() {
+				return this.$store.getters.topPictureDesc
+			},
+			topPictureAddress: function() {
+				return this.$store.getters.topPictureAddress
 			}
 		},
 		mounted: function() {

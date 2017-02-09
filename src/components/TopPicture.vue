@@ -5,18 +5,12 @@
 		</div>
 		<div class="shadow" @click="showPic"></div>
 		<span>{{ topPictureDesc }}</span>
+		<slot></slot>
 	</div>
 </template>
 <script>
 	export default {
-		computed: {
-			topPictureDesc: function() {
-				return this.$store.getters.topPictureDesc
-			},
-			topPictureAddress: function() {
-				return this.$store.getters.topPictureAddress
-			}
-		},
+		props: ['topPictureDesc', 'topPictureAddress'],
 		methods: {
 			showPic: function(e) {
 				this.$store.dispatch('setPicAdd', this.topPictureAddress)

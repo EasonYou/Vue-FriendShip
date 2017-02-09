@@ -8,6 +8,7 @@ export default {
 		topPictureAddress: '../../static/FONT.jpg',
 		pictureItemList: [{
 				name: 'one',
+				desc: 'Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! ',
 				src: '../../static/FONT.jpg',
 				pictureAdd: '../../static/104683.jpg',
 				isLike: true,
@@ -29,6 +30,7 @@ export default {
 				}]
 			}, {
 				name: 'two',
+				desc: 'Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! ',
 				src: '../../static/FONT.jpg',
 				pictureAdd: '../../static/FONT.jpg',
 				isLike: true,
@@ -50,6 +52,7 @@ export default {
 				}]
 			}, {
 				name: 'two',
+				desc: 'Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! ',
 				src: '../../static/WADEpsd2.jpg',
 				pictureAdd: '../../static/58447_1262335109I868.jpg',
 				isLike: false,
@@ -71,6 +74,7 @@ export default {
 				}]
 			}, {
 				name: 'two',
+				desc: 'Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! ',
 				src: '../../static/logo.png',
 				pictureAdd: '../../static/WADEpsd2.jpg',
 				isLike: true,
