@@ -8,13 +8,16 @@ export default {
 		sideList: [
 			{
 				desc: '衣述',
-				link: 'home'
+				link: 'home',
+				title: 'Vue-FriendShip'
 			}, {
 				desc: '衣界',
-				link: 'profile'
+				link: 'profile',
+				title: 'Profile'
 			}, {
 				desc: 'Dwyane Wade',
-				link: 'leavewords'
+				link: 'leavewords',
+				title: 'Anything'
 			}
 		],
 		replyUser:'sss',
@@ -26,7 +29,12 @@ export default {
 		profileToast: false,
 		leaveWordStatus: false,
 		textareaToast: false,
-		leaveWordBinding: 'dsadsa'
+		navShow: true,
+		scrollRecord: {
+			home: 0,
+			profile: 0,
+			leavewords: 0
+		}
 	},
 	getters: {
 		sideShow: state => {
@@ -65,8 +73,11 @@ export default {
 		textareaToast: state => {
 			return state.textareaToast
 		},
-		leaveWordBinding: state => {
-			return state.leaveWordBinding
+		scrollRecord: state => {
+			return state.scrollRecord
+		},
+		navShow: state => {
+			return state.navShow
 		}
 	},
 	mutations: {
@@ -109,6 +120,16 @@ export default {
 		},
 		CHANGE_TEXTAREA_TOAST (state, status) {
 			state.textareaToast = status
+		},
+		CLOSE_LEAVE_WORD_STATUS (state, status) {
+			state.leaveWordStatus = status
+		},
+		NAV_SHOW (state) {
+			state.navShow = !state.navShow
+			setTimeout(function() {
+				state.navShow = !state.navShow
+			},200)
+			
 		}
 	},
 	actions: {
@@ -150,7 +171,12 @@ export default {
 		},
 		changeTextareaToast (context, status) {
 			context.commit(types.CHANGE_TEXTAREA_TOAST, status)
+		},
+		closeLeaveWordStatus (context, status) {
+			context.commit(types.CLOSE_LEAVE_WORD_STATUS, status)
+		},
+		navShow (context, status) {
+			context.commit(types.NAV_SHOW)
 		}
-		
     }
 }

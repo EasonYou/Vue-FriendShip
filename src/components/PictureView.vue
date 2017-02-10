@@ -26,7 +26,6 @@
 			})
 			pictureView.addEventListener('touchend', function(e) {
 				e.stopPropagation()
-				console.log('sss')
 			})
 		}
 	}

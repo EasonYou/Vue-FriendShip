@@ -1,6 +1,6 @@
 <template>
 	<div id="profile" class="container">
-		<Navs navDesc="Profile"></Navs>
+		
 		<div class="profile-container">
 			<TopPicture :topPictureAddress="'../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg'">
 				<span class="slot-span">dsada</span>
@@ -8,7 +8,7 @@
 			<Avadar :avdarAdress="profileData.avadarAdress" :avadarName="profileData.name"></Avadar>
 		</div>
 		<transition name="picture-list">
-			<div v-show="!leaveWordStatus" class="picture-list clearfix">
+			<div v-bind:class="{'picture-list-down':leaveWordStatus}" class="picture-list clearfix">
 				<div class="picture-list-desc">
 					<span>相册</span>
 				</div>
@@ -17,8 +17,8 @@
 		</transition>
 		<transition name="text-fade">
 			<div class="text-input-block" v-if="leaveWordStatus">
-				<TextInput :textbinding="leaveWordBinding"></TextInput>
-				<Btn :bgColor="'#71d4a1'" @click="submit">确定留言</Btn>
+				<TextInput v-on:dataUpdate="dataUpdate" :textbinding="leaveWordBinding" :holder="'留言限制在256个字符以内'"></TextInput>
+				<Btn :className="'btn-green'" @click="submit">确定留言</Btn>
 			</div>
 		</transition>
 		<Toast :dispatch="'changeProfileToast'" :lifeCycle="1000" v-if="profileToast" >关注成功</Toast>
@@ -43,7 +43,15 @@
 			TextInput,
 			Btn
 		},
+		data: function() {
+			return {
+				leaveWordBinding: ''
+			}
+		},
 		computed: {
+			scrollTop: function() {
+				return this.$store.getters.scrollRecord
+			},
 			profileData: function() {
 				return this.$store.getters.profileData
 			},
@@ -55,9 +63,6 @@
 			},
 			textareaToast: function() {
 				return this.$store.getters.textareaToast
-			},
-			leaveWordBinding: function() {
-				return this.$store.getters.leaveWordBinding
 			}
 		},
 		methods: {
@@ -65,14 +70,21 @@
 				let textarea = document.getElementsByClassName('text-input-block')[0].getElementsByTagName('textarea')[0]
 				let length = textarea.value.length
 				if(length > 256) {
-					console.log('aaa')
 					this.$store.dispatch('changeTextareaToast', true)
 					return ;
 				}
+			},
+			dataUpdate: function(val) {
+				this.leaveWordBinding = val
 			}
 		},
 		destroyed: function() {
 			this.$store.dispatch('changeDirection', 'right-to-left-fade')
+			this.$store.dispatch('closeLeaveWordStatus', false)
+			this.$store.dispatch('navShow')
+		},
+		mounted: function() {
+			this.$emit('navName', 'Profile')
 		}
 	}
 </script>
@@ -99,6 +111,7 @@
 			width: 100%;
 			margin-top: 9.5rem;
 			margin-bottom: 2rem;
+			transition: all 0.3s;
 			// overflow: hidden;
 			.picture-list-desc {
 				text-align: left;
@@ -131,21 +144,30 @@
 			    }
 			}
 		}
+		.picture-list-down {
+			transform: translateY(8.5rem);
+		}
 		.text-input-block {
 			width: 100%;
 			position: absolute;
 			margin-top: 9.5rem;
+			.btn-green {
+				background-color: #71d4a1;
+			}
+			.btn-green:active {
+				background-color: #5dad84;
+			}
 		}
 
 		.picture-list-enter ,.text-fade-enter{
-			transform: translateY(3%);
+			transform: translateY(-10%);
 			opacity: 0;
 		}
-		.picture-list-enter-active, .picture-list-leave-active, .text-fade-enter-active, .text-fade-leave-active {
-			transition: all 0.5s;
+		.picture-list-enter-active, .text-fade-enter-active, .text-fade-leave-active {
+			transition: all .5s;
 		}
-		.picture-list-leave-active, .text-fade-leave-active{
-			transform: translateY(3%);
+		.text-fade-leave-active{
+			transform: translateY(-10%);
 			opacity: 0;
 		}
 	}

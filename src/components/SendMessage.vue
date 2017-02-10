@@ -2,7 +2,7 @@
 <transition name="send-block">
 	<div class="send-block">
 		<div class="block">
-			<textarea type="text" v-focus class="send-block-text" :placeholder="replyUser"></textarea>
+			<textarea type="text" v-focus="'is immediate'" class="send-block-text" :placeholder="replyUser"></textarea>
 			<button v-on:click="send">发送</button>
 		</div>
 	</div>

@@ -2,8 +2,12 @@
   <div id="app">
       <Sidebar></Sidebar>
       <Alert></Alert>
+      <transition name="nav-fade">
+        <Navs :nav-desc="navName" v-show="navShow"></Navs>
+      </transition>
+      <div class="nav-mask"></div>
       <transition :name="direction">
-        <router-view></router-view>
+        <router-view v-on:navName="changeNavName" ></router-view>
       </transition>
       <SendMessage v-if="sendBlock"></SendMessage>
       <PictureView v-if="pictureView"></PictureView>
@@ -25,6 +29,11 @@ export default {
     Alert,
     PictureView
   },
+  data: function() {
+    return {
+      navName:''
+    }
+  },
   computed: {
     pictureView: function() {
       return this.$store.getters.pictureView
@@ -38,11 +47,18 @@ export default {
     hash: function() {
       let flag = (this.$route.fullPath === '/' || this.$route.fullPath === '/home')?true : false
       return !flag
-   }
+    },
+    navShow: function() {
+      return this.$store.getters.navShow
+    },
+
   },
   store,
-  created: function() {
-
+  methods: {
+    changeNavName: function(val) {
+      this.navName = val
+      console.log(val)
+    }
   },
   mounted: function() {
     let start,end,self = this
@@ -106,9 +122,22 @@ body,html{
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  
+  .nav-fade-enter ,.nav-fade-leave-active{
+    opacity: 0.7;
+  }
+  .nav-fade-enter-active ,.nav-fade-leave-active{
+    transition: all 0.5s;
+  }
   a {
     text-decoration: none;
+  }
+  .nav-mask {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 4rem;
+    background-color: #fff;
+    z-index: 999;
   }
   .container {
     // margin-top: 4rem;

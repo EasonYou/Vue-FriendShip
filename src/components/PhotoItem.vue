@@ -36,15 +36,22 @@
 			width: 20%;
 			height: 5rem;
 			overflow: hidden;
-			padding-left: .5rem;
+			padding-left: 0rem;
 			text-align: center;
 			float: left;
+			position: relative;
 			img {
-				width: 3rem;
-				height: 3rem;
+				width: 3.2rem;
+				height: 3.2rem;
+				text-align: center;
+				margin-left: 0.3rem;
+				// position: absolute;
+				// // left: 50%;
+				// // transform: translateX(-50%);
 				border-radius: 50%;
 			}
 			span {
+				color: #6d6d6d;
 				display: inline-block;
 				width: 100%;
 				text-align: center;
@@ -52,7 +59,7 @@
 		}
 		.main-container {
 			float: left;
-			width: 70%;
+			width: 74%;
 			.item-desc {
 				// float: left;
 				display: block;

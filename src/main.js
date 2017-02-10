@@ -16,12 +16,13 @@ Vue.use(vueTap)
 Vue.use(vueRouter)
 
 Vue.directive('focus', {
-  inserted: function (el) {
-    
+  inserted: function (el, value) {
     el.addEventListener('focus', function() {
       this.className += ' focus'
     })
-    el.focus()
+    if(value.value === 'is immediate') {
+      el.focus()
+    }
     el.addEventListener('blur', function() {
       this.className = this.className.replace(' focus', '')
     })
@@ -39,6 +40,18 @@ Vue.directive('autosize', {
     } else {
       el.style.height = '100%'
     }
+  }
+})
+Vue.directive('autoSroll', {
+  inserted: function (el, value) {
+    let buffer = value.value
+    let scrollTop = buffer[0][buffer[1]]
+    el.scrollTop = scrollTop
+  },
+  unbind: function(el, value) {
+    let buffer = value.value
+    buffer[0][buffer[1]] = el.scrollTop
+    console.log(buffer)
   }
 })
 
@@ -60,7 +73,7 @@ const routes = [{
 }]
 
 const router = new vueRouter({
-  routes
+    routes
 })
 
 /* eslint-disable no-new */

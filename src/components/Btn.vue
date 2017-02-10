@@ -1,11 +1,11 @@
 <template>
-	<div class="btn" v-bind:style="{ backgroundColor: bgColor}" v-on:click="btnEvent">
+	<div class="btn" v-bind:style="{ backgroundColor: bgColor}" v-bind:class="className" v-on:click="btnEvent">
 		<slot></slot>
 	</div>
 </template>
 <script>
 	export default {
-		props: ['bgColor'],
+		props: ['bgColor', 'className'],
 		methods: {
 			btnEvent: function() {
 				this.$emit('click')

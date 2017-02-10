@@ -1,5 +1,5 @@
 <template>
-	<div class="container">
+	<div class="container" v-autoSroll>
 		<Navs navDesc="HomePage"></Navs>
 		<p>sassa</p>
 		<p>sassa</p>

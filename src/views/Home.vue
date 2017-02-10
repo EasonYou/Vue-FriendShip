@@ -1,6 +1,5 @@
 <template>
-	<div id="home" class="container">
-		<Navs nav-desc="Vue-FriendShip"></Navs>
+	<div id="home" class="container" v-autoSroll="[scrollTop, 'home']">
 		<TopPicture :topPictureDesc="topPictureDesc" :topPictureAddress="topPictureAddress"></TopPicture>
 		<div class="photo-items-cont">
 			<PhotoItem v-for="(picL, index) in pictureList" 
@@ -23,15 +22,10 @@
 			Navs,
 			Alert
 		},
-		data: function() {
-			return {
-				wades: [
-					 'wade1',
-					 'wade2'
-				]
-			}
-		},
 		computed: {
+			scrollTop: function() {
+				return this.$store.getters.scrollRecord
+			},
 			pictureList: function() {
 				return this.$store.getters.pictureList
 			},
@@ -47,6 +41,10 @@
 		},
 		mounted: function() {
 			this.$store.dispatch('changeDirection', 'right-to-left-fade')
+			this.$emit('navName', 'Vue-FriendShip')
+		},
+		destroyed: function() {
+			this.$store.dispatch('navShow')
 		}
 	}
 </script>

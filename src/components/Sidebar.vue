@@ -122,10 +122,11 @@
 					height: 100%;
 					display: inline-block;
 				}
+				a:active {
+					background-color: #dcdcdc;
+				}
 			}
-			li:hover {
-				background-color: #fff;
-			}
+			
 			li:before{
 				content:'';
 				background: url(../assets/logo.png);

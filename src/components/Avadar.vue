@@ -4,11 +4,11 @@
 			<img :src="avdarAdress" alt="">
 		</div>
 		<span class="avadar-name">{{ avadarName }}</span>
-		<Btn :bgColor="color" @click="changeLeaveWordStatus" >
+		<Btn :className="{'btn-green': !leaveWordStatus, 'btn-red': leaveWordStatus}" @click="changeLeaveWordStatus" >
 			<!-- <router-link :to="'leavewords'">留言</router-link> -->
 			{{ leaveWordTitle }}
 		</Btn>
-		<Btn :bgColor="'#71bfd4'" @click="follow">关注</Btn>
+		<Btn :className="'btn-blue'" @click="follow">关注</Btn>
 	</div>
 </template>
 <script>
@@ -74,6 +74,24 @@
 		.avadar-name {
 			display: block;
 			font-size: 1.1rem;
+		}
+		.btn-blue {
+			background-color: #71bfd4;
+		}
+		.btn-green {
+			background-color: #71d4a1;
+		}
+		.btn-red {
+			background-color: #f37272;
+		}
+		.btn-blue:active {
+			background-color: #5a9bad;
+		}
+		.btn-green:active {
+			background-color: #5dad84;
+		}
+		.btn-red:active {
+			background-color: #d06262;
 		}
 	}
 </style>
