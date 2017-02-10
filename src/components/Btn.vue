@@ -23,6 +23,7 @@
 		text-align: center;
 		line-height: 2rem;
 		border-radius: 0.3rem;
+		box-shadow: 0 0 1rem rgba(0,0,0,0.2);
 		a {
 			display: inline-block;
 			width: 100%;

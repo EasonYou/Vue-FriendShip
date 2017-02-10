@@ -103,16 +103,7 @@ body,html{
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  .clearfix:after{
-    content:".";
-    display:block;
-    height:0;
-    clear:both;
-    visibility:hidden
-  }
-  .clearfix{
-    height:1%;
-  }
+  
   a {
     text-decoration: none;
   }
@@ -132,4 +123,16 @@ body,html{
     width: 0px;
   }
 }
+</style>
+<style>
+  .clearfix:after{
+    content:".";
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden;
+  }
+  .clearfix{
+    *+height:1%;
+  }
 </style>

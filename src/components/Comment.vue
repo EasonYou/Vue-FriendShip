@@ -32,7 +32,6 @@
 						this.$store.dispatch('editReplyUser', ' @' + replyName)
 						this.$store.dispatch('changeReplyMessage', comments)
 					}
-					
 				}
 			}
 		}

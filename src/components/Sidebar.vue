@@ -3,7 +3,7 @@
 		<transition name="side-bar">
 			<div v-show="show" class="side-bar">
 				<div class="top-pic">
-					<img src="../assets/FONT.jpg" alt="">
+					<img src="../assets/104683.jpg" alt="">
 				</div>
 				<div class="shadow"></div>
 				<ul>
@@ -32,6 +32,10 @@
 			hide:function() {
 				this.$store.dispatch('changeSide')
 			}
+		},
+		mounted: function() {
+			let maxWidth = window.screen.width*0.7
+			document.getElementsByClassName('side-bar')[0].style.maxWidth = maxWidth + 'px'
 		}
 	}
 </script>
@@ -53,7 +57,7 @@
 		opacity: 0;
 	}
 	.mask-enter-active ,.mask-leave-active {
-		transition: 0.3s;
+		transition: .3s;
 	}
 
 	.side-bar-enter{
@@ -61,10 +65,10 @@
 	  opacity: 0;
 	}
 	.side-bar-enter-active {
-	  transition:0.3s ease-in-out; 
+	  transition:.3s ease-in-out; 
 	}
 	.side-bar-leave-active {
-	  transition:0.3s ease-in-out;
+	  transition:.3s ease-in-out;
 	  opacity: 0;
 	  transform: translate(-100%)
 	}

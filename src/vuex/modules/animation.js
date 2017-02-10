@@ -14,7 +14,7 @@ export default {
 				link: 'profile'
 			}, {
 				desc: 'Dwyane Wade',
-				link: 'detail'
+				link: 'leavewords'
 			}
 		],
 		replyUser:'sss',

@@ -47,11 +47,7 @@
 	    top: 0;
 	    width: 1rem;  
 	    height: 1rem;  
-	    float: right;
-	    -webkit-transform: rotate(45deg);  
-	    -moz-transform: rotate(45deg);  
-	    -ms-transform: rotate(45deg);  
-	    -o-transform: rotate(45deg);  
+	    float: right; 
 	    transform: rotate(45deg);  
 	    background-color: inherit; 
 	    margin-top: 0.3rem; 
@@ -64,10 +60,7 @@
 	    position: absolute;  
 	    width: 1rem;  
 	    height: 1rem;  
-	    content: '';  
-	    -webkit-border-radius: 50%;  
-	    -moz-border-radius: 50%;  
-	    -o-border-radius: 50%;  
+	    content: '';   
 	    border-radius: 50%;  
 	    background-color: inherit;  
 	}  

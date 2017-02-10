@@ -38,7 +38,6 @@
 			background-color: #fff;
 			position: relative;
 			box-shadow: 0 0 1rem rgba(0,0,0,0.3);
-			z-index: 8000;
 			img {
 				width: 94%;
 				height: 94%;

@@ -2,12 +2,16 @@
 	<div id="profile" class="container">
 		<Navs navDesc="Profile"></Navs>
 		<div class="profile-container">
-			<TopPicture :topPictureAddress="'../../static/FONT.jpg'">
+			<TopPicture :topPictureAddress="'../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg'">
 				<span class="slot-span">dsada</span>
 			</TopPicture>
 			<Avadar :avdarAdress="profileData.avadarAdress" :avadarName="profileData.name"></Avadar>
 		</div>
+		
 		<div class="picture-list clearfix">
+			<div class="picture-list-desc">
+				<span>相册</span>
+			</div>
 			<PictureLayer v-for="pictureAddress in profileData.pictureList" :pictureAddress="pictureAddress"></PictureLayer>
 		</div>
 		<Toast :dispatch="'changeProfileToast'" :lifeCycle="1000" v-if="profileToast" >关注成功</Toast>
@@ -59,7 +63,18 @@
 			}
 		}
 		.picture-list {
-			margin-top: 8rem;
+			.picture-list-desc {
+				text-align: left;
+				background-color: #fff;
+				box-shadow: 0 0.5rem 0.8rem 0 rgba(0,0,0,0.07);
+				span {
+					color: #8f8f8f;
+					margin-left: 5%;
+					padding-bottom: 0.3rem;
+					display: block;
+				}
+			}
+			margin-top: 9.5rem;
 			.photo-thumbnail {
 				width: 32%;
 				height: 10rem;
