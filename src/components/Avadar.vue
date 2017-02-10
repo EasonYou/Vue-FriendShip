@@ -4,15 +4,24 @@
 			<img :src="avdarAdress" alt="">
 		</div>
 		<span class="avadar-name">{{ avadarName }}</span>
-		<Button :btnDesc="'留言'" :bgColor="'#71d4a1'"></Button>
+		<Btn :bgColor="'#71d4a1'">
+			<router-link :to="'leavewords'">留言</router-link>
+		</Btn>
+		<Btn :bgColor="'#71bfd4'" @click="follow">关注</Btn>
 	</div>
 </template>
 <script>
-	import Button from './Button'
+	import Btn from './Btn'
 	export default {
 		props: ['avdarAdress', 'avadarName'],
 		components: {
-			Button
+			Btn
+		}, 
+		methods: {
+			follow: function() {
+				/*some ajax operate*/
+				this.$store.dispatch('changeProfileToast', true)
+			}
 		}
 	}
 </script>
@@ -29,6 +38,7 @@
 			background-color: #fff;
 			position: relative;
 			box-shadow: 0 0 1rem rgba(0,0,0,0.3);
+			z-index: 8000;
 			img {
 				width: 94%;
 				height: 94%;

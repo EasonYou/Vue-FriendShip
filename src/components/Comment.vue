@@ -2,9 +2,9 @@
 	<div class="comment-container">
 		<div class="comment" v-for="(comment, index) in comments" v-on:click="changeSendBlock($event, comments, index)" >
 			<div class="user">
-				<router-link class="comment-user" :to="'detail'">{{ comment.sent }}</router-link>
+				<router-link class="comment-user" :to="'profile'">{{ comment.sent }}</router-link>
 				<span v-if="!!comment.receive">@</span>
-				<router-link class="comment-user" :to="'detail'" v-if="!!comment.receive" >{{ comment.receive }}</router-link>
+				<router-link class="comment-user" :to="'profile'" v-if="!!comment.receive" >{{ comment.receive }}</router-link>
 				<span><b>: </b></span>
 			</div>
 			{{ comment.text }}

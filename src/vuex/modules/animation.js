@@ -22,7 +22,8 @@ export default {
 		pictureView: false,
 		pictureViewAdd: 'sss',
 		delAlertStatus: false,
-		replyMessage: ''
+		replyMessage: '',
+		profileToast: false
 	},
 	getters: {
 		sideShow: state => {
@@ -51,6 +52,9 @@ export default {
 		},
 		replyMessage: state =>{
 			return state.replyMessage
+		},
+		profileToast: state => {
+			return state.profileToast
 		}
 	},
 	mutations: {
@@ -84,6 +88,9 @@ export default {
 		},
 		REPLY_MESSAGE (state, message) {
 			state.replyMessage = message
+		},
+		CHANGE_PROFILE_TOAST (state, status) {
+			state.profileToast = status
 		}
 	},
 	actions: {
@@ -116,6 +123,9 @@ export default {
 		},
 		deleteComment (context) {
 			context.commit(types.DELET_COMMENT)
+		},
+		changeProfileToast (context, status) {
+			context.commit(types.CHANGE_PROFILE_TOAST, status)
 		}
     }
 }

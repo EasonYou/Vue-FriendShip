@@ -10,6 +10,7 @@
 		<div class="picture-list clearfix">
 			<PictureLayer v-for="pictureAddress in profileData.pictureList" :pictureAddress="pictureAddress"></PictureLayer>
 		</div>
+		<Toast :dispatch="'changeProfileToast'" :lifeCycle="1000" v-if="profileToast" >关注成功</Toast>
 	</div>
 </template>
 <script>
@@ -17,16 +18,21 @@
 	import TopPicture from '../components/TopPicture'
 	import PictureLayer from '../components/PictureLayer'
 	import Avadar from '../components/Avadar'
+	import Toast from '../components/Toast'
 	export default {
 		components: {
 			Navs,
 			TopPicture,
 			PictureLayer,
-			Avadar
+			Avadar,
+			Toast
 		},
 		computed: {
 			profileData: function() {
 				return this.$store.getters.profileData
+			},
+			profileToast: function() {
+				return this.$store.getters.profileToast
 			}
 		},
 		destroyed: function() {
@@ -49,11 +55,11 @@
 			}
 			.avadar-container {
 				position: absolute;
-				bottom: -6rem;
+				bottom: -8rem;
 			}
 		}
 		.picture-list {
-			margin-top: 6rem;
+			margin-top: 8rem;
 			.photo-thumbnail {
 				width: 32%;
 				height: 10rem;
