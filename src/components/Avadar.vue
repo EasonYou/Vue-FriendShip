@@ -4,8 +4,9 @@
 			<img :src="avdarAdress" alt="">
 		</div>
 		<span class="avadar-name">{{ avadarName }}</span>
-		<Btn :bgColor="'#71d4a1'">
-			<router-link :to="'leavewords'">留言</router-link>
+		<Btn :bgColor="color" @click="changeLeaveWordStatus" >
+			<!-- <router-link :to="'leavewords'">留言</router-link> -->
+			{{ leaveWordTitle }}
 		</Btn>
 		<Btn :bgColor="'#71bfd4'" @click="follow">关注</Btn>
 	</div>
@@ -21,6 +22,28 @@
 			follow: function() {
 				/*some ajax operate*/
 				this.$store.dispatch('changeProfileToast', true)
+			},
+			changeLeaveWordStatus: function() {
+				this.$store.dispatch('changeLeaveWordStatus')
+			}
+		},
+		computed: {
+			leaveWordStatus: function() {
+				return this.$store.getters.leaveWordStatus
+			},
+			color: function() {
+				if(this.leaveWordStatus) {
+					return '#d06a6a'
+				} else {
+					return '#71d4a1'
+				}
+			},
+			leaveWordTitle: function() {
+				if(this.leaveWordStatus) {
+					return '取消留言'
+				} else {
+					return '留言'
+				}
 			}
 		}
 	}

@@ -20,7 +20,8 @@ export default {
 <style lang="scss">
 	
 	.toast {
-		width: 7rem;
+		// width: 7rem;
+		padding: 0 1rem;
 		height: 3rem;
 		border-radius: 2rem;
 		background-color: #282828;

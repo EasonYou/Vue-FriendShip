@@ -19,7 +19,15 @@
 			}
 		},
 		mounted: function() {
-			// document.getElementsByClassName('view-picture')[0].style.width = '100%'
+			let pictureView = document.getElementsByClassName('picture-view')[0]
+			pictureView.addEventListener('touchstar', function(e) {
+				e.stopPropagation()
+				console.log('sss')
+			})
+			pictureView.addEventListener('touchend', function(e) {
+				e.stopPropagation()
+				console.log('sss')
+			})
 		}
 	}
 </script>

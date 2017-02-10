@@ -23,7 +23,10 @@ export default {
 		pictureViewAdd: 'sss',
 		delAlertStatus: false,
 		replyMessage: '',
-		profileToast: false
+		profileToast: false,
+		leaveWordStatus: false,
+		textareaToast: false,
+		leaveWordBinding: 'dsadsa'
 	},
 	getters: {
 		sideShow: state => {
@@ -55,6 +58,15 @@ export default {
 		},
 		profileToast: state => {
 			return state.profileToast
+		},
+		leaveWordStatus: state => {
+			return state.leaveWordStatus
+		},
+		textareaToast: state => {
+			return state.textareaToast
+		},
+		leaveWordBinding: state => {
+			return state.leaveWordBinding
 		}
 	},
 	mutations: {
@@ -91,6 +103,12 @@ export default {
 		},
 		CHANGE_PROFILE_TOAST (state, status) {
 			state.profileToast = status
+		},
+		CHANGE_LEAVE_WORD_STATUS (state) {
+			state.leaveWordStatus = !state.leaveWordStatus
+		},
+		CHANGE_TEXTAREA_TOAST (state, status) {
+			state.textareaToast = status
 		}
 	},
 	actions: {
@@ -126,6 +144,13 @@ export default {
 		},
 		changeProfileToast (context, status) {
 			context.commit(types.CHANGE_PROFILE_TOAST, status)
+		},
+		changeLeaveWordStatus (context, status) {
+			context.commit(types.CHANGE_LEAVE_WORD_STATUS, status)
+		},
+		changeTextareaToast (context, status) {
+			context.commit(types.CHANGE_TEXTAREA_TOAST, status)
 		}
+		
     }
 }

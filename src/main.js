@@ -17,7 +17,14 @@ Vue.use(vueRouter)
 
 Vue.directive('focus', {
   inserted: function (el) {
+    
+    el.addEventListener('focus', function() {
+      this.className += ' focus'
+    })
     el.focus()
+    el.addEventListener('blur', function() {
+      this.className = this.className.replace(' focus', '')
+    })
   }
 })
 
@@ -32,9 +39,9 @@ Vue.directive('autosize', {
     } else {
       el.style.height = '100%'
     }
-    
   }
 })
+
 
 
 const routes = [{

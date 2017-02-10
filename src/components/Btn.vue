@@ -5,7 +5,7 @@
 </template>
 <script>
 	export default {
-		props: ['btnDesc', 'bgColor'],
+		props: ['bgColor'],
 		methods: {
 			btnEvent: function() {
 				this.$emit('click')
@@ -24,6 +24,7 @@
 		line-height: 2rem;
 		border-radius: 0.3rem;
 		box-shadow: 0 0 1rem rgba(0,0,0,0.2);
+		transition: all 0.3s;
 		a {
 			display: inline-block;
 			width: 100%;

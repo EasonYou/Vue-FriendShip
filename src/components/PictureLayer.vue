@@ -26,12 +26,13 @@
 	float: left;
 	overflow: hidden;
 	img {
-		width: 85%;
-		padding: 0.2rem;
+		width: 80%;
+		padding: 4%;
 		border: 1px solid #efefef;
-		margin-left: 0.5rem;
-		margin-top: 0.5rem;
-		box-shadow: 0 0 1rem rgba(0,0,0,0.2);
+		max-height: 92%;
+		// margin-left: 0.5rem;
+		// margin-top: 0.5rem;
+		box-shadow: 0 0 1rem rgba(0,0,0,0.1);
 	}
 }
 </style>

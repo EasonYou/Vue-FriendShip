@@ -97,6 +97,9 @@ body,html{
   transform: translate(120%);
   z-index: 100;
 }
+.focus {
+  box-shadow: 0 0 1rem rgba(87, 180, 141,0.2);
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
