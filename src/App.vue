@@ -1,7 +1,11 @@
 <template>
   <div id="app">
-      <Sidebar></Sidebar>
-      <Alert></Alert>
+      <Sidebar :show="sideShow" :sideList="sideList" :picAdd="sideBarPicture" :rightSide="false" @click="hide"></Sidebar>
+      <Alert :lists="lists"
+              v-on:alertDelete="deleteComment"
+              v-on:alertCopy="copy"
+              :show="alertShow"
+              :closeDispatch="'changeDelAlert'"></Alert>
       <transition name="nav-fade">
         <Navs :nav-desc="navName" v-show="navShow"></Navs>
       </transition>
@@ -10,7 +14,7 @@
         <router-view v-on:navName="changeNavName" ></router-view>
       </transition>
       <SendMessage v-if="sendBlock"></SendMessage>
-      <PictureView v-if="pictureView"></PictureView>
+      <PictureView :show="pictureView"></PictureView>
   </div>
 </template>
 
@@ -31,10 +35,26 @@ export default {
   },
   data: function() {
     return {
-      navName:''
+      navName:'',
+      lists:[{
+        name: '删除',
+        event: 'Delete'
+      }, {
+        name: '复制',
+        event: 'Copy'
+      }]
     }
   },
   computed: {
+    alertShow: function() {
+      return this.$store.getters.delAlertStatus
+    },
+    sideShow:function() {
+      return this.$store.getters.sideShow
+    },
+    sideList:function() {
+      return this.$store.getters.sideList
+    },
     pictureView: function() {
       return this.$store.getters.pictureView
     },
@@ -51,14 +71,25 @@ export default {
     navShow: function() {
       return this.$store.getters.navShow
     },
-
+    sideBarPicture: function() {
+      return this.$store.getters.sideBarPicture
+    }
   },
   store,
   methods: {
     changeNavName: function(val) {
       this.navName = val
-      console.log(val)
-    }
+    },
+    hide: function() {
+      this.$store.dispatch('changeSidebar')
+    },
+    copy: function() {
+        this.$store.dispatch('changeDelAlert', false)
+    },
+    deleteComment: function() {
+      console.log('sas')
+      this.$store.dispatch('deleteComment')
+    },
   },
   mounted: function() {
     let start,end,self = this
@@ -97,7 +128,7 @@ body,html{
   opacity: 0;
 }
 .right-to-left-fade-enter-active ,.right-to-left-fade-leave-active{
-  transition: all .3s;
+  transition: all 0.5s cubic-bezier(.36, .66, .04, 1);
 }
 .right-to-left-fade-leave-active {
   opacity: 0.2;
@@ -107,7 +138,7 @@ body,html{
   opacity: 0.2;
 }
 .left-to-right-fade-enter-active ,.left-to-right-fade-leave-active{
-  transition: all .3s;
+  transition: all 0.5s cubic-bezier(.36, .66, .04, 1);
 }
 .left-to-right-fade-leave-active {
   transform: translate(120%);
@@ -135,7 +166,7 @@ body,html{
     width: 100%;
     position: fixed;
     top: 0;
-    height: 4rem;
+    height: 3rem;
     background-color: #fff;
     z-index: 999;
   }
@@ -145,7 +176,7 @@ body,html{
     top: 0;
     background-color: #fff;
     min-height: 100%;
-    box-shadow: 0 0 2rem 1rem rgba(0,0,0,0.2);
+    box-shadow: 0 0 2rem 1rem rgba(0,0,0,0.3);
     height: 100%;
     overflow-y: scroll;
     max-width: 880px;

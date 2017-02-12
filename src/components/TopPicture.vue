@@ -25,7 +25,7 @@
 		height: 13rem;
 		position: relative;
 		overflow: hidden;
-		margin-top: 4rem;
+		margin-top: 3rem;
 		.top-img-cont {
 			width: 100%;
 			height: 100%;

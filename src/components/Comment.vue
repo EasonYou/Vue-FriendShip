@@ -42,8 +42,9 @@
 		float: left;
 		padding-top: .5rem;
 		padding-bottom: .5rem;
+		margin-left: 20%;
+		width: 74%;
 		.comment {
-			margin-left: 5rem;
 			margin-right: 0.5rem;
 			line-height: 1.15rem;
 			.user {

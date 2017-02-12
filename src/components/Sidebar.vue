@@ -1,9 +1,10 @@
 <template>
-	<div class="container side-container" id="side-bar">
-		<transition name="side-bar">
-			<div v-show="show" class="side-bar">
+	<div class="side-container" id="side-bar">
+			<div v-bind:class="{'side-bar-active': show && !right,
+								'right-side-bar-active': show && right,
+								'right-side-bar': right}" class="side-bar">
 				<div class="top-pic">
-					<img src="../assets/104683.jpg" alt="">
+					<img :src="picAdd" alt="">
 				</div>
 				<div class="shadow"></div>
 				<ul>
@@ -12,25 +13,22 @@
 					</li>
 				</ul>
 			</div>
-		</transition>
-		<transition name="mask">
-			<div v-show="show" class="mask" @click="hide" ></div>
-		</transition>
+			<transition name="mask">
+				<div v-show="show" class="mask" @click="hide" ></div>
+			</transition>
 	</div>
 </template>
 <script>
 	export default {
-		computed:{
-		    show:function() {
-		      return this.$store.getters.sideShow
-		  },
-		  	sideList:function() {
-		  	 return this.$store.getters.sideList
-		  }
-		},
+		props:['show', 'sideList', 'picAdd', 'rightSide'],
 		methods:{
 			hide:function() {
-				this.$store.dispatch('changeSide')
+				this.$emit('click')
+			}
+		},
+		computed: {
+			right: function() {
+				return this.rightSide
 			}
 		},
 		mounted: function() {
@@ -40,18 +38,14 @@
 	}
 </script>
 <style lang="scss">
-	.side-container {
-		position: absolute;
-		top: 0;
-	}
 	.mask {
 		background-color: #000;
 		width: 100%;
 		height: 100%;
 		position: fixed;
 		opacity: 0.7;
-		z-index: 100;
 		z-index: 8888;
+		transition: 0.5s;
 	}
 	.mask-enter, .mask-leave-active {
 		opacity: 0;
@@ -65,10 +59,10 @@
 	  opacity: 0;
 	}
 	.side-bar-enter-active {
-	  transition:.3s ease-in-out; 
+	  transition: 0.4s cubic-bezier(0.4, 0, 0, 1); 
 	}
 	.side-bar-leave-active {
-	  transition:.3s ease-in-out;
+	  transition: 0.4s cubic-bezier(0.4, 0, 0, 1);
 	  opacity: 0;
 	  transform: translate(-100%)
 	}
@@ -80,6 +74,9 @@
 		top: 0;
 		left: 0;
 		z-index: 10000;
+		transition: 0.5s cubic-bezier(0.4, 0, 0, 1);
+		opacity: 1;
+		transform: translate(-100%);
 		.top-pic {
 			width: 100%;
 			height: 13rem;
@@ -148,5 +145,18 @@
 			}
 
 		}
+	}
+	#side-bar .side-bar-active {
+		opacity: 1;
+		transform: translate(0);
+	}
+	#side-bar .right-side-bar {
+	    left: 100%;
+	    opacity: 0;
+	    transform: translate(0);
+	}
+	#side-bar .right-side-bar-active {
+		opacity: 1;
+		transform: translate(-100%);
 	}
 </style>

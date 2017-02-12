@@ -20,7 +20,7 @@
       },
 	  	methods:{
   	    change:function() {
-  	      this.$store.dispatch('changeSide')
+  	      this.$store.dispatch('changeSidebar')
   	    },
         back:function() {
           if(this.hash) {
@@ -31,9 +31,15 @@
           }
         }
   	  },
+      created: function(e) {
+        window.addEventListener('resize', function() {
+          let screenWidth = window.innerWidth
+          let nav = document.getElementsByClassName('top-nav')[0]
+          nav.style.width = screenWidth + 'px'
+        })
+      },
       mounted: function() {
-        console.log('aaa')
-        let screenWidth = window.screen.width
+        let screenWidth = window.innerWidth
         let nav = document.getElementsByClassName('top-nav')[0]
         nav.style.width = screenWidth + 'px'
       }
@@ -41,7 +47,7 @@
 </script>
 <style lang="scss">
 	  nav {
-    height: 4rem;
+    height: 3rem;
     width: 100%;
     position: fixed;
     top: 0;
@@ -54,21 +60,21 @@
       left: 50%;
       transform: translate(-50%);
       margin: 0;
-      line-height: 4rem;
+      line-height: 3rem;
     }
     .nav-left{
       float: left;
       height: 100%;
       display: inline-block;
-      line-height: 4rem;
+      line-height: 3rem;
       padding-left: 1rem;
       font-size: 1.2rem;
       color: #fff;  
       width: 1.5rem;
       background: url('../assets/left.png');
       background-repeat: no-repeat;
-      background-position: 1rem 1.4rem;
-      background-size: 70% 35%;
+      background-position: 1rem 0.8rem;
+      background-size: 70% 45%;
     }
     .nav-right{
       float: right;
@@ -77,7 +83,7 @@
       padding-right: 1rem;
       font-size: 1.5rem;
       color: #fff; 
-      width: 1.75rem;
+      width: 1.5rem;
       display: flex;
       flex-direction: column;
       align-items: center;

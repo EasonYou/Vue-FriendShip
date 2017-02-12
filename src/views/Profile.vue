@@ -93,7 +93,7 @@
 	.container {
 		width: 100%;
 		.profile-container {
-			margin-top: 4rem;
+			margin-top: 3rem;
 			position: relative;
 			#top-item {
 				.slot-span {

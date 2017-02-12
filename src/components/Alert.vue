@@ -5,27 +5,24 @@
 		</transition>
 		<transition name="alert-fade">	
 				<div class="alert" v-show="show">
-					<div class="delete" @click="deleteComment">删除</div>
-					<div class="copy">复制</div>
+					<div v-for="item in lists" @click="emit(item)">{{ item.name }}</div>
 				</div>
 		</transition>
 	</div>
 </template>
 <script>
 	export default {
+		props:['show', 'lists', 'closeDispatch'],
 		methods: {
-			closeAlert: function() {
-				this.$store.dispatch('changeDelAlert', false)
+			emit: function(item) {
+				this.$emit('alert' + item.event)
 			},
-			deleteComment: function() {
-				this.$store.dispatch('deleteComment')
-				this.$store.dispatch('changeDelAlert', false)
+			closeAlert: function() {
+				this.$store.dispatch(this.closeDispatch, false)
 			}
 		},
 		computed: {
-			show: function() {
-				return this.$store.getters.delAlertStatus
-			}
+			
 		}
 	}
 </script>

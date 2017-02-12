@@ -1,6 +1,6 @@
-# yishu
+# Vue-FriendShip
 
-> yishu webapp social-module
+> webapp social-module
 
 ## Build Setup
 
@@ -24,4 +24,4 @@ npm run e2e
 npm test
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+打开入口后，进入移动调试之后需要再刷新一遍

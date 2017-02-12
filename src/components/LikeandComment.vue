@@ -9,13 +9,11 @@
 		props: ['pictureList'],
 		methods: {
 			changeSendBlock: function(comments) {
-				console.log(comments)
 				this.$store.dispatch('changeSendBlock')
 				this.$store.dispatch('editReplyUser', '')
 				this.$store.dispatch('changeReplyMessage', comments)
 			},
 			isLike: function(pictureList) {
-				console.log(pictureList)
 				pictureList.isLike = !pictureList.isLike
 			}
 		}

@@ -29,19 +29,6 @@ Vue.directive('focus', {
   }
 })
 
-Vue.directive('autosize', {
-  inserted: function (el) {
-    let height = parseInt(getComputedStyle(el,null).height)
-    let width = parseInt(getComputedStyle(el,null).width)
-    let pictureScale = height/width;
-    let screenScale = window.screen.height / window.screen.width
-    if(screenScale >= pictureScale) {
-      el.style.width = '100%'
-    } else {
-      el.style.height = '100%'
-    }
-  }
-})
 Vue.directive('autoSroll', {
   inserted: function (el, value) {
     let buffer = value.value
@@ -51,7 +38,6 @@ Vue.directive('autoSroll', {
   unbind: function(el, value) {
     let buffer = value.value
     buffer[0][buffer[1]] = el.scrollTop
-    console.log(buffer)
   }
 })
 

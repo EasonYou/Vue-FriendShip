@@ -133,7 +133,7 @@ export default {
 		}
 	},
 	actions: {
-    	changeSide (context) {
+    	changeSidebar (context) {
 	      	context.commit(types.CHANGE_SIDEBAR)
 	    },
 	    changeSendBlock (context) {

@@ -6,6 +6,7 @@ export default {
 		userName: 'Wade',
 		topPictureDesc: 'Hello World!',
 		topPictureAddress: '../../static/FONT.jpg',
+		sideBarPicture: '../../static/104683.jpg',
 		pictureItemList: [{
 				name: 'one',
 				desc: 'Hello World! Hello World! Hello World! Hello World!dsdsasda Hello World! Hello World! ',
@@ -110,6 +111,9 @@ export default {
 		},
 		topPictureAddress: state => {
 			return state.topPictureAddress
+		},
+		sideBarPicture: state => {
+			return state.sideBarPicture
 		}
 	},
 	mutations: {
