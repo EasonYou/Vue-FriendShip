@@ -63,7 +63,6 @@
 			}
 		},
 		mounted: function() {
-			console.log(this.$store.getters.tabStatus)
 			this.$store.dispatch('changeDirection', 'right-to-left-fade')
 			this.$emit('navName', 'Vue-FriendShip')
 		},

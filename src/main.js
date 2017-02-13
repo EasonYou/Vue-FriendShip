@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import Home from './views/Home'
-import LeaveWords from './views/LeaveWords'
+import FollowList from './views/FollowList'
 import Profile from './views/Profile'
 
 
@@ -51,8 +51,8 @@ const routes = [{
 	component: Home
 },
 {
-	path: '/leavewords',
-	component: LeaveWords
+	path: '/followlist',
+	component: FollowList
 },{
 	path: '/profile',
 	component: Profile

@@ -48,50 +48,17 @@
 		},
 		mounted: function() {
 			function resize() {
-				let innerHeight = window.innerHeight
-				let tabContainer = document.getElementsByClassName('tab-container')[0]
-				let top = parseInt(getComputedStyle(tabContainer, null).top)
-				tabContainer.style.height = innerHeight - top + 'px'
+				if(document.getElementsByClassName('tab-container').length) {
+					let innerHeight = window.innerHeight
+					let tabContainer = document.getElementsByClassName('tab-container')[0]
+					let top = parseInt(getComputedStyle(tabContainer, null).top)
+					tabContainer.style.height = innerHeight - top + 'px'
+				}
 			}
 			resize()
 			window.addEventListener('resize', function() {
 				resize()
 			})
-			
-			// let self=this
-			// let el = document.getElementsByClassName('tab')[0]
-			// console.log(el)
-			// function render(target) {
-			// 	let start, end, buffer, now=0;
-			// 	target.addEventListener('touchstart', function(e) {
-			// 		start = e.changedTouches[0].pageX
-			// 		// console.log('s', start)
-			// 	})
-			// 	target.addEventListener('touchmove', function(e) {
-			// 		buffer = e.changedTouches[0].pageX - start +now
-			// 		if(buffer<=0)
-			// 		target.style.transform = 'translateX(' + buffer  +'px)'
-			// 		console.log('m', buffer)
-			// 	})
-			// 	target.addEventListener('touchend', function(e) {
-			// 		now = buffer
-			// 		end = e.changedTouches[0].pageX
-			// 		if(now>-200) {
-			// 			start = 0
-			// 			target.style.transform = 'translateX(0px)'
-			// 			console.log('s',now)
-			// 		} else {
-			// 			start = -412
-			// 			target.style.transform = 'translateX(-412px)'
-			// 			console.log(now)
-			// 		}
-			// 		start = 0
-					
-			// 		// console.log('e', end)
-			// 	})
-			// }
-			
-			// render(el)
 		}
 	}
 </script>

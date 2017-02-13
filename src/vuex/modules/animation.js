@@ -7,17 +7,14 @@ export default {
 		sendBlock:false,
 		sideList: [
 			{
-				desc: '衣述',
-				link: 'home',
-				title: 'Vue-FriendShip'
+				desc: 'Vue-FriendShip',
+				link: 'home'
 			}, {
-				desc: '衣界',
+				desc: 'Profile',
 				link: 'profile',
-				title: 'Profile'
 			}, {
-				desc: 'Dwyane Wade',
-				link: 'leavewords',
-				title: 'Anything'
+				desc: 'Follow List',
+				link: 'followlist',
 			}
 		],
 		replyUser:'sss',

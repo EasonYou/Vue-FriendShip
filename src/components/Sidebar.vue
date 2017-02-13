@@ -8,7 +8,7 @@
 				</div>
 				<div class="shadow"></div>
 				<ul>
-					<li v-for="list in sideList" @click="hide">
+					<li v-for="list in sideList" @click="changeNavName">
 						<router-link :to="list.link">{{ list.desc }}</router-link>
 					</li>
 				</ul>
@@ -22,8 +22,12 @@
 	export default {
 		props:['show', 'sideList', 'picAdd', 'rightSide'],
 		methods:{
-			hide:function() {
+			hide:function(e) {
 				this.$emit('click')
+			},
+			changeNavName: function(e) {
+				this.$emit('click')
+				this.$emit('navName', e.target.innerHTML)
 			}
 		},
 		computed: {

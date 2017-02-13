@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-      <Sidebar :show="sideShow" :sideList="sideList" :picAdd="sideBarPicture" :rightSide="false" @click="hide"></Sidebar>
+      <Sidebar :show="sideShow" :sideList="sideList" :picAdd="sideBarPicture" :rightSide="false" @click="hide" v-on:navName="changeNavName"></Sidebar>
       <Alert :lists="lists"
               v-on:alertDelete="deleteComment"
               v-on:alertCopy="copy"
@@ -78,6 +78,7 @@ export default {
   store,
   methods: {
     changeNavName: function(val) {
+      console.log(val)
       this.navName = val
     },
     hide: function() {
@@ -97,6 +98,7 @@ export default {
     document.addEventListener('touchstart', function(e) {
       start = e.changedTouches[0].pageX
     }, false)
+
     document.addEventListener('touchend', function(e) {
       end = e.changedTouches[0].pageX
       if( (-(start - end)/screenWidth) >= 0.23 && self.hash) {
