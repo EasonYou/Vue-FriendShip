@@ -9,7 +9,7 @@
       <transition name="nav-fade">
         <Navs :nav-desc="navName" v-show="navShow"></Navs>
       </transition>
-      <div class="nav-mask"></div>
+      <!-- <div class="nav-mask"></div> -->
       <transition :name="direction">
         <router-view v-on:navName="changeNavName" ></router-view>
       </transition>
@@ -153,6 +153,7 @@ body,html{
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  max-width: 880px;
   .nav-fade-enter ,.nav-fade-leave-active{
     opacity: 0.7;
   }

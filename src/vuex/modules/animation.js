@@ -30,8 +30,10 @@ export default {
 		leaveWordStatus: false,
 		textareaToast: false,
 		navShow: true,
+		tabStatus: true,
 		scrollRecord: {
-			home: 0,
+			homeLeft: 0,
+			homeRight: 0,
 			profile: 0,
 			leavewords: 0
 		}
@@ -78,6 +80,9 @@ export default {
 		},
 		navShow: state => {
 			return state.navShow
+		},
+		tabStatus: state => {
+			return state.tabStatus
 		}
 	},
 	mutations: {
@@ -129,7 +134,9 @@ export default {
 			setTimeout(function() {
 				state.navShow = !state.navShow
 			},200)
-			
+		},
+		CHANGE_TAB_STATUS (state, status) {
+			state.tabStatus = status
 		}
 	},
 	actions: {
@@ -177,6 +184,9 @@ export default {
 		},
 		navShow (context, status) {
 			context.commit(types.NAV_SHOW)
+		},
+		changeTabStatus (context, status) {
+			context.commit(types.CHANGE_TAB_STATUS, status)
 		}
     }
 }

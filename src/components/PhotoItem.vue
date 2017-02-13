@@ -67,4 +67,7 @@
 			}
 		}
 	}
+	.photo-item:last-child {
+		margin-bottom: 3rem;
+	}
 </style>

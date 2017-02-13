@@ -1,5 +1,5 @@
 <template>
-	<div id="top-item">
+	<div class="top-item">
 		<div class="top-img-cont" >
 			<img :src="topPictureAddress">
 		</div>
@@ -20,12 +20,12 @@
 	}
 </script>
 <style lang="scss">
-	#top-item {
+	.top-item {
 		width: 100%;
 		height: 13rem;
 		position: relative;
 		overflow: hidden;
-		margin-top: 3rem;
+		// margin-top: 3rem;
 		.top-img-cont {
 			width: 100%;
 			height: 100%;

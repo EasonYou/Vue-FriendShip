@@ -1,6 +1,6 @@
 # Vue-FriendShip
 
-> webapp social-module
+> webapp social-module based on vue-cli
 
 ## Build Setup
 
@@ -13,15 +13,10 @@ npm run dev
 
 # build for production with minification
 npm run build
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
 
-打开入口后，进入移动调试之后需要再刷新一遍
+## TODO List
+ **1) follow list**
+ **2) pull to refresh**
+ **3) infinite scroll**
+ **4) uncoupled components**
