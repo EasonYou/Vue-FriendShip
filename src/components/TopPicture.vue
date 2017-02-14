@@ -4,7 +4,7 @@
 			<img :src="topPictureAddress">
 		</div>
 		<div class="shadow" @click="showPic"></div>
-		<span>{{ topPictureDesc }}</span>
+		<span class="top-picture-desc">{{ topPictureDesc }}</span>
 		<slot></slot>
 	</div>
 </template>
@@ -46,7 +46,7 @@
 				box-shadow: 0 -0rem 10rem black inset;
 				// background-color: #fff;
 		}
-		span {
+		.top-picture-desc {
 			color: #fff;
 			position: absolute;
 			bottom: 2rem;

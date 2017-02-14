@@ -35,7 +35,6 @@ export default {
   },
   data: function() {
     return {
-      navName:'',
       lists:[{
         name: '删除',
         event: 'Delete'
@@ -65,7 +64,7 @@ export default {
       return this.$store.getters.fadeDirection
     },
     hash: function() {
-      let flag = (this.$route.fullPath === '/' || this.$route.fullPath === '/home')?true : false
+      let flag = (this.$route.fullPath === '/' || this.$route.fullPath === '/home' )?true : false
       return !flag
     },
     navShow: function() {
@@ -73,12 +72,14 @@ export default {
     },
     sideBarPicture: function() {
       return this.$store.getters.sideBarPicture
+    },
+    navName: function() {
+      return this.$store.getters.navName
     }
   },
   store,
   methods: {
     changeNavName: function(val) {
-      console.log(val)
       this.navName = val
     },
     hide: function() {
@@ -88,7 +89,6 @@ export default {
         this.$store.dispatch('changeDelAlert', false)
     },
     deleteComment: function() {
-      console.log('sas')
       this.$store.dispatch('deleteComment')
     },
   },

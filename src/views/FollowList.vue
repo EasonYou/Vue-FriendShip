@@ -16,6 +16,9 @@
 				return this.$store.getters.followList
 			}
 		},
+		created: function() {
+			this.$store.dispatch('changeNavName', '我的关注')
+		},
 		destroyed: function() {
 			this.$store.dispatch('changeDirection', 'right-to-left-fade')
 		}

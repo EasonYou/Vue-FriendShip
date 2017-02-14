@@ -61,6 +61,8 @@
       transform: translate(-50%);
       margin: 0;
       line-height: 3rem;
+      user-select: none;
+      font-weight: normal;
     }
     .nav-left{
       float: left;

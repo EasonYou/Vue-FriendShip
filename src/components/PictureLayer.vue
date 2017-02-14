@@ -9,7 +9,6 @@
 		methods: {		
 			showPictureView: function(e) {
 				let address
-				console.log('aa')
 				if (e.target.tagName === "IMG") {
 					address = e.target.getAttribute('src')
 				} else {

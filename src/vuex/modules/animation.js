@@ -11,10 +11,7 @@ export default {
 				link: 'home'
 			}, {
 				desc: 'Profile',
-				link: 'profile',
-			}, {
-				desc: 'Follow List',
-				link: 'followlist',
+				link: 'myinformation',
 			}
 		],
 		replyUser:'sss',
@@ -28,6 +25,8 @@ export default {
 		textareaToast: false,
 		navShow: true,
 		tabStatus: true,
+		followListBtn: true,
+		navName: 'dsa',
 		scrollRecord: {
 			homeLeft: 0,
 			homeRight: 0,
@@ -80,6 +79,12 @@ export default {
 		},
 		tabStatus: state => {
 			return state.tabStatus
+		},
+		followListBtn: state => {
+			return state.followListBtn
+		},
+		navName: state => {
+			return state.navName
 		}
 	},
 	mutations: {
@@ -134,7 +139,13 @@ export default {
 		},
 		CHANGE_TAB_STATUS (state, status) {
 			state.tabStatus = status
-		}
+		},
+		CHANGE_FOLLOW_LIST_BTN (state, status) {
+			state.followListBtn = status
+		},
+		CHANGE_NAV_NAME (state, name) {
+			state.navName = name
+		},
 	},
 	actions: {
     	changeSidebar (context) {
@@ -184,6 +195,12 @@ export default {
 		},
 		changeTabStatus (context, status) {
 			context.commit(types.CHANGE_TAB_STATUS, status)
+		},
+		changeFollowListBtn (context, status) {
+			context.commit(types.CHANGE_FOLLOW_LIST_BTN, status)
+		},
+		changeNavName (context, name) {
+			context.commit(types.CHANGE_NAV_NAME, name)
 		}
     }
 }

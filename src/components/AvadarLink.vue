@@ -1,12 +1,19 @@
 <template>
 	<router-link class="link-avadar" :to="'profile'">
-		<img :src="avadarSrc">
-		<span>{{ name }}</span>
+		<div class="clearfix" v-on:click="emit" >
+			<img :src="avadarSrc" @:click="emit">
+			<span @:click="emit">{{ name }}</span>
+		</div>
 	</router-link>
 </template>
 <script>
 	export default {
-		props: ['avadarSrc', 'name']
+		props: ['avadarSrc', 'name'],
+		methods: {
+			emit: function() {
+				this.$emit('click')
+			}
+		}
 	}
 </script>
 <style lang="scss">

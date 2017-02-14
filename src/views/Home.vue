@@ -2,7 +2,13 @@
 	<div id="home" class="container">
 	<Tab :status="tabStatus" :tabList="tabList" :dispatch="'changeTabStatus'" :getter="'tabStatus'">
 		<div class="container " slot="left" v-autoSroll="[scrollTop, 'homeLeft']">
-			<TopPicture :topPictureDesc="topPictureDesc" :topPictureAddress="topPictureAddress"></TopPicture>
+			<TopPicture :topPictureDesc="topPictureDesc" :topPictureAddress="topPictureAddress">
+				<div class="btnctn">
+					<Btn :className="'btn-gray'">
+						<router-link :to="'followlist'">我的关注</router-link>
+					</Btn>
+				</div>
+			</TopPicture>
 			<div class="photo-items-cont">
 				<PhotoItem v-for="(picL, index) in pictureList" 
 						   :pictureList="picL" 
@@ -29,13 +35,15 @@
 	import Navs from '../components/Navs'
 	import Alert from '../components/Alert'
 	import Tab from '../components/Tab'
+	import Btn from '../components/Btn'
 	export default {
 		components: {
 			PhotoItem,
 			TopPicture,
 			Navs,
 			Alert,
-			Tab
+			Tab,
+			Btn
 		},
 		data: function() {
 			return {
@@ -62,6 +70,9 @@
 				return this.$store.getters.tabStatus
 			}
 		},
+		created: function() {
+			this.$store.dispatch('changeNavName', 'Vue-FriendShip')
+		},
 		mounted: function() {
 			this.$store.dispatch('changeDirection', 'right-to-left-fade')
 			this.$emit('navName', 'Vue-FriendShip')
@@ -76,6 +87,21 @@
 		.container {
 			width: 100%;
 			box-shadow: none;
+		}
+		.btnctn {
+			position: absolute;
+			top: 2%;
+			right: 3%;
+			width: 5rem;
+			height: 1.5rem;
+			.btn-gray {
+				line-height: 1.5rem;
+				background-color: #656565;
+				height: 100%;
+			}
+			.btn-gray:active {
+				background-color: #4c4c4c;
+			}
 		}
 	}
 </style>

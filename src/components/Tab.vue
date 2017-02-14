@@ -40,9 +40,7 @@
 			}
 		},
 		created: function() {
-			console.log(this.$store.getters, this.getter)
 			// 
-			// console.log(tabContainer)
 			// 
 			// 
 		},

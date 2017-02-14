@@ -1,6 +1,6 @@
 <template>
 <div class="follow-item clearfix">
-	<AvadarLink :avadarSrc="list.src" :name="list.name"></AvadarLink>
+	<AvadarLink :avadarSrc="list.src" :name="list.name" @click="changeFollowListBtn"></AvadarLink>
 	<div class="text-container clearfix">
 		<span class="desc">{{ list.desc }}</span>
 		<span class="follow-number">follow number: {{ list.followNumber }}</span>
@@ -21,7 +21,11 @@
 		},
 		methods: {
 			follow: function() {
-				console.log('assa')
+				console.log('关注动作')
+				/* post */
+			},
+			changeFollowListBtn: function() {
+				this.$store.dispatch('changeFollowListBtn', false)
 			}
 		}
 	}

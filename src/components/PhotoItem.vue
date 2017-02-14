@@ -1,6 +1,6 @@
 <template>
 	<div class="photo-item clearfix">
-		<AvadarLink :name="pictureList.name" :avadarSrc="pictureList.src"></AvadarLink>
+		<AvadarLink :name="pictureList.name" :avadarSrc="pictureList.src" @click="changeFollowBtn"></AvadarLink>
 		<div class="main-container clearfix">
 			<span class="item-desc" >{{ pictureList.desc }}</span>
 			<PictureLayer :pictureAddress="pictureList.pictureAdd"><PictureLayer>
@@ -21,6 +21,11 @@
 			PictureLayer,
 			LikeandComment,
 			AvadarLink
+		},
+		methods: {
+			changeFollowBtn: function() {
+				this.$store.dispatch('changeFollowListBtn', true)
+			}
 		}
 	}
 </script>

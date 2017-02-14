@@ -3,7 +3,7 @@ import * as types from '../mutation-types'
 
 export default {
 	state: {
-		name: 'Dwyanme Wade',
+		name: 'Dwyane Wade',
 		avadarAdress: '../../static/104683.jpg',
 		pictureList: [
 			'../../static/104683.jpg',

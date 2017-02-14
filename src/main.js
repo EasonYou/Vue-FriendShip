@@ -56,6 +56,9 @@ const routes = [{
 },{
 	path: '/profile',
 	component: Profile
+},{
+  path: '/myinformation',
+  component: Profile
 }]
 
 const router = new vueRouter({

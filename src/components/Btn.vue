@@ -25,6 +25,7 @@
 		border-radius: 0.2rem;
 		transition: all 0.3s;
 		font-size: 0.9rem;
+		user-select: none;
 		a {
 			display: inline-block;
 			width: 100%;

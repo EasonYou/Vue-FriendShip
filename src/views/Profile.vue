@@ -1,9 +1,12 @@
 <template>
 	<div id="profile" class="container">
-		
 		<div class="profile-container">
 			<TopPicture :topPictureAddress="'../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg'">
-				<span class="slot-span">dsada</span>
+				<div class="information">
+					<span class="nick-name">Nick Name: Wade</span>
+					<span class="birthday">Birthday: 2017-10-1</span>
+					<span class="gender">Gender: male</span>
+				</div>
 			</TopPicture>
 			<Avadar :avdarAdress="profileData.avadarAdress" :avadarName="profileData.name"></Avadar>
 		</div>
@@ -63,6 +66,9 @@
 			},
 			textareaToast: function() {
 				return this.$store.getters.textareaToast
+			},
+			followListBtn: function() {
+				return this.$store.getters.followListBtn
 			}
 		},
 		methods: {
@@ -78,13 +84,24 @@
 				this.leaveWordBinding = val
 			}
 		},
+		created: function() {
+							console.log(this.$store)
+			this.$store.dispatch('changeNavName', '详细信息')
+		},
 		destroyed: function() {
 			this.$store.dispatch('changeDirection', 'right-to-left-fade')
 			this.$store.dispatch('closeLeaveWordStatus', false)
 			this.$store.dispatch('navShow')
+			this.$store.dispatch('changeFollowListBtn', true)
 		},
 		mounted: function() {
 			this.$emit('navName', 'Profile')
+		},
+		beforeUpdate: function() {
+			/* lodading */
+		},
+		updated: function() {
+			/* cancle lodading */
 		}
 	}
 </script>
@@ -95,10 +112,20 @@
 		.profile-container {
 			margin-top: 3rem;
 			position: relative;
-			#top-item {
-				.slot-span {
+			.top-item {
+				.shadow {
+					box-shadow: 0 3rem 10rem 2rem rgba(0,0,0,1) inset;
+				}
+				.information {
 					position: absolute;
-					top: 0;
+					top: 20%;
+					left: 7%;
+					text-align: left;
+					span {
+						margin-top: 0.5rem;
+						display: block;
+						color: #fff;
+					}
 				}
 			}
 			.avadar-container {
