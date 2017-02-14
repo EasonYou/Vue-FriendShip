@@ -85,7 +85,6 @@
 			}
 		},
 		created: function() {
-							console.log(this.$store)
 			this.$store.dispatch('changeNavName', '详细信息')
 		},
 		destroyed: function() {
@@ -97,11 +96,11 @@
 		mounted: function() {
 			this.$emit('navName', 'Profile')
 		},
-		beforeUpdate: function() {
-			/* lodading */
-		},
-		updated: function() {
-			/* cancle lodading */
+		watch: {
+			$route: function(to, from) {
+				console.log(to, from)
+				/* get operation */
+			}
 		}
 	}
 </script>

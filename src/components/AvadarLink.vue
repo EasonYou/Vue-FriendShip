@@ -1,5 +1,5 @@
 <template>
-	<router-link class="link-avadar" :to="'profile'">
+	<router-link class="link-avadar" :to="'profile/'+id">
 		<div class="clearfix" v-on:click="emit" >
 			<img :src="avadarSrc" @:click="emit">
 			<span @:click="emit">{{ name }}</span>
@@ -8,7 +8,7 @@
 </template>
 <script>
 	export default {
-		props: ['avadarSrc', 'name'],
+		props: ['avadarSrc', 'name', 'id'],
 		methods: {
 			emit: function() {
 				this.$emit('click')

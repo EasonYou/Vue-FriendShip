@@ -8,10 +8,10 @@ export default {
 		sideList: [
 			{
 				desc: 'Vue-FriendShip',
-				link: 'home'
+				link: '/home'
 			}, {
 				desc: 'Profile',
-				link: 'myinformation',
+				link: '/myinformation',
 			}
 		],
 		replyUser:'sss',

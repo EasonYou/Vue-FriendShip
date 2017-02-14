@@ -54,7 +54,7 @@ const routes = [{
 	path: '/followlist',
 	component: FollowList
 },{
-	path: '/profile',
+	path: '/profile/:id',
 	component: Profile
 },{
   path: '/myinformation',
@@ -62,7 +62,8 @@ const routes = [{
 }]
 
 const router = new vueRouter({
-    routes
+    routes,
+    mode:'history'
 })
 
 /* eslint-disable no-new */
