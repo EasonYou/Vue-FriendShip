@@ -15,7 +15,9 @@
 				<div class="picture-list-desc">
 					<span>相册</span>
 				</div>
-				<PictureLayer v-for="pictureAddress in profileData.pictureList" :pictureAddress="pictureAddress"></PictureLayer>
+				<div class="picture-list-container">
+					<PictureLayer v-for="pictureAddress in profileData.pictureList" :pictureAddress="pictureAddress"></PictureLayer>
+				</div>
 			</div>
 		</transition>
 		<transition name="text-fade">
@@ -150,18 +152,21 @@
 					display: block;
 				}
 			}
+			.picture-list-container {
+					display: flex;
+					flex-wrap: wrap;
+			}
 			
 			.photo-thumbnail {
 				width: 33%;
-				height: 10rem;
 				position: relative;
 				max-width: 9rem;
 				margin-top: 0.8rem;
 				img {
-					position: absolute;
+					width: 80%;
+					height: auto;
 					top: 50%;
 					left: 50%;
-					transform: translate(-50%, -50%)
 				}
 			}
 			@media screen and (max-width: 320px) {

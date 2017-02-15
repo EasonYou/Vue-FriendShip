@@ -37,6 +37,8 @@
 			border-radius: 50%;
 		}
 		span {
+			font-size: 0.8rem;
+			line-height: 0.8rem;
 			color: #6d6d6d;
 			display: inline-block;
 			width: 100%;

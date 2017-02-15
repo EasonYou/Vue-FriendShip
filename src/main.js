@@ -6,13 +6,14 @@ import Home from './views/Home'
 import FollowList from './views/FollowList'
 import Profile from './views/Profile'
 
-
-import vueRouter from 'vue-router'
-import vueTap from 'v-tap'
-
 import store from './vuex'
+import vueRouter from 'vue-router'
 
-Vue.use(vueTap)
+import axios from 'axios'
+import Mock from './mock/mock.js'
+
+Vue.prototype.$http = axios
+
 Vue.use(vueRouter)
 
 Vue.directive('focus', {

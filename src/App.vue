@@ -1,4 +1,4 @@
-<template>
+\<template>
   <div id="app">
       <Sidebar :show="sideShow" :sideList="sideList" :picAdd="sideBarPicture" :rightSide="false" @click="hide" v-on:navName="changeNavName"></Sidebar>
       <Alert :lists="lists"
@@ -93,7 +93,17 @@ export default {
     },
   },
   mounted: function() {
+      
+
     let start,end,self = this
+    this.$http.get('/friendsShipList')
+      .then(function (response) {
+        console.log(response);
+        self.$store.state.pictureList = response.data
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     let screenWidth = window.screen.width
     document.addEventListener('touchstart', function(e) {
       start = e.changedTouches[0].pageX
@@ -111,41 +121,13 @@ export default {
 </script>
 
 <style lang="scss">
-@media screen and (min-width: 880px) {
-    body {
-        background-color:#3c3c3c;
-        .container {
-          left: 50%;
-          transform: translateX(-50%);
-        }
-    }
-}
+
 body,html{
   margin: 0;
   height: 100%;
   // background-color: #3c3c3c;
 }
-.right-to-left-fade-enter {
-  transform: translate(120%);
-  opacity: 0;
-}
-.right-to-left-fade-enter-active ,.right-to-left-fade-leave-active{
-  transition: all 0.5s cubic-bezier(.36, .66, .04, 1);
-}
-.right-to-left-fade-leave-active {
-  opacity: 0.2;
-}
 
-.left-to-right-fade-enter {
-  opacity: 0.2;
-}
-.left-to-right-fade-enter-active ,.left-to-right-fade-leave-active{
-  transition: all 0.5s cubic-bezier(.36, .66, .04, 1);
-}
-.left-to-right-fade-leave-active {
-  transform: translate(120%);
-  z-index: 100;
-}
 .focus {
   box-shadow: 0 0 1rem rgba(87, 180, 141,0.2);
 }
@@ -184,10 +166,47 @@ body,html{
     overflow-y: scroll;
     max-width: 880px;
     margin: 0 auto;
+    transform: translate(0);
+  }
+  .right-to-left-fade-enter {
+  transform: translate(120%);
+  opacity: 0;
+  }
+  .right-to-left-fade-enter-active {
+    transition: all 0.5s cubic-bezier(.36, .66, .04, 1);
+  }
+  .right-to-left-fade-leave-active{
+    transition: all 0.5s cubic-bezier(.36, .66, .04, 1);
+  }
+  .right-to-left-fade-leave-active {
+    opacity: 0.2;
+  }
+
+  .left-to-right-fade-enter {
+    opacity: 0.2;
+  }
+  .left-to-right-fade-enter-active ,.left-to-right-fade-leave-active{
+    transition: all 1s cubic-bezier(.36, .66, .04, 1);
+  }
+  .left-to-right-fade-leave-active {
+    transform: translate(120%);
+    z-index: 100;
   }
   .container::-webkit-scrollbar{
     width: 0px;
   }
+}
+
+@media screen and (min-width: 880px) {
+    body {
+        background-color:#3c3c3c;
+        #app {
+          .container {
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+    }
 }
 </style>
 <style>
