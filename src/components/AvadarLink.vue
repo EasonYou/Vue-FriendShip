@@ -1,5 +1,5 @@
 <template>
-	<router-link class="link-avadar" :to="'profile/'+id">
+	<router-link class="link-avadar" :to="'/profile/' + id">
 		<div class="clearfix" v-on:click="emit" >
 			<img :src="avadarSrc" @:click="emit">
 			<span @:click="emit">{{ name }}</span>

@@ -1,11 +1,11 @@
 <template>
 	<div id="home" class="container">
 	<Tab :status="tabStatus" :tabList="tabList" :dispatch="'changeTabStatus'" :getter="'tabStatus'">
-		<div class="container " slot="left" v-autoSroll="[scrollTop, 'homeLeft']">
+		<div class="container homeLeft" slot="left">
 			<TopPicture :topPictureDesc="topPictureDesc" :topPictureAddress="topPictureAddress">
 				<div class="btnctn">
 					<Btn :className="'btn-gray'">
-						<router-link :to="'followlist'">我的关注</router-link>
+						<router-link :to="'followlist/' + userName ">我的关注</router-link>
 					</Btn>
 				</div>
 			</TopPicture>
@@ -16,10 +16,10 @@
 				</PhotoItem>
 			</div>
 		</div>
-		<div class="container" slot="right" v-autoSroll="[scrollTop, 'homeRight']">
-			<TopPicture :topPictureDesc="topPictureDesc" :topPictureAddress="topPictureAddress"></TopPicture>
+		<div class="container homeRight" slot="right">
+			<TopPicture :topPictureDesc="allTopPictureDesc" :topPictureAddress="allTopPictureAddress"></TopPicture>
 			<div class="photo-items-cont">
-				<PhotoItem v-for="(picL, index) in pictureList" 
+				<PhotoItem v-for="(picL, index) in allPictureList" 
 						   :pictureList="picL" 
 						   :index="index" >
 				</PhotoItem>
@@ -57,28 +57,39 @@
 			pictureList: function() {
 				return this.$store.getters.pictureList
 			},
-			delAlertStatus: function() {
-				return this.$store.getters.delAlertStatus
-			},
 			topPictureDesc: function() {
 				return this.$store.getters.topPictureDesc
 			},
 			topPictureAddress: function() {
 				return this.$store.getters.topPictureAddress
 			},
+			userName: function() {
+				return this.$store.getters.userName
+			},
 			tabStatus: function() {
 				return this.$store.getters.tabStatus
+			},
+			allPictureList: function() {
+				return this.$store.getters.allPictureList
+			},
+			allTopPictureDesc: function() {
+				return this.$store.getters.allTopPictureDesc
+			},
+			allTopPictureAddress: function() {
+				return this.$store.getters.allTopPictureAddress
 			}
 		},
-		created: function() {
-			this.$store.dispatch('changeNavName', 'Vue-FriendShip')
+		deactivated: function() {
+			this.scrollTop.homeLeft = document.getElementsByClassName('homeLeft')[0].scrollTop
+			this.scrollTop.Right = document.getElementsByClassName('homeRight')[0].scrollTop
+			this.$store.dispatch('navShow')
 		},
-		mounted: function() {
+		activated: function() {
+			document.getElementsByClassName('homeLeft')[0].scrollTop = this.scrollTop.homeLeft
+			document.getElementsByClassName('homeRight')[0].scrollTop = this.scrollTop.homeRight
+			this.$store.dispatch('changeNavName', 'Vue-FriendShip')
 			this.$store.dispatch('changeDirection', 'right-to-left-fade')
 			this.$emit('navName', 'Vue-FriendShip')
-		},
-		destroyed: function() {
-			this.$store.dispatch('navShow')
 		}
 	}
 </script>

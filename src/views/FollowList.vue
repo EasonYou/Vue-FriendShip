@@ -14,9 +14,13 @@
 		computed: {
 			followList: function() {
 				return this.$store.getters.followList
+			},
+			userName: function() {
+				return this.$store.getters.userName
 			}
 		},
 		created: function() {
+			this.$store.dispatch('getFollowList', this.userName)
 			this.$store.dispatch('changeNavName', '我的关注')
 		},
 		destroyed: function() {

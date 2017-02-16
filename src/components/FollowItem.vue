@@ -1,6 +1,6 @@
 <template>
 <div class="follow-item clearfix">
-	<AvadarLink :avadarSrc="list.src" :name="list.name" @click="changeFollowListBtn"></AvadarLink>
+	<AvadarLink :avadarSrc="list.src" :name="list.name" :id="list.id" @click="changeFollowListBtn"></AvadarLink>
 	<div class="text-container clearfix">
 		<span class="desc">{{ list.desc }}</span>
 		<span class="follow-number">follow number: {{ list.followNumber }}</span>

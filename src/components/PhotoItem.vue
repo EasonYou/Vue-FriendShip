@@ -1,6 +1,6 @@
 <template>
 	<div class="photo-item clearfix">
-		<AvadarLink :name="pictureList.name" :avadarSrc="pictureList.src" :id="'wade'" @click="changeFollowBtn"></AvadarLink>
+		<AvadarLink :name="pictureList.name" :avadarSrc="pictureList.src" :id="pictureList.id" @click="changeFollowBtn"></AvadarLink>
 		<div class="main-container clearfix">
 			<span class="item-desc" >{{ pictureList.desc }}</span>
 			<PictureLayer :pictureAddress="pictureList.pictureAdd"><PictureLayer>

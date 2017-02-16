@@ -1,40 +1,41 @@
 import Vue from 'vue'
 import * as types from '../mutation-types'
+import axios from 'axios'
 
 export default {
 	state: {
-		name: 'Dwyane Wade',
-		avadarAdress: '../../static/104683.jpg',
-		pictureList: [
-			'../../static/104683.jpg',
-			'../../static/58447_1262335109I868.jpg',
-			'../../static/FONT.jpg',
-			'../../static/WADEpsd2.jpg',
-			'../../static/104683.jpg',
-			'../../static/104683.jpg',
-			'../../static/104683.jpg',
-			'../../static/58447_1262335109I868.jpg',
-			'../../static/FONT.jpg',
-			'../../static/WADEpsd2.jpg',
-			'../../static/104683.jpg',
-			'../../static/104683.jpg',
-			'../../static/104683.jpg',
-			'../../static/58447_1262335109I868.jpg',
-			'../../static/FONT.jpg',
-			'../../static/WADEpsd2.jpg',
-			'../../static/104683.jpg',
-			'../../static/104683.jpg'
-		]
+		data: {
+
+		}
 	},
 	getters: {
 		profileData: state => {
-			return state
+			return state.data
 		},
 	},
 	mutations: {
-
+		GET_PROFILE_DATA (state, data) {
+			state.data = data
+		}
 	},
 	actions: {
-
+		getProfileData (contex, name) {
+			let mutation = contex
+			let url
+			if(name) {
+				url = '/name/' + name
+			} else {
+				url = 'myinformation'
+			}
+			
+			axios.get(url)
+				.then(function (response) {
+					console.log(response.data)
+				mutation.commit(types.GET_PROFILE_DATA, response.data)
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+		}
 	}
 }

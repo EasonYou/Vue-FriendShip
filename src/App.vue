@@ -1,4 +1,4 @@
-\<template>
+<template>
   <div id="app">
       <Sidebar :show="sideShow" :sideList="sideList" :picAdd="sideBarPicture" :rightSide="false" @click="hide" v-on:navName="changeNavName"></Sidebar>
       <Alert :lists="lists"
@@ -11,7 +11,9 @@
       </transition>
       <!-- <div class="nav-mask"></div> -->
       <transition :name="direction">
-        <router-view v-on:navName="changeNavName" ></router-view>
+        <keep-alive include="Home">
+          <router-view v-on:navName="changeNavName"></router-view>
+        </keep-alive>
       </transition>
       <SendMessage v-if="sendBlock"></SendMessage>
       <PictureView :show="pictureView"></PictureView>
@@ -78,6 +80,10 @@ export default {
     }
   },
   store,
+  created: function() {
+    this.$store.dispatch('getFriendShipList')
+    this.$store.dispatch('getAllList')
+  },
   methods: {
     changeNavName: function(val) {
       this.navName = val
@@ -93,17 +99,7 @@ export default {
     },
   },
   mounted: function() {
-      
-
     let start,end,self = this
-    this.$http.get('/friendsShipList')
-      .then(function (response) {
-        console.log(response);
-        self.$store.state.pictureList = response.data
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
     let screenWidth = window.screen.width
     document.addEventListener('touchstart', function(e) {
       start = e.changedTouches[0].pageX
@@ -125,6 +121,7 @@ export default {
 body,html{
   margin: 0;
   height: 100%;
+  overflow: hidden;
   // background-color: #3c3c3c;
 }
 
@@ -166,17 +163,17 @@ body,html{
     overflow-y: scroll;
     max-width: 880px;
     margin: 0 auto;
-    transform: translate(0);
+    transform: translate3d(0);
   }
   .right-to-left-fade-enter {
-  transform: translate(120%);
+  transform: translate3d(120%, 0, 0);
   opacity: 0;
   }
   .right-to-left-fade-enter-active {
-    transition: all 0.5s cubic-bezier(.36, .66, .04, 1);
+    transition: all 0.8s cubic-bezier(.36, .66, .04, 1);
   }
   .right-to-left-fade-leave-active{
-    transition: all 0.5s cubic-bezier(.36, .66, .04, 1);
+    transition: all 0.8s cubic-bezier(.36, .66, .04, 1);
   }
   .right-to-left-fade-leave-active {
     opacity: 0.2;
@@ -186,10 +183,10 @@ body,html{
     opacity: 0.2;
   }
   .left-to-right-fade-enter-active ,.left-to-right-fade-leave-active{
-    transition: all 1s cubic-bezier(.36, .66, .04, 1);
+    transition: all 1.5s cubic-bezier(.36, .66, .04, 1);
   }
   .left-to-right-fade-leave-active {
-    transform: translate(120%);
+    transform: translate3d(120%, 0, 0);
     z-index: 100;
   }
   .container::-webkit-scrollbar{

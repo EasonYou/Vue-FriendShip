@@ -1,11 +1,11 @@
 <template>
 	<div id="profile" class="container">
 		<div class="profile-container">
-			<TopPicture :topPictureAddress="'../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg'">
+			<TopPicture :topPictureAddress="profileData.profileTopPic">
 				<div class="information">
-					<span class="nick-name">Nick Name: Wade</span>
-					<span class="birthday">Birthday: 2017-10-1</span>
-					<span class="gender">Gender: male</span>
+					<span class="birthday">Birthday: {{ profileData.birthday }}</span>
+					<span class="gender">Gender: {{ profileData.gender }}</span>
+					<span class="address">Address: {{ profileData.address }}</span>
 				</div>
 			</TopPicture>
 			<Avadar :avdarAdress="profileData.avadarAdress" :avadarName="profileData.name"></Avadar>
@@ -86,22 +86,22 @@
 				this.leaveWordBinding = val
 			}
 		},
-		created: function() {
+		activated: function() {
 			this.$store.dispatch('changeNavName', '详细信息')
+			this.$store.dispatch('getProfileData', this.$route.params.id)
+			this.$emit('navName', 'Profile')
 		},
-		destroyed: function() {
+		deacivated: function() {
 			this.$store.dispatch('changeDirection', 'right-to-left-fade')
 			this.$store.dispatch('closeLeaveWordStatus', false)
 			this.$store.dispatch('navShow')
 			this.$store.dispatch('changeFollowListBtn', true)
 		},
-		mounted: function() {
-			this.$emit('navName', 'Profile')
-		},
 		watch: {
 			$route: function(to, from) {
-				console.log(to, from)
-				/* get operation */
+				if(to.path === '/myinformation') {
+					this.$store.dispatch('getProfileData', this.$route.params.id)
+				}
 			}
 		}
 	}
@@ -162,6 +162,7 @@
 				position: relative;
 				max-width: 9rem;
 				margin-top: 0.8rem;
+				height: 10rem;
 				img {
 					width: 80%;
 					height: auto;

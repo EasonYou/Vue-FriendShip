@@ -1,64 +1,34 @@
 import Vue from 'vue'
 import * as types from '../mutation-types'
+import axios from 'axios'
 
 export default {
 	state: {
-		followList: [{
-			name: 'Wade',
-			src: '../../static/104683.jpg',
-			desc: '啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊',
-			followNumber: 200000
-		},{
-			name: 'Wade',
-			src: '../../static/104683.jpg',
-			desc: '啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊',
-			followNumber: 200000
-		},{
-			name: 'Wade',
-			src: '../../static/104683.jpg',
-			desc: 'hello world!',
-			followNumber: 200000
-		},{
-			name: 'Wade',
-			src: '../../static/104683.jpg',
-			desc: 'hello world!',
-			followNumber: 200000
-		},{
-			name: 'Wade',
-			src: '../../static/104683.jpg',
-			desc: 'hello world!',
-			followNumber: 200000
-		},{
-			name: 'Wade',
-			src: '../../static/104683.jpg',
-			desc: 'hello world!',
-			followNumber: 200000
-		},{
-			name: 'Wade',
-			src: '../../static/104683.jpg',
-			desc: 'hello world!',
-			followNumber: 200000
-		},{
-			name: 'Wade',
-			src: '../../static/104683.jpg',
-			desc: 'hello world!',
-			followNumber: 200000
-		},{
-			name: 'Wade',
-			src: '../../static/104683.jpg',
-			desc: 'hello world!',
-			followNumber: 200000
-		}]
+		data: {
+
+		}
 	},
 	getters: {
 		followList: state => {
-			return state.followList
+			return state.data.followList
 		},
 	},
 	mutations: {
-
+		GET_FOLLOW_LIST (state, list) {
+			console.log(state)
+			state.data = list
+		}
 	},
 	actions: {
-
+		getFollowList (contex, name) {
+			let mutation = contex
+			axios.get('/followlist/' + name)
+				.then(function (response) {
+				mutation.commit(types.GET_FOLLOW_LIST, response.data)
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+		}
 	}
 }

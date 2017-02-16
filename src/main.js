@@ -30,17 +30,6 @@ Vue.directive('focus', {
   }
 })
 
-Vue.directive('autoSroll', {
-  inserted: function (el, value) {
-    let buffer = value.value
-    let scrollTop = buffer[0][buffer[1]]
-    el.scrollTop = scrollTop
-  },
-  unbind: function(el, value) {
-    let buffer = value.value
-    buffer[0][buffer[1]] = el.scrollTop
-  }
-})
 
 
 
@@ -52,7 +41,7 @@ const routes = [{
 	component: Home
 },
 {
-	path: '/followlist',
+	path: '/followlist/:id',
 	component: FollowList
 },{
 	path: '/profile/:id',
