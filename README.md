@@ -3,6 +3,7 @@
 > webapp social-module based on vue-cli
 
  **没有使用任何UI组件库**
+ (图片很大...clone会慢些，以后再修改)
  
 ## Build Setup
 

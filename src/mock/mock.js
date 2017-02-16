@@ -3,14 +3,14 @@ import Mock from 'mockjs'
 Mock.mock('/friendsShipList', {
     "userName": 'Wade',
     "topPictureDesc": '@sentence(5)',
-    "topPictureAddress": '../../static/104683.jpg',
-    "sideBarPicture": '../../static/104683.jpg',
+    "topPictureAddress|1": ['../../static/WADEpsd2.jpg', '../../static/logo.png', '../../static/FONT.jpg', '../../static/58447_1262335109I868.jpg', '../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg'],
+    "sideBarPicture|1": ['../../static/WADEpsd2.jpg', '../../static/logo.png', '../../static/FONT.jpg', '../../static/58447_1262335109I868.jpg', '../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg'],
     "pictureItemList|20": [{
         "name": '@name',
         "id": '@last',
         "desc": '@sentence(5)',
-        "src": '../../static/104683.jpg',
-        "pictureAdd": '../../static/104683.jpg',
+        "src|1": ['../../static/WADEpsd2.jpg', '../../static/logo.png', '../../static/FONT.jpg', '../../static/58447_1262335109I868.jpg', '../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg'],
+        "pictureAdd|1": ['../../static/WADEpsd2.jpg', '../../static/logo.png', '../../static/FONT.jpg', '../../static/58447_1262335109I868.jpg', '../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg'],
         "isLike": '@boolean',
         "comment|1-5": [{
             "sent|1": ["Wade", "James", "Antony", "Paul"],
@@ -24,13 +24,13 @@ Mock.mock('/friendsShipList', {
 
 Mock.mock('/allList', {
     "topPictureDesc": '@sentence(5)',
-    "topPictureAddress": '../../static/104683.jpg',
+    "topPictureAddress|1": ['../../static/WADEpsd2.jpg', '../../static/logo.png', '../../static/FONT.jpg', '../../static/58447_1262335109I868.jpg', '../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg'],
     "pictureItemList|20": [{
         "name": '@name',
         "id": '@last',
         "desc": '@sentence(5)',
-        "src|1": '../../static/104683.jpg',
-        "pictureAdd": '../../static/104683.jpg',
+        "src|1": ['../../static/WADEpsd2.jpg', '../../static/logo.png', '../../static/FONT.jpg', '../../static/58447_1262335109I868.jpg', '../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg'],
+        "pictureAdd|1": ['../../static/WADEpsd2.jpg', '../../static/logo.png', '../../static/FONT.jpg', '../../static/58447_1262335109I868.jpg', '../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg'],
         "isLike": '@boolean',
         "comment|1-5": [{
             "sent|1": ["Wade", "James", "Antony", "Paul"],
@@ -42,7 +42,7 @@ Mock.mock('/allList', {
     }]
 })
 
-Mock.mock(/\/name\/\w/, {
+Mock.mock(/\/profile\/\w/, {
     "name": '@name',
     "gender|1": ['male', 'famle'],
     "birthday": "@date('yyyy-MM')",

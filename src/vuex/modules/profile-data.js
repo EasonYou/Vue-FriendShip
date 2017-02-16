@@ -23,7 +23,7 @@ export default {
 			let mutation = contex
 			let url
 			if(name) {
-				url = '/name/' + name
+				url = '/profile/' + name
 			} else {
 				url = 'myinformation'
 			}
