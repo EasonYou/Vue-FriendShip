@@ -24,6 +24,7 @@ export default {
 		profileToast: false,
 		leaveWordStatus: false,
 		textareaToast: false,
+		followToast: false,
 		navShow: true,
 		tabStatus: true,
 		followListBtn: true,
@@ -65,6 +66,9 @@ export default {
 		},
 		profileToast: state => {
 			return state.profileToast
+		},
+		followToast: state => {
+			return state.followToast
 		},
 		leaveWordStatus: state => {
 			return state.leaveWordStatus
@@ -147,6 +151,9 @@ export default {
 		CHANGE_NAV_NAME (state, name) {
 			state.navName = name
 		},
+		CHANGE_FOLLOW_TOAST (state, status) {
+			state.followToast = status
+		}
 	},
 	actions: {
     	changeSidebar (context) {
@@ -202,6 +209,9 @@ export default {
 		},
 		changeNavName (context, name) {
 			context.commit(types.CHANGE_NAV_NAME, name)
+		},
+		changeFollowToast (context, status) {
+			context.commit(types.CHANGE_FOLLOW_TOAST, status)
 		}
     }
 }

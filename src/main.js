@@ -14,6 +14,8 @@ import Mock from './mock/mock.js'
 
 Vue.prototype.$http = axios
 
+// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
 Vue.use(vueRouter)
 
 Vue.directive('focus', {
@@ -52,8 +54,8 @@ const routes = [{
 }]
 
 const router = new vueRouter({
-    routes,
-    mode:'history'
+    routes
+    // mode:'history'
 })
 
 /* eslint-disable no-new */

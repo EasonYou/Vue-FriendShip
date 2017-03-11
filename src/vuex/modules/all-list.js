@@ -29,12 +29,12 @@ export default {
 			let mutation = contex
 			axios.get('/allList')
 				.then(function (response) {
-					console.log(response)
 				mutation.commit(types.GET_ALL_LIST, response.data)
 			})
 			.catch(function (error) {
 				console.log(error);
 			});
+			
 		}
 	}
 }

@@ -9,6 +9,7 @@
 export default {
 	props: ['dispatch', 'lifeCycle'],
 	mounted: function() {
+		console.log(this.dispatch)
 		let lifeCycle = this.lifeCycle || 1000
 		let self = this
 		setTimeout(function() {

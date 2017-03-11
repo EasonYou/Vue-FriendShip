@@ -5,7 +5,7 @@ Mock.mock('/friendsShipList', {
     "topPictureDesc": '@sentence(5)',
     "topPictureAddress|1": ['../../static/WADEpsd2.jpg', '../../static/logo.png', '../../static/FONT.jpg', '../../static/58447_1262335109I868.jpg', '../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg'],
     "sideBarPicture|1": ['../../static/WADEpsd2.jpg', '../../static/logo.png', '../../static/FONT.jpg', '../../static/58447_1262335109I868.jpg', '../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg'],
-    "pictureItemList|20": [{
+    "pictureItemList|10": [{
         "name": '@name',
         "id": '@last',
         "desc": '@sentence(5)',
@@ -25,7 +25,7 @@ Mock.mock('/friendsShipList', {
 Mock.mock('/allList', {
     "topPictureDesc": '@sentence(5)',
     "topPictureAddress|1": ['../../static/WADEpsd2.jpg', '../../static/logo.png', '../../static/FONT.jpg', '../../static/58447_1262335109I868.jpg', '../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg'],
-    "pictureItemList|20": [{
+    "pictureItemList|10": [{
         "name": '@name',
         "id": '@last',
         "desc": '@sentence(5)',

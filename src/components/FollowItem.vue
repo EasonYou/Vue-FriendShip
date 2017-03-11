@@ -22,6 +22,7 @@
 		methods: {
 			follow: function() {
 				console.log('关注动作')
+				this.$store.dispatch('changeFollowToast', true)
 				/* post */
 			},
 			changeFollowListBtn: function() {

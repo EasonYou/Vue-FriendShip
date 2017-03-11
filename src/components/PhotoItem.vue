@@ -46,6 +46,6 @@
 		}
 	}
 	.photo-item:last-child {
-		margin-bottom: 3rem;
+		padding-bottom: 10rem;
 	}
 </style>

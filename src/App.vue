@@ -163,7 +163,7 @@ body,html{
     overflow-y: scroll;
     max-width: 880px;
     margin: 0 auto;
-    transform: translate3d(0);
+    transform: translate3d(0,0,0);
   }
   .right-to-left-fade-enter {
   transform: translate3d(120%, 0, 0);
