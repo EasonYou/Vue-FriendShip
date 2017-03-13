@@ -3,14 +3,30 @@ import Mock from 'mockjs'
 Mock.mock('/friendsShipList', {
     "userName": 'Wade',
     "topPictureDesc": '@sentence(5)',
-    "topPictureAddress|1": ['../../static/WADEpsd2.jpg', '../../static/logo.png', '../../static/FONT.jpg', '../../static/58447_1262335109I868.jpg', '../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg'],
-    "sideBarPicture|1": ['../../static/WADEpsd2.jpg', '../../static/logo.png', '../../static/FONT.jpg', '../../static/58447_1262335109I868.jpg', '../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg'],
+    "topPictureAddress|1": ['http://wx4.sinaimg.cn/mw690/5ed7d034ly1fdj0o6t3bcj20zk0qo7fd.jpg', 
+                            'http://wx2.sinaimg.cn/mw690/5ed7d034ly1fdj0o4bacaj20zk0qodrl.jpg',
+                            'http://wx1.sinaimg.cn/mw690/5ed7d034ly1fdj0o9ijhyj20zk0qo7de.jpg', 
+                            'http://wx2.sinaimg.cn/mw690/7f58db7bgy1fcyhgi0un1j20go0gudl0.jpg', 
+                            'http://ww1.sinaimg.cn/mw690/005HOTvCjw1fd4zmvhc02j30fo0h6jua.jpg'],
+    "sideBarPicture|1": ['http://wx4.sinaimg.cn/mw690/5ed7d034ly1fdj0o6t3bcj20zk0qo7fd.jpg', 
+                            'http://wx2.sinaimg.cn/mw690/5ed7d034ly1fdj0o4bacaj20zk0qodrl.jpg',
+                            'http://wx1.sinaimg.cn/mw690/5ed7d034ly1fdj0o9ijhyj20zk0qo7de.jpg', 
+                            'http://wx2.sinaimg.cn/mw690/7f58db7bgy1fcyhgi0un1j20go0gudl0.jpg', 
+                            'http://ww1.sinaimg.cn/mw690/005HOTvCjw1fd4zmvhc02j30fo0h6jua.jpg'],
     "pictureItemList|10": [{
         "name": '@name',
         "id": '@last',
         "desc": '@sentence(5)',
-        "src|1": ['../../static/WADEpsd2.jpg', '../../static/logo.png', '../../static/FONT.jpg', '../../static/58447_1262335109I868.jpg', '../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg'],
-        "pictureAdd|1": ['../../static/WADEpsd2.jpg', '../../static/logo.png', '../../static/FONT.jpg', '../../static/58447_1262335109I868.jpg', '../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg'],
+        "src|1": ['http://wx4.sinaimg.cn/mw690/5ed7d034ly1fdj0o6t3bcj20zk0qo7fd.jpg', 
+                            'http://wx2.sinaimg.cn/mw690/5ed7d034ly1fdj0o4bacaj20zk0qodrl.jpg',
+                            'http://wx1.sinaimg.cn/mw690/5ed7d034ly1fdj0o9ijhyj20zk0qo7de.jpg', 
+                            'http://wx2.sinaimg.cn/mw690/7f58db7bgy1fcyhgi0un1j20go0gudl0.jpg', 
+                            'http://ww1.sinaimg.cn/mw690/005HOTvCjw1fd4zmvhc02j30fo0h6jua.jpg'],
+        "pictureAdd|1": ['http://wx4.sinaimg.cn/mw690/5ed7d034ly1fdj0o6t3bcj20zk0qo7fd.jpg', 
+                            'http://wx2.sinaimg.cn/mw690/5ed7d034ly1fdj0o4bacaj20zk0qodrl.jpg',
+                            'http://wx1.sinaimg.cn/mw690/5ed7d034ly1fdj0o9ijhyj20zk0qo7de.jpg', 
+                            'http://wx2.sinaimg.cn/mw690/7f58db7bgy1fcyhgi0un1j20go0gudl0.jpg', 
+                            'http://ww1.sinaimg.cn/mw690/005HOTvCjw1fd4zmvhc02j30fo0h6jua.jpg'],
         "isLike": '@boolean',
         "comment|1-5": [{
             "sent|1": ["Wade", "James", "Antony", "Paul"],
@@ -24,13 +40,25 @@ Mock.mock('/friendsShipList', {
 
 Mock.mock('/allList', {
     "topPictureDesc": '@sentence(5)',
-    "topPictureAddress|1": ['../../static/WADEpsd2.jpg', '../../static/logo.png', '../../static/FONT.jpg', '../../static/58447_1262335109I868.jpg', '../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg'],
+    "topPictureAddress|1": ['http://wx4.sinaimg.cn/mw690/5ed7d034ly1fdj0o6t3bcj20zk0qo7fd.jpg', 
+                            'http://wx2.sinaimg.cn/mw690/5ed7d034ly1fdj0o4bacaj20zk0qodrl.jpg',
+                            'http://wx1.sinaimg.cn/mw690/5ed7d034ly1fdj0o9ijhyj20zk0qo7de.jpg', 
+                            'http://wx2.sinaimg.cn/mw690/7f58db7bgy1fcyhgi0un1j20go0gudl0.jpg', 
+                            'http://ww1.sinaimg.cn/mw690/005HOTvCjw1fd4zmvhc02j30fo0h6jua.jpg'],
     "pictureItemList|10": [{
         "name": '@name',
         "id": '@last',
         "desc": '@sentence(5)',
-        "src|1": ['../../static/WADEpsd2.jpg', '../../static/logo.png', '../../static/FONT.jpg', '../../static/58447_1262335109I868.jpg', '../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg'],
-        "pictureAdd|1": ['../../static/WADEpsd2.jpg', '../../static/logo.png', '../../static/FONT.jpg', '../../static/58447_1262335109I868.jpg', '../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg'],
+        "src|1": ['http://wx4.sinaimg.cn/mw690/5ed7d034ly1fdj0o6t3bcj20zk0qo7fd.jpg', 
+                            'http://wx2.sinaimg.cn/mw690/5ed7d034ly1fdj0o4bacaj20zk0qodrl.jpg',
+                            'http://wx1.sinaimg.cn/mw690/5ed7d034ly1fdj0o9ijhyj20zk0qo7de.jpg', 
+                            'http://wx2.sinaimg.cn/mw690/7f58db7bgy1fcyhgi0un1j20go0gudl0.jpg', 
+                            'http://ww1.sinaimg.cn/mw690/005HOTvCjw1fd4zmvhc02j30fo0h6jua.jpg'],
+        "pictureAdd|1": ['http://wx4.sinaimg.cn/mw690/5ed7d034ly1fdj0o6t3bcj20zk0qo7fd.jpg', 
+                            'http://wx2.sinaimg.cn/mw690/5ed7d034ly1fdj0o4bacaj20zk0qodrl.jpg',
+                            'http://wx1.sinaimg.cn/mw690/5ed7d034ly1fdj0o9ijhyj20zk0qo7de.jpg', 
+                            'http://wx2.sinaimg.cn/mw690/7f58db7bgy1fcyhgi0un1j20go0gudl0.jpg', 
+                            'http://ww1.sinaimg.cn/mw690/005HOTvCjw1fd4zmvhc02j30fo0h6jua.jpg'],
         "isLike": '@boolean',
         "comment|1-5": [{
             "sent|1": ["Wade", "James", "Antony", "Paul"],
@@ -47,9 +75,21 @@ Mock.mock(/\/profile\/\w/, {
     "gender|1": ['male', 'famle'],
     "birthday": "@date('yyyy-MM')",
     "address": "@county(true)",
-    "profileTopPic|1": ['../../static/WADEpsd2.jpg', '../../static/logo.png', '../../static/FONT.jpg', '../../static/58447_1262335109I868.jpg', '../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg'],
-    "avadarAdress|1": ['../../static/WADEpsd2.jpg', '../../static/logo.png', '../../static/FONT.jpg', '../../static/58447_1262335109I868.jpg', '../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg'],
-    "pictureList|1-2": ['../../static/WADEpsd2.jpg', '../../static/logo.png', '../../static/FONT.jpg', '../../static/58447_1262335109I868.jpg', '../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg']
+    "profileTopPic|1": ['http://wx4.sinaimg.cn/mw690/5ed7d034ly1fdj0o6t3bcj20zk0qo7fd.jpg', 
+                            'http://wx2.sinaimg.cn/mw690/5ed7d034ly1fdj0o4bacaj20zk0qodrl.jpg',
+                            'http://wx1.sinaimg.cn/mw690/5ed7d034ly1fdj0o9ijhyj20zk0qo7de.jpg', 
+                            'http://wx2.sinaimg.cn/mw690/7f58db7bgy1fcyhgi0un1j20go0gudl0.jpg', 
+                            'http://ww1.sinaimg.cn/mw690/005HOTvCjw1fd4zmvhc02j30fo0h6jua.jpg'],
+    "avadarAdress|1": ['http://wx4.sinaimg.cn/mw690/5ed7d034ly1fdj0o6t3bcj20zk0qo7fd.jpg', 
+                            'http://wx2.sinaimg.cn/mw690/5ed7d034ly1fdj0o4bacaj20zk0qodrl.jpg',
+                            'http://wx1.sinaimg.cn/mw690/5ed7d034ly1fdj0o9ijhyj20zk0qo7de.jpg', 
+                            'http://wx2.sinaimg.cn/mw690/7f58db7bgy1fcyhgi0un1j20go0gudl0.jpg', 
+                            'http://ww1.sinaimg.cn/mw690/005HOTvCjw1fd4zmvhc02j30fo0h6jua.jpg'],
+    "pictureList|1-2": ['http://wx4.sinaimg.cn/mw690/5ed7d034ly1fdj0o6t3bcj20zk0qo7fd.jpg', 
+                            'http://wx2.sinaimg.cn/mw690/5ed7d034ly1fdj0o4bacaj20zk0qodrl.jpg',
+                            'http://wx1.sinaimg.cn/mw690/5ed7d034ly1fdj0o9ijhyj20zk0qo7de.jpg', 
+                            'http://wx2.sinaimg.cn/mw690/7f58db7bgy1fcyhgi0un1j20go0gudl0.jpg', 
+                            'http://ww1.sinaimg.cn/mw690/005HOTvCjw1fd4zmvhc02j30fo0h6jua.jpg']
 })
 
 Mock.mock('myinformation', {
@@ -57,26 +97,25 @@ Mock.mock('myinformation', {
     "gender": 'male',
     "birthday": "1982-1",
     "address": "Miami",
-    "profileTopPic": '../../static/58447_1262335109I868.jpg',
-    "avadarAdress": '../../static/WADEpsd2.jpg',
-    "pictureList": ['../../static/WADEpsd2.jpg', '../../static/logo.png', '../../static/FONT.jpg', '../../static/58447_1262335109I868.jpg', '../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg']
+    "profileTopPic": 'http://wx4.sinaimg.cn/mw690/5ed7d034ly1fdj0o6t3bcj20zk0qo7fd.jpg',
+    "avadarAdress": 'http://wx4.sinaimg.cn/mw690/5ed7d034ly1fdj0o6t3bcj20zk0qo7fd.jpg',
+    "pictureList": ['http://wx4.sinaimg.cn/mw690/5ed7d034ly1fdj0o6t3bcj20zk0qo7fd.jpg', 
+                            'http://wx2.sinaimg.cn/mw690/5ed7d034ly1fdj0o4bacaj20zk0qodrl.jpg',
+                            'http://wx1.sinaimg.cn/mw690/5ed7d034ly1fdj0o9ijhyj20zk0qo7de.jpg', 
+                            'http://wx2.sinaimg.cn/mw690/7f58db7bgy1fcyhgi0un1j20go0gudl0.jpg', 
+                            'http://ww1.sinaimg.cn/mw690/005HOTvCjw1fd4zmvhc02j30fo0h6jua.jpg']
 })
 
-Mock.mock('myinformation', {
-    "name": 'Dwyane Wade',
-    "gender": 'male',
-    "birthday": "1982-1",
-    "address": "Miami",
-    "profileTopPic": '../../static/58447_1262335109I868.jpg',
-    "avadarAdress": '../../static/WADEpsd2.jpg',
-    "pictureList": ['../../static/WADEpsd2.jpg', '../../static/logo.png', '../../static/FONT.jpg', '../../static/58447_1262335109I868.jpg', '../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg']
-})
 
 Mock.mock(/\/followlist\/\w/, {
     'followList|10': [{
         "name": '@name',
         "id": '@last',
-        "src|1": ['../../static/WADEpsd2.jpg', '../../static/logo.png', '../../static/FONT.jpg', '../../static/58447_1262335109I868.jpg', '../../static/nTr1589kTgyXCOdStCGm_MikaRuusunen.jpg'],
+        "src|1": ['http://wx4.sinaimg.cn/mw690/5ed7d034ly1fdj0o6t3bcj20zk0qo7fd.jpg', 
+                            'http://wx2.sinaimg.cn/mw690/5ed7d034ly1fdj0o4bacaj20zk0qodrl.jpg',
+                            'http://wx1.sinaimg.cn/mw690/5ed7d034ly1fdj0o9ijhyj20zk0qo7de.jpg', 
+                            'http://wx2.sinaimg.cn/mw690/7f58db7bgy1fcyhgi0un1j20go0gudl0.jpg', 
+                            'http://ww1.sinaimg.cn/mw690/005HOTvCjw1fd4zmvhc02j30fo0h6jua.jpg'],
         "desc": '@sentence(5)',
         "followNumber": "@number"
     }]

@@ -15,8 +15,8 @@
 							   :index="index" >
 					</PhotoItem>
 					<div class="page-ctr">
-						<div class="pre" @click="pagination">上一页</div>
-						<div class="next" @click="pagination">下一页</div>
+						<div class="pre" @click="paginationFS('pre')">上一页</div>
+						<div class="next" @click="paginationFS('next')">下一页</div>
 					</div>
 				</div>
 			</div>
@@ -28,8 +28,8 @@
 							   :index="index" >
 					</PhotoItem>
 					<div class="page-ctr">
-						<div class="pre" @click="pagination">上一页</div>
-						<div class="next" @click="pagination">下一页</div>
+						<div class="pre" @click="paginationAL('pre')">上一页</div>
+						<div class="next" @click="paginationAL('next')">下一页</div>
 					</div>
 				</div>
 			</div>
@@ -59,9 +59,16 @@
 			}
 		},
 		methods: {
-			pagination () {
+			paginationFS (type) {
+				// if(type === 'next')
 				this.$store.dispatch('getFriendShipList')
 				document.getElementsByClassName('homeLeft')[0].scrollTop = 0
+    			// this.$store.dispatch('getAllList')
+			},
+			paginationAL (type) {
+				// if(type === 'next')
+				this.$store.dispatch('getAllList')
+				document.getElementsByClassName('homeRight')[0].scrollTop = 0
     			// this.$store.dispatch('getAllList')
 			}
 		},
