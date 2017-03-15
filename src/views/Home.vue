@@ -50,6 +50,7 @@
 	import Alert from '../components/Alert'
 	import Tab from '../components/Tab'
 	import Btn from '../components/Btn'
+	import util from '../util'
 	export default {
 		components: {
 			PhotoItem,
@@ -59,7 +60,7 @@
 			Tab,
 			Btn
 		},
-		data: function() {
+		data () {
 			return {
 				tabList:['朋友圈', '广场']
 			}
@@ -73,43 +74,40 @@
 			}
 		},
 		computed: {
-			scrollTop: function() {
+			scrollTop () {
 				return this.$store.getters.scrollRecord
 			},
-			pictureList: function() {
+			pictureList () {
 				return this.$store.getters.pictureList
 			},
-			topPictureDesc: function() {
+			topPictureDesc () {
 				return this.$store.getters.topPictureDesc
 			},
-			topPictureAddress: function() {
+			topPictureAddress () {
 				return this.$store.getters.topPictureAddress
 			},
-			userName: function() {
+			userName () {
 				return this.$store.getters.userName
 			},
-			tabStatus: function() {
+			tabStatus () {
 				return this.$store.getters.tabStatus
 			},
-			allPictureList: function() {
+			allPictureList () {
 				return this.$store.getters.allPictureList
 			},
-			allTopPictureDesc: function() {
+			allTopPictureDesc () {
 				return this.$store.getters.allTopPictureDesc
 			},
-			allTopPictureAddress: function() {
+			allTopPictureAddress () {
 				return this.$store.getters.allTopPictureAddress
 			}
 		},
-		deactivated: function() {
-			this.scrollTop.homeLeft = document.getElementsByClassName('homeLeft')[0].scrollTop
-			this.scrollTop.homeRight = document.getElementsByClassName('homeRight')[0].scrollTop
+		deactivated () {
+			util.storeScrollTop(this)
 			this.$store.dispatch('navShow')
 		},
-		activated: function() {
-			document.getElementsByClassName('homeLeft')[0].scrollTop = this.scrollTop.homeLeft
-			console.log(document.getElementsByClassName('homeRight')[0], this.scrollTop.homeRight)
-			document.getElementsByClassName('homeRight')[0].scrollTop = this.scrollTop.homeRight
+		activated () {
+			util.addScrollTop(this)
 			this.$store.dispatch('changeNavName', 'Vue-FriendShip')
 			this.$store.dispatch('changeDirection', 'right-to-left-fade')
 			this.$emit('navName', 'Vue-FriendShip')

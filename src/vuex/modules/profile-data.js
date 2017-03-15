@@ -27,15 +27,19 @@ export default {
 			} else {
 				url = 'myinformation'
 			}
-			
-			axios.get(url)
+			contex.dispatch('changeLoadingStatus', true)
+			setTimeout(function() {
+				axios.get(url)
 				.then(function (response) {
-					console.log(response.data)
-				mutation.commit(types.GET_PROFILE_DATA, response.data)
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
+				console.log(contex)
+					contex.dispatch('changeLoadingStatus', false)
+					mutation.commit(types.GET_PROFILE_DATA, response.data)
+				})
+				.catch(function (error) {
+					console.log(error);
+				});
+			},1000)
+			
 		}
 	}
 }

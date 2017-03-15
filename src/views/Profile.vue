@@ -1,5 +1,6 @@
 <template>
 	<div id="profile" class="container">
+		<Loading v-if="loadingStatus"></Loading>
 		<div class="profile-container">
 			<TopPicture :topPictureAddress="profileData.profileTopPic">
 				<div class="information">
@@ -31,6 +32,7 @@
 	</div>
 </template>
 <script>
+	import Loading from '../components/Loading'
 	import Navs from '../components/Navs'
 	import TopPicture from '../components/TopPicture'
 	import PictureLayer from '../components/PictureLayer'
@@ -38,6 +40,7 @@
 	import Toast from '../components/Toast'
 	import TextInput from '../components/TextInput'
 	import Btn from '../components/Btn'
+	import util from '../util'
 	export default {
 		components: {
 			Navs,
@@ -46,35 +49,39 @@
 			Avadar,
 			Toast,
 			TextInput,
-			Btn
+			Btn,
+			Loading
 		},
-		data: function() {
+		data () {
 			return {
 				leaveWordBinding: ''
 			}
 		},
 		computed: {
-			scrollTop: function() {
+			scrollTop () {
 				return this.$store.getters.scrollRecord
 			},
-			profileData: function() {
+			profileData () {
 				return this.$store.getters.profileData
 			},
-			profileToast: function() {
+			profileToast () {
 				return this.$store.getters.profileToast
 			},
-			leaveWordStatus: function() {
+			leaveWordStatus () {
 				return this.$store.getters.leaveWordStatus
 			},
-			textareaToast: function() {
+			textareaToast () {
 				return this.$store.getters.textareaToast
 			},
-			followListBtn: function() {
+			followListBtn () {
 				return this.$store.getters.followListBtn
-			}
+			},
+			loadingStatus () {
+		      return this.$store.getters.loadingStatus
+		    }
 		},
 		methods: {
-			submit: function() {
+			submit () {
 				let textarea = document.getElementsByClassName('text-input-block')[0].getElementsByTagName('textarea')[0]
 				let length = textarea.value.length
 				if(length > 256) {
@@ -82,23 +89,23 @@
 					return ;
 				}
 			},
-			dataUpdate: function(val) {
+			dataUpdate (val) {
 				this.leaveWordBinding = val
 			}
 		},
-		activated: function() {
+		activated () {
 			this.$store.dispatch('changeNavName', '详细信息')
 			this.$store.dispatch('getProfileData', this.$route.params.id)
 			this.$emit('navName', 'Profile')
 		},
-		deacivated: function() {
+		deacivated () {
 			this.$store.dispatch('changeDirection', 'right-to-left-fade')
 			this.$store.dispatch('closeLeaveWordStatus', false)
 			this.$store.dispatch('navShow')
 			this.$store.dispatch('changeFollowListBtn', true)
 		},
 		watch: {
-			$route: function(to, from) {
+			$route (to, from) {
 				if(to.path === '/myinformation') {
 					this.$store.dispatch('getProfileData', this.$route.params.id)
 				}

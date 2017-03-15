@@ -22,13 +22,18 @@ export default {
 	actions: {
 		getFollowList (contex, name) {
 			let mutation = contex
-			axios.get('/followlist/' + name)
+			contex.dispatch('changeLoadingStatus', true)
+			setTimeout(function() {
+				axios.get('/followlist/' + name)
 				.then(function (response) {
 				mutation.commit(types.GET_FOLLOW_LIST, response.data)
+				contex.dispatch('changeLoadingStatus', false)
 			})
 			.catch(function (error) {
 				console.log(error);
 			});
+		},1000)
+			
 		}
 	}
 }

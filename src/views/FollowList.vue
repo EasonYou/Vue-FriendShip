@@ -1,5 +1,6 @@
 <template>
 	<div class="container">
+		<Loading v-if="loadingStatus"></Loading>
 		<div class="follow-item-wapper">
 			<FollowItem v-for="list in followList" :list="list"></FollowItem>
 		</div>
@@ -7,30 +8,35 @@
 	</div>
 </template>
 <script>
+	import Loading from '../components/Loading'
 	import FollowItem from '../components/FollowItem'
 	import Toast from '../components/Toast'
 	export default {
 		components: {
 			FollowItem,
-			Toast
+			Toast,
+			Loading
 		},
 		computed: {
-			followList: function() {
+			followList () {
 				return this.$store.getters.followList
 			},
-			userName: function() {
+			userName () {
 				return this.$store.getters.userName
 			},
-			followToast: function() {
+			followToast () {
 				return this.$store.getters.followToast
-			}
+			},
+			loadingStatus () {
+		      return this.$store.getters.loadingStatus
+		    }
 		},
-		activated: function() {
+		activated () {
 			this.$store.dispatch('getFollowList', this.userName)
 			this.$store.dispatch('changeNavName', '我的关注')
 			this.$store.dispatch('changeDirection', 'right-to-left-fade')
 		},
-		deactivated: function() {
+		deactivated () {
 			this.$store.dispatch('changeDirection', 'right-to-left-fade')
 		}
 	}

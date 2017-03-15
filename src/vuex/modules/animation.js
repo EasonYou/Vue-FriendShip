@@ -29,6 +29,7 @@ export default {
 		tabStatus: true,
 		followListBtn: true,
 		navName: 'dsa',
+		loadingStatus: false,
 		scrollRecord: {
 			homeLeft: 0,
 			homeRight: 0,
@@ -90,6 +91,9 @@ export default {
 		},
 		navName: state => {
 			return state.navName
+		},
+		loadingStatus: state => {
+			return state.loadingStatus
 		}
 	},
 	mutations: {
@@ -153,6 +157,9 @@ export default {
 		},
 		CHANGE_FOLLOW_TOAST (state, status) {
 			state.followToast = status
+		},
+		CHANGE_LOADING_STATUS (state, status) {
+			state.loadingStatus = status
 		}
 	},
 	actions: {
@@ -212,6 +219,9 @@ export default {
 		},
 		changeFollowToast (context, status) {
 			context.commit(types.CHANGE_FOLLOW_TOAST, status)
+		},
+		changeLoadingStatus (context, status) {
+			context.commit(types.CHANGE_LOADING_STATUS, status)
 		}
     }
 }

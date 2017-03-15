@@ -19,21 +19,23 @@
       <PictureView :show="pictureView"></PictureView>
   </div>
 </template>
-
 <script>
+import Loading from './components/Loading'
 import Sidebar from './components/Sidebar'
 import SendMessage from './components/SendMessage'
 import Navs from './components/Navs'
 import store from './vuex'
 import Alert from './components/Alert'
 import PictureView from './components/PictureView'
+import util from './util'
 export default {
   components:{
     Sidebar,
     SendMessage,
     Navs,
     Alert,
-    PictureView
+    PictureView,
+    Loading
   },
   data: function() {
     return {
@@ -47,71 +49,62 @@ export default {
     }
   },
   computed: {
-    alertShow: function() {
+    alertShow () {
       return this.$store.getters.delAlertStatus
     },
-    sideShow:function() {
+    sideShow () {
       return this.$store.getters.sideShow
     },
-    sideList:function() {
+    sideList () {
       return this.$store.getters.sideList
     },
-    pictureView: function() {
+    pictureView () {
       return this.$store.getters.pictureView
     },
-    sendBlock: function() {
+    sendBlock () {
       return this.$store.getters.sendBlock
     },
-    direction: function() {
+    direction () {
       return this.$store.getters.fadeDirection
     },
-    hash: function() {
+    loadingStatus () {
+      return this.$store.getters.loadingStatus
+    },
+    hash () {
       let flag = (this.$route.fullPath === '/' || this.$route.fullPath === '/home' )?true : false
       return !flag
     },
-    navShow: function() {
+    navShow () {
       return this.$store.getters.navShow
     },
-    sideBarPicture: function() {
+    sideBarPicture () {
       return this.$store.getters.sideBarPicture
     },
-    navName: function() {
+    navName () {
       return this.$store.getters.navName
     }
   },
   store,
-  created: function() {
+  created () {
     this.$store.dispatch('getFriendShipList')
     this.$store.dispatch('getAllList')
   },
   methods: {
-    changeNavName: function(val) {
+    changeNavName (val) {
       this.navName = val
     },
-    hide: function() {
+    hide () {
       this.$store.dispatch('changeSidebar')
     },
-    copy: function() {
+    copy () {
         this.$store.dispatch('changeDelAlert', false)
     },
-    deleteComment: function() {
+    deleteComment () {
       this.$store.dispatch('deleteComment')
     },
   },
-  mounted: function() {
-    let start,end,self = this
-    let screenWidth = window.screen.width
-    document.addEventListener('touchstart', function(e) {
-      start = e.changedTouches[0].pageX
-    }, false)
-
-    document.addEventListener('touchend', function(e) {
-      end = e.changedTouches[0].pageX
-      if( (-(start - end)/screenWidth) >= 0.23 && self.hash) {
-        self.$store.dispatch('changeDirection', 'left-to-right-fade')
-        window.history.back()
-      }
-    }, false)
+  mounted () {
+    util.gestureBack(this)
   }
 }
 </script>
