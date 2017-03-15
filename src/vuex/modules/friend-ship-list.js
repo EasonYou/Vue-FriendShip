@@ -6,7 +6,7 @@ import querystring from 'querystring';
 export default {
 	state: {
 		data: {
-
+			pictureItemList: []
 		}
 	},
 	getters: {
@@ -29,15 +29,19 @@ export default {
 	mutations: {
 		GET_FRIENDSHIP_LIST (state, list) {
 			state.data = list
+		},
+		CLEAR_FRIENDSHIP_LIST (state, list) {
+			state.data.pictureItemList = []
 		}
 	},
 	actions: {
 		getFriendShipList (contex) {
-			let mutation = contex
+			// let mutation = contex
+			contex.commit(types.CLEAR_FRIENDSHIP_LIST)
 			axios.get('/friendsShipList')
 				.then(function (response) {
 				console.log(response.data)
-				mutation.commit(types.GET_FRIENDSHIP_LIST, response.data)
+				contex.commit(types.GET_FRIENDSHIP_LIST, response.data)
 			})
 			.catch(function (error) {
 				console.log(error);

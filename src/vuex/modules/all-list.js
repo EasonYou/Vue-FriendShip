@@ -5,7 +5,7 @@ import axios from 'axios'
 export default {
 	state: {
 		data: {
-
+			pictureItemList: []
 		}
 	},
 	getters: {
@@ -22,14 +22,17 @@ export default {
 	mutations: {
 		GET_ALL_LIST (state, list) {
 			state.data = list
+		},
+		CLEAR_ALL_LIST (state) {
+			state.data.pictureItemList = []
 		}
 	},
 	actions: {
 		getAllList (contex) {
-			let mutation = contex
+			contex.commit(types.CLEAR_ALL_LIST)
 			axios.get('/allList')
 				.then(function (response) {
-				mutation.commit(types.GET_ALL_LIST, response.data)
+				contex.commit(types.GET_ALL_LIST, response.data)
 			})
 			.catch(function (error) {
 				console.log(error);

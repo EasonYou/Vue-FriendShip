@@ -9,7 +9,7 @@
 						</Btn>
 					</div>
 				</TopPicture>
-				<div class="photo-items-cont">
+				<div class="photo-items-cont" v-if="pictureList.length !== 0">
 					<PhotoItem v-for="(picL, index) in pictureList" 
 							   :pictureList="picL" 
 							   :index="index" >
@@ -19,10 +19,13 @@
 						<div class="next" @click="paginationFS('next')">下一页</div>
 					</div>
 				</div>
+				<div v-else>
+					正在加载...
+				</div>
 			</div>
 			<div class="container homeRight" slot="right">
 				<TopPicture :topPictureDesc="allTopPictureDesc" :topPictureAddress="allTopPictureAddress"></TopPicture>
-				<div class="photo-items-cont">
+				<div class="photo-items-cont" v-if="allPictureList.length !== 0">
 					<PhotoItem v-for="(picL, index) in allPictureList" 
 							   :pictureList="picL" 
 							   :index="index" >
@@ -31,6 +34,9 @@
 						<div class="pre" @click="paginationAL('pre')">上一页</div>
 						<div class="next" @click="paginationAL('next')">下一页</div>
 					</div>
+				</div>
+				<div v-else>
+					正在加载...
 				</div>
 			</div>
 		</Tab>
@@ -60,16 +66,10 @@
 		},
 		methods: {
 			paginationFS (type) {
-				// if(type === 'next')
 				this.$store.dispatch('getFriendShipList')
-				document.getElementsByClassName('homeLeft')[0].scrollTop = 0
-    			// this.$store.dispatch('getAllList')
 			},
 			paginationAL (type) {
-				// if(type === 'next')
 				this.$store.dispatch('getAllList')
-				document.getElementsByClassName('homeRight')[0].scrollTop = 0
-    			// this.$store.dispatch('getAllList')
 			}
 		},
 		computed: {
@@ -123,13 +123,12 @@
 			box-shadow: none;
 			.photo-items-cont {
 				position: relative;
-				// margin-bottom: 20px;
 				.page-ctr {
-					height: 70px;
+					height: 50px;
 					width: 100%;
-					// position: absolute;
 					bottom: 10px;
 					display: flex;
+					margin-bottom: 20px;
 					div {
 						width: 100%;
 						background-color: #5ab385;
