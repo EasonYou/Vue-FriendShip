@@ -6,7 +6,7 @@
 		<span class="follow-number">follow number: {{ list.followNumber }}</span>
 	</div>
 	<div class="btn-container">
-		<Btn :className="'green-btn'" @click="follow">关注</Btn>
+		<Btn :className="'red-btn'" @click="follow">取消关注</Btn>
 	</div>
 </div>
 </template>
@@ -21,7 +21,6 @@
 		},
 		methods: {
 			follow: function() {
-				console.log('关注动作')
 				this.$store.dispatch('changeFollowToast', true)
 				/* post */
 			},
@@ -63,11 +62,11 @@
 				margin-top: 1rem;
 				margin-left: 0;
 			}
-			.green-btn {
-				background-color: #5aab81;
+			.red-btn {
+				background-color: #f37272;
 			}
-			.green-btn:active {
-				background-color: #3d7859;
+			.red-btn:active {
+				background-color: #d06262;
 			}
 		}
 	}

@@ -31,7 +31,6 @@ export default {
 			setTimeout(function() {
 				axios.get(url)
 				.then(function (response) {
-				console.log(contex)
 					contex.dispatch('changeLoadingStatus', false)
 					mutation.commit(types.GET_PROFILE_DATA, response.data)
 				})
@@ -40,6 +39,11 @@ export default {
 				});
 			},1000)
 			
+		},
+		submit (contex, vue) {
+			vue.leaveWordBinding = ''
+			contex.dispatch('closeLeaveWordStatus', false)
+			contex.dispatch('changeLeavewordsToast', true)
 		}
 	}
 }

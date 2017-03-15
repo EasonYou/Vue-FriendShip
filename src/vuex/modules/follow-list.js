@@ -15,7 +15,6 @@ export default {
 	},
 	mutations: {
 		GET_FOLLOW_LIST (state, list) {
-			console.log(state)
 			state.data = list
 		}
 	},

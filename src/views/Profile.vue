@@ -9,7 +9,10 @@
 					<span class="address">Address: {{ profileData.address }}</span>
 				</div>
 			</TopPicture>
-			<Avadar :avdarAdress="profileData.avadarAdress" :avadarName="profileData.name"></Avadar>
+			<Avadar 
+				:avdarAdress="profileData.avadarAdress" 
+				:avadarName="profileData.name"
+				:userName="userName"></Avadar>
 		</div>
 		<transition name="picture-list">
 			<div v-bind:class="{'picture-list-down':leaveWordStatus}" class="picture-list clearfix">
@@ -27,6 +30,7 @@
 				<Btn :className="'btn-green'" @click="submit">确定留言</Btn>
 			</div>
 		</transition>
+		<Toast :dispatch="'changeLeavewordsToast'" :lifeCycle="1000" v-if="leavewordsToast" >留言成功</Toast>
 		<Toast :dispatch="'changeProfileToast'" :lifeCycle="1000" v-if="profileToast" >关注成功</Toast>
 		<Toast :dispatch="'changeTextareaToast'" :lifeCycle="1200" v-if="textareaToast" >超过256个字符</Toast>
 	</div>
@@ -67,6 +71,9 @@
 			profileToast () {
 				return this.$store.getters.profileToast
 			},
+			leavewordsToast () {
+				return this.$store.getters.leavewordsToast
+			},
 			leaveWordStatus () {
 				return this.$store.getters.leaveWordStatus
 			},
@@ -78,16 +85,22 @@
 			},
 			loadingStatus () {
 		      return this.$store.getters.loadingStatus
+		    },
+		    userName () {
+		    	return this.$store.getters.userName
 		    }
 		},
 		methods: {
 			submit () {
-				let textarea = document.getElementsByClassName('text-input-block')[0].getElementsByTagName('textarea')[0]
-				let length = textarea.value.length
+				let length = this.leaveWordBinding.length
+				if(this.leaveWordBinding.trim().length === 0) {
+					return
+				}
 				if(length > 256) {
 					this.$store.dispatch('changeTextareaToast', true)
 					return ;
 				}
+				this.$store.dispatch('submit', this)
 			},
 			dataUpdate (val) {
 				this.leaveWordBinding = val
@@ -98,7 +111,8 @@
 			this.$store.dispatch('getProfileData', this.$route.params.id)
 			this.$emit('navName', 'Profile')
 		},
-		deacivated () {
+		deactivated () {
+			this.leaveWordBinding = ''
 			this.$store.dispatch('changeDirection', 'right-to-left-fade')
 			this.$store.dispatch('closeLeaveWordStatus', false)
 			this.$store.dispatch('navShow')
@@ -106,7 +120,8 @@
 		},
 		watch: {
 			$route (to, from) {
-				if(to.path === '/myinformation') {
+				let path = to.path.split('/')[1]
+				if(to.path === '/myinformation' || path === 'profile') {
 					this.$store.dispatch('getProfileData', this.$route.params.id)
 				}
 			}
@@ -139,6 +154,9 @@
 			.avadar-container {
 				position: absolute;
 				bottom: -8rem;
+			}
+			.mucont {
+				bottom: -9rem;
 			}
 		}
 		.picture-list {

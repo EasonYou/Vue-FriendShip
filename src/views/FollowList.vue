@@ -4,7 +4,7 @@
 		<div class="follow-item-wapper">
 			<FollowItem v-for="list in followList" :list="list"></FollowItem>
 		</div>
-		<Toast :dispatch="'changeFollowToast'" :lifeCycle="1000" v-if="followToast" >关注成功</Toast>
+		<Toast :dispatch="'changeFollowToast'" :lifeCycle="1000" v-if="followToast" >取消关注成功</Toast>
 	</div>
 </template>
 <script>

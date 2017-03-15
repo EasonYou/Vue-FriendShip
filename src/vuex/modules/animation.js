@@ -24,6 +24,7 @@ export default {
 		profileToast: false,
 		leaveWordStatus: false,
 		textareaToast: false,
+		leavewordsToast: false,
 		followToast: false,
 		navShow: true,
 		tabStatus: true,
@@ -67,6 +68,9 @@ export default {
 		},
 		profileToast: state => {
 			return state.profileToast
+		},
+		leavewordsToast: state => {
+			return state.leavewordsToast
 		},
 		followToast: state => {
 			return state.followToast
@@ -160,6 +164,9 @@ export default {
 		},
 		CHANGE_LOADING_STATUS (state, status) {
 			state.loadingStatus = status
+		},
+		CHANGE_LEAVEWORDS_TOAST (state, status) {
+			state.leavewordsToast = status
 		}
 	},
 	actions: {
@@ -201,6 +208,9 @@ export default {
 		},
 		changeTextareaToast (context, status) {
 			context.commit(types.CHANGE_TEXTAREA_TOAST, status)
+		},
+		changeLeavewordsToast (context, status) {
+			context.commit(types.CHANGE_LEAVEWORDS_TOAST, status)
 		},
 		closeLeaveWordStatus (context, status) {
 			context.commit(types.CLOSE_LEAVE_WORD_STATUS, status)

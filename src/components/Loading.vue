@@ -1,10 +1,12 @@
 <template>
+<transition name="loading">
 	<div class="loading">
-	<div class="loading-cont">
-		<div class="spinner"></div>
-		<div>loading...</div>
+		<div class="loading-cont">
+			<div class="spinner"></div>
+			<div>loading...</div>
+		</div>
 	</div>
-	</div>
+</transition>
 </template>
 <style lang="scss">
 	#app {
@@ -21,7 +23,6 @@
 				.spinner {
 				  width: 5rem;
 				  height: 5rem;
-				  margin: 0 0 0 0;
 				  background-color: #71d4a1;
 				  border-radius: 100%; 
 				  -webkit-animation: scaleout 1.0s infinite ease-in-out;
@@ -38,6 +39,10 @@
 			    opacity: 0;
 			  }
 			}
+		}
+		.loading-leave-active {
+			opacity: 0;
+			transition: all 0.3s;
 		}
 	}
 </style>

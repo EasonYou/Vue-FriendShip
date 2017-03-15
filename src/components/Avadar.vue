@@ -1,26 +1,35 @@
 <template>
-	<div class="avadar-container">
+	<div class="avadar-container"
+		 :class="{mucont: avadarName === userName}">
 		<div class="avadar">
 			<img :src="avdarAdress" alt="">
 		</div>
 		<span class="avadar-name">{{ avadarName }}</span>
-		<Btn :className="{'btn-green': !leaveWordStatus, 'btn-red': leaveWordStatus}" @click="changeLeaveWordStatus" >
-			<!-- <router-link :to="'leavewords'">留言</router-link> -->
-			{{ leaveWordTitle }}
-		</Btn>
-		<Btn :className="'btn-blue'" @click="follow">关注</Btn>
+		<div>
+			<Btn :className="{'btn-green': !leaveWordStatus, 'btn-red': leaveWordStatus}" 
+				 @click="changeLeaveWordStatus" 
+				 v-if="avadarName !== userName">
+				<!-- <router-link :to="'leavewords'">留言</router-link> -->
+				{{ leaveWordTitle }}
+			</Btn>
+
+			<Btn :className="'btn-blue'" 
+				 @click="follow"
+				 v-if="avadarName !== userName">关注</Btn>
+		</div>
 	</div>
 </template>
 <script>
 	import Btn from './Btn'
 	export default {
-		props: ['avdarAdress', 'avadarName'],
+		props: ['avdarAdress', 'avadarName', 'userName'],
 		components: {
 			Btn
 		}, 
 		methods: {
 			follow: function() {
 				/*some ajax operate*/
+				console.log(this.avadarName === this.userName)
 				this.$store.dispatch('changeProfileToast', true)
 			},
 			changeLeaveWordStatus: function() {

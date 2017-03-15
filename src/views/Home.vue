@@ -19,8 +19,8 @@
 						<div class="next" @click="paginationFS('next')">下一页</div>
 					</div>
 				</div>
-				<div v-else>
-					正在加载...
+				<div class="loading" v-else>
+					<div class="spinner"></div>
 				</div>
 			</div>
 			<div class="container homeRight" slot="right">
@@ -35,8 +35,8 @@
 						<div class="next" @click="paginationAL('next')">下一页</div>
 					</div>
 				</div>
-				<div v-else>
-					正在加载...
+				<div class="loading" v-else>
+					<div class="spinner"></div>
 				</div>
 			</div>
 		</Tab>
@@ -122,16 +122,15 @@
 			.photo-items-cont {
 				position: relative;
 				.page-ctr {
-					height: 50px;
+					height: 2rem;
 					width: 100%;
-					bottom: 10px;
 					display: flex;
-					margin-bottom: 20px;
+					margin-bottom: 2.0rem;
 					div {
 						width: 100%;
 						background-color: #5ab385;
 						color: #fff;
-						line-height: 40px;
+						line-height: 2.3rem;
 						box-shadow: 0 0 1rem rgba(0,0,0,0.3);
 					}
 					div:active {
@@ -155,5 +154,19 @@
 				background-color: #4c4c4c;
 			}
 		}
+		.loading {
+			align-items: baseline;
+			height: auto;
+			.spinner {
+			  width: 5rem;
+			  height: 5rem;
+			  margin-top: 2rem;
+			  background-color: #71d4a1;
+			  border-radius: 100%; 
+			  -webkit-animation: scaleout 1.0s infinite ease-in-out;
+			  animation: scaleout 1.0s infinite ease-in-out;
+			}
+		}
 	}
+
 </style>
