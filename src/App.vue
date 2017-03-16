@@ -100,6 +100,7 @@ export default {
         this.$store.dispatch('changeDelAlert', false)
     },
     deleteComment () {
+      this.$store.dispatch('changeDelAlert', false)
       this.$store.dispatch('deleteComment')
     },
   },

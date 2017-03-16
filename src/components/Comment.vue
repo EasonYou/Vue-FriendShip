@@ -15,13 +15,12 @@
 	export default {
 		props: ['comments'],
 		computed: {
-			userName: function() {
+			userName () {
 				return this.$store.getters.userName
 			}
 		},
 		methods: {
-			changeSendBlock: function(ev, comments, index) {
-				
+			changeSendBlock (ev, comments, index) {
 				if(ev.target.tagName !== 'A') {
 					let replyName = ev.target.getElementsByTagName('a')[0].innerHTML
 					if(this.userName === replyName) {

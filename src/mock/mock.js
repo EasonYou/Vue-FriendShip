@@ -29,9 +29,9 @@ Mock.mock('/friendsShipList', {
                             'http://ww1.sinaimg.cn/mw690/005HOTvCjw1fd4zmvhc02j30fo0h6jua.jpg'],
         "isLike": '@boolean',
         "comment|1-5": [{
-            "sent|1": ["Wade", "James", "Antony", "Paul"],
+            "sent|1": ["Dwyane Wade", "James", "Antony", "Paul"],
             "sentId": '@last',
-            "receive|1": ["Wade", "James", "Antony", "Paul", ''],
+            "receive|1": ["Dwyane Wade", "James", "Antony", "Paul", ''],
             "receiveId": '@last',
             "text": '@sentence(5)'
         }]
@@ -61,9 +61,9 @@ Mock.mock('/allList', {
                             'http://ww1.sinaimg.cn/mw690/005HOTvCjw1fd4zmvhc02j30fo0h6jua.jpg'],
         "isLike": '@boolean',
         "comment|1-5": [{
-            "sent|1": ["Wade", "James", "Antony", "Paul"],
+            "sent|1": ["Dwyane Wade", "James", "Antony", "Paul"],
             "sentId": '@last',
-            "receive|1": ["Wade", "James", "Antony", "Paul"],
+            "receive|1": ["Dwyane Wade", "James", "Antony", "Paul"],
             "receiveId": '@last',
             "text": '@sentence(5)'
         }]
