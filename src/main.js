@@ -6,6 +6,11 @@ import Home from './views/Home'
 import FollowList from './views/FollowList'
 import Profile from './views/Profile'
 
+import Toast from './components/toast'
+
+Vue.$toast = Vue.prototype.$toast = Toast;
+
+
 import store from './vuex'
 import vueRouter from 'vue-router'
 

@@ -43,7 +43,7 @@ export default {
 		submit (contex, vue) {
 			vue.leaveWordBinding = ''
 			contex.dispatch('closeLeaveWordStatus', false)
-			contex.dispatch('changeLeavewordsToast', true)
+			vue.$toast('留言成功')
 		}
 	}
 }

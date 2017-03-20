@@ -30,9 +30,6 @@
 				<Btn :className="'btn-green'" @click="submit">确定留言</Btn>
 			</div>
 		</transition>
-		<Toast :dispatch="'changeLeavewordsToast'" :lifeCycle="1000" v-if="leavewordsToast" >留言成功</Toast>
-		<Toast :dispatch="'changeProfileToast'" :lifeCycle="1000" v-if="profileToast" >关注成功</Toast>
-		<Toast :dispatch="'changeTextareaToast'" :lifeCycle="1200" v-if="textareaToast" >超过256个字符</Toast>
 	</div>
 </template>
 <script>
@@ -41,7 +38,6 @@
 	import TopPicture from '../components/TopPicture'
 	import PictureLayer from '../components/PictureLayer'
 	import Avadar from '../components/Avadar'
-	import Toast from '../components/Toast'
 	import TextInput from '../components/TextInput'
 	import Btn from '../components/Btn'
 	import util from '../util'
@@ -51,7 +47,6 @@
 			TopPicture,
 			PictureLayer,
 			Avadar,
-			Toast,
 			TextInput,
 			Btn,
 			Loading
@@ -68,17 +63,8 @@
 			profileData () {
 				return this.$store.getters.profileData
 			},
-			profileToast () {
-				return this.$store.getters.profileToast
-			},
-			leavewordsToast () {
-				return this.$store.getters.leavewordsToast
-			},
 			leaveWordStatus () {
 				return this.$store.getters.leaveWordStatus
-			},
-			textareaToast () {
-				return this.$store.getters.textareaToast
 			},
 			followListBtn () {
 				return this.$store.getters.followListBtn
@@ -94,10 +80,11 @@
 			submit () {
 				let length = this.leaveWordBinding.length
 				if(this.leaveWordBinding.trim().length === 0) {
+					this.$toast('请输入留言')
 					return
 				}
 				if(length > 256) {
-					this.$store.dispatch('changeTextareaToast', true)
+					this.$toast('不可以超过256个字符')
 					return ;
 				}
 				this.$store.dispatch('submit', this)

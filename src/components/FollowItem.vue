@@ -21,7 +21,7 @@
 		},
 		methods: {
 			follow: function() {
-				this.$store.dispatch('changeFollowToast', true)
+				this.$toast('取消关注成功！')
 				/* post */
 			},
 			changeFollowListBtn: function() {

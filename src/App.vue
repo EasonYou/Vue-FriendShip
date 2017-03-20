@@ -28,6 +28,7 @@ import store from './vuex'
 import Alert from './components/Alert'
 import PictureView from './components/PictureView'
 import util from './util'
+import gestureBack from './util/gestureBack'
 export default {
   components:{
     Sidebar,
@@ -37,6 +38,7 @@ export default {
     PictureView,
     Loading
   },
+  mixins: [gestureBack],
   data: function() {
     return {
       lists:[{
@@ -105,7 +107,7 @@ export default {
     },
   },
   mounted () {
-    util.gestureBack(this)
+    // util.gestureBack(this)
   }
 }
 </script>

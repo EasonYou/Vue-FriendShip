@@ -21,11 +21,7 @@ export default {
 		pictureViewAdd: 'sss',
 		delAlertStatus: false,
 		replyMessage: '',
-		profileToast: false,
 		leaveWordStatus: false,
-		textareaToast: false,
-		leavewordsToast: false,
-		followToast: false,
 		navShow: true,
 		tabStatus: true,
 		followListBtn: true,
@@ -66,20 +62,8 @@ export default {
 		replyMessage: state =>{
 			return state.replyMessage
 		},
-		profileToast: state => {
-			return state.profileToast
-		},
-		leavewordsToast: state => {
-			return state.leavewordsToast
-		},
-		followToast: state => {
-			return state.followToast
-		},
 		leaveWordStatus: state => {
 			return state.leaveWordStatus
-		},
-		textareaToast: state => {
-			return state.textareaToast
 		},
 		scrollRecord: state => {
 			return state.scrollRecord
@@ -132,14 +116,8 @@ export default {
 		REPLY_MESSAGE (state, message) {
 			state.replyMessage = message
 		},
-		CHANGE_PROFILE_TOAST (state, status) {
-			state.profileToast = status
-		},
 		CHANGE_LEAVE_WORD_STATUS (state) {
 			state.leaveWordStatus = !state.leaveWordStatus
-		},
-		CHANGE_TEXTAREA_TOAST (state, status) {
-			state.textareaToast = status
 		},
 		CLOSE_LEAVE_WORD_STATUS (state, status) {
 			state.leaveWordStatus = status
@@ -159,15 +137,9 @@ export default {
 		CHANGE_NAV_NAME (state, name) {
 			state.navName = name
 		},
-		CHANGE_FOLLOW_TOAST (state, status) {
-			state.followToast = status
-		},
 		CHANGE_LOADING_STATUS (state, status) {
 			state.loadingStatus = status
 		},
-		CHANGE_LEAVEWORDS_TOAST (state, status) {
-			state.leavewordsToast = status
-		}
 	},
 	actions: {
     	changeSidebar (context) {
@@ -200,17 +172,8 @@ export default {
 		deleteComment (context) {
 			context.commit(types.DELET_COMMENT)
 		},
-		changeProfileToast (context, status) {
-			context.commit(types.CHANGE_PROFILE_TOAST, status)
-		},
 		changeLeaveWordStatus (context, status) {
 			context.commit(types.CHANGE_LEAVE_WORD_STATUS, status)
-		},
-		changeTextareaToast (context, status) {
-			context.commit(types.CHANGE_TEXTAREA_TOAST, status)
-		},
-		changeLeavewordsToast (context, status) {
-			context.commit(types.CHANGE_LEAVEWORDS_TOAST, status)
 		},
 		closeLeaveWordStatus (context, status) {
 			context.commit(types.CLOSE_LEAVE_WORD_STATUS, status)
@@ -226,9 +189,6 @@ export default {
 		},
 		changeNavName (context, name) {
 			context.commit(types.CHANGE_NAV_NAME, name)
-		},
-		changeFollowToast (context, status) {
-			context.commit(types.CHANGE_FOLLOW_TOAST, status)
 		},
 		changeLoadingStatus (context, status) {
 			context.commit(types.CHANGE_LOADING_STATUS, status)

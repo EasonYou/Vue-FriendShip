@@ -9,7 +9,6 @@
 			<Btn :className="{'btn-green': !leaveWordStatus, 'btn-red': leaveWordStatus}" 
 				 @click="changeLeaveWordStatus" 
 				 v-if="avadarName !== userName">
-				<!-- <router-link :to="'leavewords'">留言</router-link> -->
 				{{ leaveWordTitle }}
 			</Btn>
 
@@ -29,8 +28,7 @@
 		methods: {
 			follow: function() {
 				/*some ajax operate*/
-				console.log(this.avadarName === this.userName)
-				this.$store.dispatch('changeProfileToast', true)
+				this.$toast('关注成功')
 			},
 			changeLeaveWordStatus: function() {
 				this.$store.dispatch('changeLeaveWordStatus')
