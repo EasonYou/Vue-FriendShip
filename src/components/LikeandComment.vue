@@ -14,7 +14,9 @@
 				this.$store.dispatch('changeReplyMessage', comments)
 			},
 			isLike: function(pictureList) {
-				pictureList.isLike = !pictureList.isLike
+				this.$store.dispatch('changeLike', pictureList)
+				console.log(pictureList)
+				// pictureList.isLike = !pictureList.isLike
 			}
 		}
 	}

@@ -72,6 +72,7 @@ Mock.mock('/allList', {
 
 Mock.mock(/\/profile\/\w/, {
     "name": '@name',
+    "isFollowed": '@boolean',
     "gender|1": ['male', 'famle'],
     "birthday": "@date('yyyy-MM')",
     "address": "@county(true)",
@@ -120,6 +121,11 @@ Mock.mock(/\/followlist\/\w/, {
         "followNumber": "@number",
         "isFollowed": true
     }]
+})
+
+
+Mock.mock(/\/like\/\w/, {
+    status: 200
 })
 
 module.exports = Mock

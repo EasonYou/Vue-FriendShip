@@ -30,7 +30,7 @@ export default {
 	actions: {
 		getAllList (contex) {
 			contex.commit(types.CLEAR_ALL_LIST)
-			axios.get('/allList')
+			axios.post('/allList')
 				.then(function (response) {
 				contex.commit(types.GET_ALL_LIST, response.data)
 			})

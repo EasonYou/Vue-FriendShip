@@ -40,7 +40,7 @@ export default {
 			contex.commit(types.CLEAR_FRIENDSHIP_LIST)
 			setTimeout(function() {
 
-			axios.get('/friendsShipList')
+			axios.post('/friendsShipList')
 				.then(function (response) {
 				contex.commit(types.GET_FRIENDSHIP_LIST, response.data)
 			})
@@ -49,7 +49,8 @@ export default {
 			});
 			}, 1000)
 			// axios.post('http://myishu.top/yishu/home/yijie/essay/action/list_attention_essay',querystring.stringify({
-			// 	token: 'Q5lEibz4Zdy0mOPABx9Dxj084aexCc4kZozaAPl1dZs+Ux6I1f3tHQ0w7/HGY7PNoou617fV7GlI4YI/xQNkTt8l0iHEwPWWppQtYtdSkxHOOCseECat5ycg6xdm9rZ7'
+			// 	token: 'Q5lEibz4Zdy0mOPABx9Dxj084aexCc4kZozaAPl1dZs+Ux6I1f3tHQ0w7/HGY7PNoou617fV7GlI4YI/xQNkTt8l0iHEwPWWppQtYtdSkxHOOCseECat5ycg6xdm9rZ7',
+			//  page: 1
 			// }))
 			// .then(function (response) {
 			// 	console.log(response.data.data)
@@ -58,6 +59,17 @@ export default {
 			// .catch(function (error) {
 			// 	console.log(error);
 			// });
+		},
+		changeLike (contex, list) {
+			axios.post('/like/' + list.id, {
+				token: 'dsadas'
+			})
+			.then(function (response) {
+				list.isLike = !list.isLike
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
 		}
 	}
 }
