@@ -1,13 +1,22 @@
 <template>
-<transition name="loading">
-	<div class="loading">
-		<div class="loading-cont">
-			<div class="spinner"></div>
-			<div>loading...</div>
+	<transition name="loading">
+		<div class="loading">
+			<div class="loading-cont">
+				<div class="spinner"></div>
+				<div>loading...</div>
+			</div>
 		</div>
-	</div>
-</transition>
+	</transition>
 </template>
+<script>
+	export default {
+		data () {
+			return {
+				status: false
+			}
+		}
+	}
+</script>
 <style lang="scss">
 	#app {
 		.loading {

@@ -14,6 +14,11 @@
 			FollowItem,
 			Loading
 		},
+		data () {
+			return {
+				loadingStatus: false
+			}
+		},
 		computed: {
 			followList () {
 				return this.$store.getters.followList
@@ -23,17 +28,15 @@
 			},
 			followToast () {
 				return this.$store.getters.followToast
-			},
-			loadingStatus () {
-		      return this.$store.getters.loadingStatus
-		    }
+			}
 		},
 		activated () {
-			this.$store.dispatch('getFollowList', this.userName)
+			this.$store.dispatch('getFollowList', this)
 			this.$store.dispatch('changeNavName', '我的关注')
 			this.$store.dispatch('changeDirection', 'right-to-left-fade')
 		},
 		deactivated () {
+			console.log(this.$store.getters)
 			this.$store.dispatch('changeDirection', 'right-to-left-fade')
 		}
 	}

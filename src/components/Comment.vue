@@ -1,6 +1,6 @@
 <template>
 	<div class="comment-container">
-		<div class="comment" v-for="(comment, index) in comments" v-on:click="changeSendBlock($event, comments, index)" >
+		<div class="comment" v-for="(comment, index) in pictureList.comment" v-on:click="changeSendBlock($event, comment, index)" >
 			<div class="user">
 				<router-link class="comment-user" :to="'profile/' + comment.sentId">{{ comment.sent }}</router-link>
 				<span v-if="!!comment.receive">@</span>
@@ -13,23 +13,27 @@
 </template>
 <script>
 	export default {
-		props: ['comments'],
+		props: ['pictureList'],
 		computed: {
 			userName () {
 				return this.$store.getters.userName
 			}
 		},
 		methods: {
-			changeSendBlock (ev, comments, index) {
+			changeSendBlock (ev, comment, index) {
+				console.log(this.pictureList)
 				if(ev.target.tagName !== 'A') {
 					let replyName = ev.target.getElementsByTagName('a')[0].innerHTML
 					if(this.userName === replyName) {
 						this.$store.dispatch('changeDelAlert', true)
-						this.$store.dispatch('storeDelComment', {comments, index})
+						// this.$store.dispatch('storeDelComment', {comments, index})
 					} else {
 						this.$store.dispatch('changeSendBlock')
-						this.$store.dispatch('editReplyUser', ' @' + replyName)
-						this.$store.dispatch('changeReplyMessage', comments)
+						this.$store.dispatch('editReplyUser', {
+							replyName: ' @' + replyName,
+							replyId: comment.sentId,
+							essayId: this.pictureList.essay_id})
+						this.$store.dispatch('changeReplyMessage', this.pictureList.comment)
 					}
 				}
 			}

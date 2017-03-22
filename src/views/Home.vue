@@ -62,18 +62,59 @@
 		},
 		data () {
 			return {
-				tabList:['朋友圈', '广场']
+				tabList:['朋友圈', '广场'],
+				fsPageNum: 1,
+				allPageNum: 1,
 			}
 		},
 		methods: {
 			paginationFS (type) {
-				this.$store.dispatch('getFriendShipList')
+				if(type === 'pre') {
+					this.fsPageNum --
+					if(this.fsPageNum <= 0) {
+						this.fsPageNum = 1
+						this.$toast('最前一页啦')
+						return;
+					}
+				}
+				if(type === 'next') {
+					this.fsPageNum ++
+					if(this.fsPageNum > this.fsTotalPage) {
+						this.fsPageNum = this.fsTotalPage
+						this.$toast('最后一页啦')
+						return;
+					}
+				}
+
+				this.$store.dispatch('getFriendShipList', this)
 			},
 			paginationAL (type) {
-				this.$store.dispatch('getAllList')
+				if(type === 'pre') {
+					this.allPageNum --
+					if(this.allPageNum <= 0) {
+						this.allPageNum = 1
+						this.$toast('最前一页啦')
+						return;
+					}
+				}
+				if(type === 'next') {
+					this.allPageNum ++
+					if(this.allPageNum > this.allTotalPage) {
+						this.allPageNum = this.allTotalPage
+						this.$toast('最后一页啦')
+						return;
+					}
+				}
+				this.$store.dispatch('getAllList', this)
 			}
 		},
 		computed: {
+			fsTotalPage () {
+				return this.$store.getters.fsTotalPage
+			},
+			allTotalPage () {
+				return this.$store.getters.allTotalPage
+			},
 			scrollTop () {
 				return this.$store.getters.scrollRecord
 			},

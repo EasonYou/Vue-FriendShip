@@ -1,6 +1,6 @@
 <template>
 	<div class="photo-thumbnail" v-on:click="showPictureView">
-		<img :src="pictureAddress" alt="">
+		<img :src="typeof pictureAddress === 'object' ? pictureAddress.pictureAdd : pictureAddress" alt="">
 	</div>
 </template>
 <script>

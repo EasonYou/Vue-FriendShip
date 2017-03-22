@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import * as types from '../mutation-types'
 import axios from 'axios'
+import querystring from 'querystring'
 
 export default {
 	state: {
@@ -15,7 +16,12 @@ export default {
 				link: '/myinformation',
 			}
 		],
-		replyUser:'sss',
+		replyUser: {
+			replyName: '',
+			replyId: '',
+			essayId: ''
+		},
+		replyId: '',
 		fadeDirection: 'right-to-left-fade',
 		pictureView: false,
 		pictureViewAdd: 'sss',
@@ -32,9 +38,17 @@ export default {
 			homeRight: 0,
 			profile: 0,
 			leavewords: 0
-		}
+		},
+		fsTotalPage: 0,
+		allTotalPage: 0
 	},
 	getters: {
+		fsTotalPage: state => {
+			return state.fsTotalPage
+		},
+		allTotalPage: state => {
+			return state.allTotalPage
+		},
 		sideShow: state => {
 			return state.sideShow
 		},
@@ -85,6 +99,12 @@ export default {
 		}
 	},
 	mutations: {
+		CHANGE_FS_TOTAL_PAGE (state, page) {
+			state.fsTotalPage = page
+		},
+		CHANGE_ALL_TOTAL_PAGE (state, page) {
+			state.allTotalPage = page
+		},
     	CHANGE_SIDEBAR (state) {
      	 	state.sideShow = !state.sideShow
 	  	},
@@ -142,6 +162,12 @@ export default {
 		},
 	},
 	actions: {
+		changeFsTotalPage (context, page) {
+			context.commit(types.CHANGE_FS_TOTAL_PAGE, page)
+		},
+		changeAllTotalPage (context, page) {
+			context.commit(types.CHANGE_ALL_TOTAL_PAGE, page)
+		},
     	changeSidebar (context) {
 	      	context.commit(types.CHANGE_SIDEBAR)
 	    },

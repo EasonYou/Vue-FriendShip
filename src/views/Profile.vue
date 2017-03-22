@@ -53,7 +53,8 @@
 		},
 		data () {
 			return {
-				leaveWordBinding: ''
+				leaveWordBinding: '',
+				loadingStatus: false
 			}
 		},
 		computed: {
@@ -61,7 +62,7 @@
 				return this.$store.getters.scrollRecord
 			},
 			profileData () {
-				return this.$store.getters.profileData
+				return this.$store.getters.profileData ?  this.$store.getters.profileData : {}
 			},
 			leaveWordStatus () {
 				return this.$store.getters.leaveWordStatus
@@ -69,15 +70,13 @@
 			followListBtn () {
 				return this.$store.getters.followListBtn
 			},
-			loadingStatus () {
-		      return this.$store.getters.loadingStatus
-		    },
 		    userName () {
 		    	return this.$store.getters.userName
 		    }
 		},
 		methods: {
 			submit () {
+				console.log(this.$route.params.id)
 				let length = this.leaveWordBinding.length
 				if(this.leaveWordBinding.trim().length === 0) {
 					this.$toast('请输入留言')
@@ -87,7 +86,11 @@
 					this.$toast('不可以超过256个字符')
 					return ;
 				}
-				this.$store.dispatch('submit', this)
+				this.$store.dispatch('submit', {
+					vue: this,
+					message: this.leaveWordBinding,
+					receive: this.$route.params.id
+				})
 			},
 			dataUpdate (val) {
 				this.leaveWordBinding = val
@@ -95,7 +98,7 @@
 		},
 		activated () {
 			this.$store.dispatch('changeNavName', '详细信息')
-			this.$store.dispatch('getProfileData', this.$route.params.id)
+			this.$store.dispatch('getProfileData', this)
 			this.$emit('navName', 'Profile')
 		},
 		deactivated () {
@@ -109,7 +112,7 @@
 			$route (to, from) {
 				let path = to.path.split('/')[1]
 				if(to.path === '/myinformation' || path === 'profile') {
-					this.$store.dispatch('getProfileData', this.$route.params.id)
+					this.$store.dispatch('getProfileData', this)
 				}
 			}
 		}

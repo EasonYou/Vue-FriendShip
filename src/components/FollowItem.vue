@@ -1,9 +1,9 @@
 <template>
 <div class="follow-item clearfix">
-	<AvadarLink :avadarSrc="list.src" :name="list.name" :id="list.id" @click="changeFollowListBtn"></AvadarLink>
+	<AvadarLink :avadarSrc="list.pic" :name="list.nickname" :id="list.id" @click="changeFollowListBtn"></AvadarLink>
 	<div class="text-container clearfix">
 		<span class="desc">{{ list.desc }}</span>
-		<span class="follow-number">follow number: {{ list.followNumber }}</span>
+		<span class="follow-number">follow number: {{ list.be_focus }}</span>
 	</div>
 	<div class="btn-container">
 		<Btn :className="'red-btn'" @click="follow">取消关注</Btn>

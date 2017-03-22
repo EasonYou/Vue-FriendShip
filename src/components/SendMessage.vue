@@ -2,7 +2,7 @@
 <transition name="send-block">
 	<div class="send-block">
 		<div class="block">
-			<textarea type="text" v-focus="'is immediate'" class="send-block-text" :placeholder="replyUser"></textarea>
+			<textarea type="text" v-focus="'is immediate'" class="send-block-text" :placeholder="replyUser.replyName"></textarea>
 			<button v-on:click="send">发送</button>
 		</div>
 	</div>
@@ -30,14 +30,29 @@
 		},
 		methods: {
 			send:function() {
-				let text = document.getElementsByClassName('send-block-text')[0].value;
-				let replyUser = this.replyUser
-				let arr = {
-					sent: this.userName,
-					receive: replyUser.substring(2),
-					text: text
+				console.log(this.replyUser)
+				let text = document.getElementsByClassName('send-block-text')[0].value,
+					replyUser = this.replyUser,
+					type = 1
+				if(replyUser.replyName === '') {
+					type = 0
 				}
-				this.replyMessage.push(arr)
+				let arr = {
+					sent: this.userName, 
+					receive: replyUser.replyName.substring(2),
+					receiveId: replyUser.replyId,
+					essayId: this.replyUser.essayId,
+					text: text,
+					type: type
+				}
+				console.log(arr)
+				if(arr.text.trim() !== '') {
+					// this.replyMessage.push(arr)
+					this.$store.dispatch('submitComment',{
+						params: arr,
+						replyMessage: this.replyMessage
+					})
+				}
 			}
 		}
 	}

@@ -6,7 +6,7 @@
 			<PictureLayer :pictureAddress="pictureList.pictureAdd"><PictureLayer>
 		</div>
 		<LikeandComment :pictureList="pictureList" ></LikeandComment>
-		<Comment :comments="pictureList.comment"></Comment>
+		<Comment :pictureList="pictureList"></Comment>
 	</div>
 </template>
 <script>
@@ -24,6 +24,7 @@
 		},
 		methods: {
 			changeFollowBtn: function() {
+				console.log(this.pictureList)
 				this.$store.dispatch('changeFollowListBtn', true)
 			}
 		}

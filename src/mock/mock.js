@@ -33,8 +33,9 @@ Mock.mock('/friendsShipList', {
             "sentId": '@last',
             "receive|1": ["Dwyane Wade", "James", "Antony", "Paul", ''],
             "receiveId": '@last',
-            "text": '@sentence(5)'
-        }]
+            "text": '@sentence(5)',
+        }],
+        "essay_id": '@number'
     }]
 })
 
