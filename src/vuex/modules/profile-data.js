@@ -17,6 +17,9 @@ export default {
 	mutations: {
 		GET_PROFILE_DATA (state, data) {
 			state.data = data
+		},
+		CHANGE_PROFILE_ATTENTION (state, data) {
+			state.data.isAttention = data
 		}
 	},
 	actions: {
@@ -72,6 +75,26 @@ export default {
 			.catch(function (error) {
 				console.log(error);
 			});
+		},
+		profileAttention (contex, data) {
+			if(data.type) {
+				get('http://myishu.top/yishu/home/friend/action/pay_attention')
+			} else {
+				get('http://myishu.top/yishu/home/friend/action/del_attention')
+			}
+			function get(url) {
+				axios.post(url, querystring.stringify({
+					token: 'Q5lEibz4Zdy0mOPABx9Dxj084aexCc4kZozaAPl1dZs+Ux6I1f3tHQ0w7/HGY7PNoou617fV7GlI4YI/xQNkTt8l0iHEwPWWppQtYtdSkxHOOCseECat5ycg6xdm9rZ7',
+					friend_id: data.id
+				}))
+				.then(function (response) {
+					data.vue.$toast(data.text)
+					contex.commit('CHANGE_PROFILE_ATTENTION', data.type)
+				})
+				.catch(function (error) {
+					console.log(error);
+				});
+			}
 		}
 	}
 }

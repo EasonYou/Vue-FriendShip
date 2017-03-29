@@ -5,11 +5,13 @@
 		<div class="tab-btn" v-bind:class="{'active': !side}" @click="transRight">{{ tabList[1] }}</div>
 	</div>
 		<div class="tab-item" v-bind:class="{'tab-item-active': !side}">
-			<div class="tab">
-			<slot name="left"></slot>
+			<div class="refresh-icon">{{ refreshDesc }}</div>
+			<div class="refresh-icon">{{ refreshDesc }}</div>
+			<div class="tab" @touchstart="init" @touchmove="refresh" @touchend="complete($event, 'left')">
+				<slot name="left"></slot>
 			</div>
-			<div class="tab">
-			<slot name="right"></slot>
+			<div class="tab" @touchstart="init" @touchmove="refresh" @touchend="complete($event, 'right')">
+				<slot name="right"></slot>
 			</div>
 		</div>
 	</div>
@@ -17,19 +19,59 @@
 <script>
 	export default {
 		props:['status', 'tabList', 'dispatch', 'getter'],
+		data: function() {
+			return {
+				side: this.$store.getters[this.getter],
+				start: 0,
+				offset: 0,
+				refreshDesc: '下拉刷新'
+			}
+		},
 		methods: {
-			transLeft: function() {
+			transLeft () {
+				console.log(this)
 				this.$store.dispatch('changeTabStatus', true)
 				this.side = true
 			},
-			transRight: function() {
+			transRight () {
 				this.$store.dispatch('changeTabStatus', false)
 				this.side = false
-			}
-		},
-		data: function() {
-			return {
-				side: this.$store.getters[this.getter]
+			},
+			init (e) {
+				this.start = e.changedTouches[0].pageY
+			},
+			refresh (e) {
+				if(e.currentTarget.style.transition) {
+					e.currentTarget.style.transition = null
+				}
+				this.offset = e.changedTouches[0].pageY - this.start
+				if(this.offset<0) {
+					return
+				}
+				if(e.currentTarget.childNodes[0].scrollTop === 0 ) {
+					e.preventDefault()
+					e.currentTarget.style.transform = 'translateY('+ this.offset/2 +'px)'
+					if(this.offset > 200) {
+						this.refreshDesc = '↑释放刷新'
+					} else {
+						this.refreshDesc = '↓下拉刷新'
+					}
+				}
+			},
+			complete (e, type) {
+				if(e.currentTarget.childNodes[0].scrollTop === 0 ) {
+					let buff = this.offset / 2
+					this.offset = this.start = 0
+					e.currentTarget.style.transition = 'all 0.4s'
+					e.currentTarget.style.transform = null
+					if(buff < 100) return
+					if(type === 'left') {
+						this.$emit('left')
+					}
+					if(type === 'right') {
+						this.$emit('right')
+					}
+				}
 			}
 		},
 		computed: {
@@ -38,11 +80,6 @@
 				let width = parseInt(getComputedStyle(tabContainer, null).width)
 				return width
 			}
-		},
-		created: function() {
-			// 
-			// 
-			// 
 		},
 		mounted: function() {
 			function resize() {
@@ -67,6 +104,7 @@
 	position: absolute;
 	top: 3rem;
 	overflow: hidden;
+	background-color: #4e7d64;
 	.tab-btn-container {
 		width: 100%;
 		position: absolute;
@@ -82,6 +120,7 @@
 			background-color: #5ab385;
 			color: #fff;
 			transition: all 0.3s;
+			transform: translateX(0);
 		}
 		.active {
 			background-color: #4c9870;
@@ -94,11 +133,21 @@
 		position: absolute;
 		top: 2rem;
 		transition: all 0.3s;
+		.refresh-icon {
+			width: 50%;
+			position: absolute;
+			top: 1rem;
+			color: #fff;
+		}
+		.refresh-icon:first-child {
+			left: 50%;
+		}
 		.tab {
 			width: 50%;
 			height: 100%;
 			float: left;
 			position: relative;
+			// box-shadow: 2rem -1rem 3rem rgba(0,0,0,0.2);
 		}
 	}
 	.tab-item-active {

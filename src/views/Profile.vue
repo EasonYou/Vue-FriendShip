@@ -12,7 +12,8 @@
 			<Avadar 
 				:avdarAdress="profileData.avadarAdress" 
 				:avadarName="profileData.name"
-				:userName="userName"></Avadar>
+				:userName="userName"
+				:isAttention="profileData.isAttention"></Avadar>
 		</div>
 		<transition name="picture-list">
 			<div v-bind:class="{'picture-list-down':leaveWordStatus}" class="picture-list clearfix">

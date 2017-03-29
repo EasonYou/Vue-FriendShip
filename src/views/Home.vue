@@ -1,6 +1,7 @@
 <template>
 	<div id="home" class="container">
-		<Tab :status="tabStatus" :tabList="tabList" :dispatch="'changeTabStatus'" :getter="'tabStatus'">
+		<Tab :status="tabStatus" :tabList="tabList" :dispatch="'changeTabStatus'" :getter="'tabStatus'"
+			 @left="refresh('left')" @right="refresh('right')">
 			<div class="container homeLeft" slot="left">
 				<TopPicture :topPictureDesc="topPictureDesc" :topPictureAddress="topPictureAddress">
 					<div class="btnctn">
@@ -51,6 +52,7 @@
 	import Tab from '../components/Tab'
 	import Btn from '../components/Btn'
 	import util from '../util'
+	import refresh from '../util/refresh'
 	export default {
 		components: {
 			PhotoItem,
@@ -60,6 +62,7 @@
 			Tab,
 			Btn
 		},
+		mixins: [refresh],
 		data () {
 			return {
 				tabList:['朋友圈', '广场'],
@@ -68,6 +71,14 @@
 			}
 		},
 		methods: {
+			refresh (type) {
+				if(type === 'left') {
+					this.$store.dispatch('getFriendShipList', this)
+				}
+				if(type === 'right') {
+					this.$store.dispatch('getAllList', this)
+				}
+			},
 			paginationFS (type) {
 				if(type === 'pre') {
 					this.fsPageNum --
@@ -85,7 +96,6 @@
 						return;
 					}
 				}
-
 				this.$store.dispatch('getFriendShipList', this)
 			},
 			paginationAL (type) {

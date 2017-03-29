@@ -13,28 +13,54 @@
 			</Btn>
 
 			<Btn :className="'btn-blue'" 
-				 @click="follow"
-				 v-if="avadarName !== userName">关注</Btn>
+				 @click="follow(true)"
+				 v-if="avadarName !== userName && !attention">关注</Btn>
+			<Btn :className="'btn-red'" 
+				 @click="follow(false)"
+				 v-if="avadarName !== userName && attention">取消关注</Btn>
 		</div>
 	</div>
 </template>
 <script>
 	import Btn from './Btn'
 	export default {
-		props: ['avdarAdress', 'avadarName', 'userName'],
+		props: ['avdarAdress', 'avadarName', 'userName', 'isAttention'],
 		components: {
 			Btn
 		}, 
+		data () {
+			return {
+				datas: this.profileData
+			}
+		},
 		methods: {
-			follow: function() {
-				/*some ajax operate*/
-				this.$toast('关注成功')
+			follow: function(flag) {
+				if(flag) {
+					this.$store.dispatch('profileAttention', {
+						vue: this,
+						text: '关注成功',
+						type: true,
+						id: this.$route.params.id
+					})
+				}
+				if(!flag) {
+					this.$store.dispatch('profileAttention', {
+						vue: this,
+						text: '取消关注成功',
+						type: false,
+						id: this.$route.params.id
+					})
+				}
+				
 			},
 			changeLeaveWordStatus: function() {
 				this.$store.dispatch('changeLeaveWordStatus')
 			}
 		},
 		computed: {
+			attention () {
+				return this.isAttention
+			},
 			leaveWordStatus: function() {
 				return this.$store.getters.leaveWordStatus
 			},
