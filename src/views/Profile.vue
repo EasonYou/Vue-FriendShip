@@ -109,10 +109,14 @@
 			this.$store.dispatch('navShow')
 			this.$store.dispatch('changeFollowListBtn', true)
 		},
+		mounted () {
+			console.log('what the fuck')
+		},
 		watch: {
 			$route (to, from) {
-				let path = to.path.split('/')[1]
-				if(to.path === '/myinformation' || path === 'profile') {
+				let a = /profile/.test(from.path) && /myinformation/.test(to.path)
+				let b = /profile/.test(to.path) && /myinformation/.test(from.path)
+				if(a || b) {
 					this.$store.dispatch('getProfileData', this)
 				}
 			}

@@ -21,12 +21,17 @@
 		},
 		methods: {
 			changeSendBlock (ev, comment, index) {
-				console.log(this.pictureList)
+				console.log(this.pictureList.comment, index)
+				console.log(comment)
 				if(ev.target.tagName !== 'A') {
 					let replyName = ev.target.getElementsByTagName('a')[0].innerHTML
 					if(this.userName === replyName) {
 						this.$store.dispatch('changeDelAlert', true)
-						// this.$store.dispatch('storeDelComment', {comments, index})
+						this.$store.dispatch('storeDelComment', {
+							comments: this.pictureList.comment,
+							index: index,
+							id: comment.comment_id
+						})
 					} else {
 						this.$store.dispatch('changeSendBlock')
 						this.$store.dispatch('editReplyUser', {

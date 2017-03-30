@@ -5,6 +5,7 @@ import querystring from 'querystring'
 
 export default {
 	state: {
+		delComment: {},
 		data: {
 			pictureItemList: []
 		}
@@ -24,6 +25,12 @@ export default {
 		},
 		sideBarPicture: state => {
 			return state.data.sideBarPicture
+		},
+		delComment: state => {
+			return state.delComment
+		},
+		userId: state => {
+			return state.data.userId
 		}
 	},
 	mutations: {
@@ -32,6 +39,12 @@ export default {
 		},
 		CLEAR_FRIENDSHIP_LIST (state, list) {
 			state.data.pictureItemList = []
+		},
+		STORE_DEL_COMMENT (state, obj) {
+			state.delComment = obj
+		},
+		DELET_COMMENT (state, obj) {
+			state.delComment.comments = state.delComment.comments.splice(obj.index, 1)
 		}
 	},
 	actions: {
@@ -43,16 +56,6 @@ export default {
 				num = 1
 			} 
 			contex.commit(types.CLEAR_FRIENDSHIP_LIST)
-			// setTimeout(function() {
-
-			// axios.post('/friendsShipList')
-			// 	.then(function (response) {
-			// 	contex.commit(types.GET_FRIENDSHIP_LIST, response.data)
-			// })
-			// .catch(function (error) {
-			// 	console.log(error);
-			// });
-			// }, 1000)
 			setTimeout(function() {
 				axios.post('http://myishu.top/yishu/home/yijie/essay/action/list_attention_essay', querystring.stringify({
 					token: 'Q5lEibz4Zdy0mOPABx9Dxj084aexCc4kZozaAPl1dZs+Ux6I1f3tHQ0w7/HGY7PNoou617fV7GlI4YI/xQNkTt8l0iHEwPWWppQtYtdSkxHOOCseECat5ycg6xdm9rZ7',
@@ -95,6 +98,24 @@ export default {
 			.catch(function (error) {
 				console.log(error);
 			});
-		}
+		},
+		storeDelComment (context, obj) {
+			context.commit(types.STORE_DEL_COMMENT, obj)
+		},
+		deleteComment (context) {
+			console.log(context)
+			
+			axios.post('http://myishu.top/yishu/home/yijie/comment/action/del_comment',querystring.stringify({
+				token: 'Q5lEibz4Zdy0mOPABx9Dxj084aexCc4kZozaAPl1dZs+Ux6I1f3tHQ0w7/HGY7PNoou617fV7GlI4YI/xQNkTt8l0iHEwPWWppQtYtdSkxHOOCseECat5ycg6xdm9rZ7',
+				comment_id: context.getters.delComment.id
+			}))
+			.then(function (response) {
+				console.log('what')
+				context.commit(types.DELET_COMMENT, context.getters.delComment)
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+		},
 	}
 }

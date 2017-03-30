@@ -99,7 +99,7 @@ export default {
       this.$store.dispatch('changeSidebar')
     },
     copy () {
-        this.$store.dispatch('changeDelAlert', false)
+      this.$store.dispatch('changeDelAlert', false)
     },
     deleteComment () {
       this.$store.dispatch('changeDelAlert', false)

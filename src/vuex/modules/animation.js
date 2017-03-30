@@ -14,6 +14,9 @@ export default {
 			}, {
 				desc: 'Profile',
 				link: '/myinformation',
+			}, {
+				desc: 'Search',
+				link: '/search',
 			}
 		],
 		replyUser: {
@@ -126,13 +129,6 @@ export default {
 	  	DEL_ALERT (state, status) {
 	  		state.delAlertStatus = status
 	  	},
-		STORE_DEL_COMMENT (state, obj) {
-			state.delComment = obj
-		},
-		DELET_COMMENT (state) {
-			let index = state.delComment.index
-			state.delComment.comments.splice(index,1)
-		},
 		REPLY_MESSAGE (state, message) {
 			state.replyMessage = message
 		},
@@ -192,12 +188,6 @@ export default {
 	    changeDelAlert (context, status) {
 	    	context.commit(types.DEL_ALERT, status)
 	    },
-		storeDelComment (context, obj) {
-			context.commit(types.STORE_DEL_COMMENT, obj)
-		},
-		deleteComment (context) {
-			context.commit(types.DELET_COMMENT)
-		},
 		changeLeaveWordStatus (context, status) {
 			context.commit(types.CHANGE_LEAVE_WORD_STATUS, status)
 		},

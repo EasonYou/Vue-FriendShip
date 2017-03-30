@@ -5,6 +5,7 @@ import App from './App'
 import Home from './views/Home'
 import FollowList from './views/FollowList'
 import Profile from './views/Profile'
+// import Search from './views/Search'
 
 import Toast from './components/toast'
 
@@ -42,20 +43,28 @@ Vue.directive('focus', {
 
 const routes = [{
 	path: '/',
+  name: '/Home',
 	component: Home
-},{
+}, {
 	path: '/home',
+  name: 'Home',
 	component: Home
-},
-{
+}, {
 	path: '/followlist/:id',
+  name: 'FollowList',
 	component: FollowList
-},{
+}, {
 	path: '/profile/:id',
+  name: 'Profile',
 	component: Profile
-},{
+}, {
   path: '/myinformation',
+  name: 'myinformation',
   component: Profile
+}, {
+  path: '/search',
+  name: 'Search',
+  component: FollowList
 }]
 
 const router = new vueRouter({
