@@ -6,6 +6,11 @@
 			<PictureLayer :pictureAddress="pictureList.pictureAdd"><PictureLayer>
 		</div>
 		<LikeandComment :pictureList="pictureList" ></LikeandComment>
+		<div class="like-list">
+			<div class="item" v-for="data in lists" @click="likeRoute(data.id)">
+				<img :src="data.picture" alt="">
+			</div>
+		</div>
 		<Comment :pictureList="pictureList"></Comment>
 	</div>
 </template>
@@ -16,6 +21,23 @@
 	import AvadarLink from './AvadarLink'
 	export default {
 		props:['pictureList','index'],
+		data () {
+			return {
+				lists: [{
+					id: 10,
+					picture: 'http://myishu.top/yishu/uploads/11/20170210182654selo_small.jpg'
+				}, {
+					id: 10,
+					picture: 'http://myishu.top/yishu/uploads/11/20170210182654selo_small.jpg'
+				}, {
+					id: 10,
+					picture: 'http://myishu.top/yishu/uploads/11/20170210182654selo_small.jpg'
+				}, {
+					id: 10,
+					picture: 'http://myishu.top/yishu/uploads/11/20170210182654selo_small.jpg'
+				}]
+			}
+		},
 		components:{
 			Comment,
 			PictureLayer,
@@ -23,9 +45,12 @@
 			AvadarLink
 		},
 		methods: {
-			changeFollowBtn: function() {
+			changeFollowBtn () {
 				console.log(this.pictureList)
 				this.$store.dispatch('changeFollowListBtn', true)
+			}, 
+			likeRoute (id) {
+				this.$router.push({ name: 'Profile', params: { id: id }})
 			}
 		}
 	}
@@ -43,6 +68,23 @@
 				// float: left;
 				display: block;
 				width: 100%;
+			}
+		}
+		.like-list {
+			margin-left: 20%;
+			width: 100%;
+			display: flex;
+			.item {
+				width: 2rem;
+				height: 2rem;
+				margin-left: 0.4rem;
+				img {
+					width: 100%;
+					height: 100%;
+				}
+			}
+			.item:first-child {
+				margin-left: 0;
 			}
 		}
 	}

@@ -20,11 +20,11 @@ export default {
 		},
 		CHANGE_FOLLOW_LIST_ATTENTION (state, data) {
 			let list = state.data.followList
-			for(let i=0; i<list.length; i++) {
-				if(list[i].id == data.id) {
-					list[i].isAttention = data.type
+			list.find(function(x) {
+				if(x.id == data.id) {
+					x.isAttention = data.type
 				}
-			}
+			})
 		},
 		CLEAR_FOLLOW_LIST (state) {
 			state.data.followList = []

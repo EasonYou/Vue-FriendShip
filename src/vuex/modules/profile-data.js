@@ -20,6 +20,17 @@ export default {
 		},
 		CHANGE_PROFILE_ATTENTION (state, data) {
 			state.data.isAttention = data
+		},
+		DELET_PICTURE (state, id) {
+			let list = state.data.pictureList,
+				num
+			list.find(function(x, i) {
+				console.log(x, i)
+				if(x.essay_id) {
+					num = i
+				}
+			})
+			list.splice(num, 1)
 		}
 	},
 	actions: {
@@ -53,8 +64,8 @@ export default {
 				data.vue.$toast('留言成功')
 			})
 			.catch(function (error) {
-				console.log(error);
-			});
+				console.log(error)
+			})
 		},
 		profileAttention (contex, data) {
 			let url
@@ -73,8 +84,22 @@ export default {
 				contex.commit('CHANGE_PROFILE_ATTENTION', data.type)
 			})
 			.catch(function (error) {
-				console.log(error);
-			});
+				console.log(error)
+			})
+		},
+		deletePicture (contex, data) {
+			axios.post('http://myishu.top/yishu/home/yijie/essay/action/del_essay', querystring.stringify({
+				token: 'Q5lEibz4Zdy0mOPABx9Dxj084aexCc4kZozaAPl1dZs+Ux6I1f3tHQ0w7/HGY7PNoou617fV7GlI4YI/xQNkTt8l0iHEwPWWppQtYtdSkxHOOCseECat5ycg6xdm9rZ7',
+				id: data.id
+			}))
+			.then(function (response) {
+				data.vue.$toast('删除成功')
+				contex.commit('DELET_PICTURE', data.id)
+				contex.dispatch('showPictureView', false)
+			})
+			.catch(function (error) {
+				console.log(error)
+			})
 		}
 	}
 }

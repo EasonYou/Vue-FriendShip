@@ -21,7 +21,7 @@
 					<span>相册</span>
 				</div>
 				<div class="picture-list-container">
-					<PictureLayer v-for="pictureAddress in profileData.pictureList" :pictureAddress="pictureAddress"></PictureLayer>
+					<PictureLayer v-for="pictureAddress in profileData.pictureList" :pictureAddress="pictureAddress" ></PictureLayer>
 				</div>
 			</div>
 		</transition>

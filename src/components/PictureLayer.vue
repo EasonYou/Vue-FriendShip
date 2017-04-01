@@ -14,7 +14,8 @@
 				} else {
 					address = e.target.getElementsByTagName('img')[0].getAttribute('src')
 				}
-				this.$store.dispatch('setPicAdd', address)
+				console.log(address)
+				this.$store.dispatch('setPicAdd', this.pictureAddress)
 				this.$store.dispatch('showPictureView', true)
 			}
 		}
@@ -30,8 +31,6 @@
 		padding: 4%;
 		border: 1px solid #efefef;
 		max-height: 92%;
-		// margin-left: 0.5rem;
-		// margin-top: 0.5rem;
 		box-shadow: 0 0 1rem rgba(0,0,0,0.1);
 	}
 }
