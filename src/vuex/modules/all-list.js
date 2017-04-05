@@ -40,7 +40,7 @@ export default {
 			// });
 			setTimeout(function () {	
 				axios.post('http://myishu.top/yishu/home/yijie/essay/action/list_square_essay',querystring.stringify({
-					token: 'Q5lEibz4Zdy0mOPABx9Dxj084aexCc4kZozaAPl1dZs+Ux6I1f3tHQ0w7/HGY7PNoou617fV7GlI4YI/xQNkTt8l0iHEwPWWppQtYtdSkxHOOCseECat5ycg6xdm9rZ7',
+					token: localStorage.FS_token,
 				 	page: 1
 				}))
 				.then(function (response) {

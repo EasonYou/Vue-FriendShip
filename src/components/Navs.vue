@@ -1,6 +1,6 @@
 <template>
 	<nav class="top-nav">
-	    <span class="nav-left" v-on:click="back"></span>
+	    <span class="nav-left" v-on:click="back" :class="{'nav-send': $route.name === 'Home' || $route.name === '/Home'}"></span>
 	    <h3>{{ navDesc }}</h3>
 	    <span class="nav-right" v-on:click="change">
         <span></span>
@@ -20,6 +20,7 @@
       },
 	  	methods:{
   	    change:function() {
+          console.log(this.$route)
   	      this.$store.dispatch('changeSidebar')
   	    },
         back:function() {
@@ -28,6 +29,9 @@
             window.history.back();
           } else {
             /* native operation */
+            if(window.openSendingPage) {
+              window.openSendingPage()
+            }
           }
         }
   	  },
@@ -77,6 +81,13 @@
       background-repeat: no-repeat;
       background-position: 1rem 0.8rem;
       background-size: 70% 45%;
+    }
+    .nav-send {
+      background: url('../assets/release.png');
+      width: 2rem;
+      background-repeat: no-repeat;
+      background-position: 1rem 0.5rem;
+      background-size: 70% 65%;
     }
     .nav-right{
       float: right;

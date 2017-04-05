@@ -38,7 +38,7 @@ export default {
 			vue.loadingStatus = true
 			setTimeout(function(){
 				axios.post('http://myishu.top/yishu/home/user/action/get_user_homepage', querystring.stringify({
-					token: 'Q5lEibz4Zdy0mOPABx9Dxj084aexCc4kZozaAPl1dZs+Ux6I1f3tHQ0w7/HGY7PNoou617fV7GlI4YI/xQNkTt8l0iHEwPWWppQtYtdSkxHOOCseECat5ycg6xdm9rZ7',
+					token: localStorage.FS_token,
 					id: vue.$route.params.id || contex.getters.userId
 				}))
 				.then(function (response) {
@@ -54,7 +54,7 @@ export default {
 		},
 		submit (contex, data) {
 			axios.post('http://myishu.top/yishu/home/yishu/message/action/publish_message', querystring.stringify({
-				token: 'Q5lEibz4Zdy0mOPABx9Dxj084aexCc4kZozaAPl1dZs+Ux6I1f3tHQ0w7/HGY7PNoou617fV7GlI4YI/xQNkTt8l0iHEwPWWppQtYtdSkxHOOCseECat5ycg6xdm9rZ7',
+				token: localStorage.FS_token,
 				receive_id: data.receive,
 				message: data.message
 			}))
@@ -76,7 +76,7 @@ export default {
 				url = 'http://myishu.top/yishu/home/friend/action/del_attention'
 			}
 			axios.post(url, querystring.stringify({
-				token: 'Q5lEibz4Zdy0mOPABx9Dxj084aexCc4kZozaAPl1dZs+Ux6I1f3tHQ0w7/HGY7PNoou617fV7GlI4YI/xQNkTt8l0iHEwPWWppQtYtdSkxHOOCseECat5ycg6xdm9rZ7',
+				token: localStorage.FS_token,
 				friend_id: data.id
 			}))
 			.then(function (response) {
@@ -89,7 +89,7 @@ export default {
 		},
 		deletePicture (contex, data) {
 			axios.post('http://myishu.top/yishu/home/yijie/essay/action/del_essay', querystring.stringify({
-				token: 'Q5lEibz4Zdy0mOPABx9Dxj084aexCc4kZozaAPl1dZs+Ux6I1f3tHQ0w7/HGY7PNoou617fV7GlI4YI/xQNkTt8l0iHEwPWWppQtYtdSkxHOOCseECat5ycg6xdm9rZ7',
+				token: localStorage.FS_token,
 				id: data.id
 			}))
 			.then(function (response) {

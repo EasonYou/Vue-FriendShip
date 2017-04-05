@@ -30,7 +30,10 @@ Vue.directive('focus', {
       this.className += ' focus'
     })
     if(value.value === 'is immediate') {
-      el.focus()
+      setTimeout(function() {
+        el.focus()
+        console.log('haha')
+      }, 500)
     }
     el.addEventListener('blur', function() {
       this.className = this.className.replace(' focus', '')
@@ -38,6 +41,9 @@ Vue.directive('focus', {
   }
 })
 
+window.localStorage.FS_token = window.localStorage.FS_token ? 
+                               window.localStorage.FS_token :
+                              'Q5lEibz4Zdy0mOPABx9Dxj084aexCc4kZozaAPl1dZs+Ux6I1f3tHQ0w7/HGY7PNoou617fV7GlI4YI/xQNkTt8l0iHEwPWWppQtYtdSkxHOOCseECat5ycg6xdm9rZ7'
 
 
 

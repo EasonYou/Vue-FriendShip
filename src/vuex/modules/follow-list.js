@@ -44,7 +44,7 @@ export default {
 			}
 			setTimeout(function() {
 				axios.post(url, querystring.stringify({
-					token: 'Q5lEibz4Zdy0mOPABx9Dxj084aexCc4kZozaAPl1dZs+Ux6I1f3tHQ0w7/HGY7PNoou617fV7GlI4YI/xQNkTt8l0iHEwPWWppQtYtdSkxHOOCseECat5ycg6xdm9rZ7',
+					token: localStorage.FS_token,
 					keyword: data.keyword || '',
 					page: 1
 				}))
@@ -68,7 +68,7 @@ export default {
 				url = 'http://myishu.top/yishu/home/friend/action/del_attention'
 			}
 			axios.post(url, querystring.stringify({
-				token: 'Q5lEibz4Zdy0mOPABx9Dxj084aexCc4kZozaAPl1dZs+Ux6I1f3tHQ0w7/HGY7PNoou617fV7GlI4YI/xQNkTt8l0iHEwPWWppQtYtdSkxHOOCseECat5ycg6xdm9rZ7',
+				token: localStorage.FS_token,
 				friend_id: data.id
 			}))
 			.then(function (response) {

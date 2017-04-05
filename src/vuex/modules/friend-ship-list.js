@@ -58,7 +58,7 @@ export default {
 			contex.commit(types.CLEAR_FRIENDSHIP_LIST)
 			setTimeout(function() {
 				axios.post('http://myishu.top/yishu/home/yijie/essay/action/list_attention_essay', querystring.stringify({
-					token: 'Q5lEibz4Zdy0mOPABx9Dxj084aexCc4kZozaAPl1dZs+Ux6I1f3tHQ0w7/HGY7PNoou617fV7GlI4YI/xQNkTt8l0iHEwPWWppQtYtdSkxHOOCseECat5ycg6xdm9rZ7',
+					token: localStorage.FS_token,
 				 	page: num
 				}))
 				.then(function (response) {
@@ -72,7 +72,7 @@ export default {
 		},
 		changeLike (contex, list) {
 			axios.post('http://myishu.top/yishu/home/yijie/votes/action/click_like', querystring.stringify({
-				token: 'Q5lEibz4Zdy0mOPABx9Dxj084aexCc4kZozaAPl1dZs+Ux6I1f3tHQ0w7/HGY7PNoou617fV7GlI4YI/xQNkTt8l0iHEwPWWppQtYtdSkxHOOCseECat5ycg6xdm9rZ7',
+				token: localStorage.FS_token,
 				essay_id: list.essay_id
 			}))
 			.then(function (response) {
@@ -86,7 +86,7 @@ export default {
 			console.log(data)
 			let params = data.params
 			axios.post('http://myishu.top/yishu/home/yijie/comment/action/publish_comment',querystring.stringify({
-				token: 'Q5lEibz4Zdy0mOPABx9Dxj084aexCc4kZozaAPl1dZs+Ux6I1f3tHQ0w7/HGY7PNoou617fV7GlI4YI/xQNkTt8l0iHEwPWWppQtYtdSkxHOOCseECat5ycg6xdm9rZ7',
+				token: localStorage.FS_token,
 				essay_id: params.essayId,
 				message: params.text,
 				receive_id: params.receiveId,
@@ -106,7 +106,7 @@ export default {
 			console.log(context)
 			
 			axios.post('http://myishu.top/yishu/home/yijie/comment/action/del_comment',querystring.stringify({
-				token: 'Q5lEibz4Zdy0mOPABx9Dxj084aexCc4kZozaAPl1dZs+Ux6I1f3tHQ0w7/HGY7PNoou617fV7GlI4YI/xQNkTt8l0iHEwPWWppQtYtdSkxHOOCseECat5ycg6xdm9rZ7',
+				token: localStorage.FS_token,
 				comment_id: context.getters.delComment.id
 			}))
 			.then(function (response) {
