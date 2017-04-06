@@ -57,7 +57,7 @@ export default {
 			} 
 			contex.commit(types.CLEAR_FRIENDSHIP_LIST)
 			setTimeout(function() {
-				axios.post('http://myishu.top/yishu/home/yijie/essay/action/list_attention_essay', querystring.stringify({
+				axios.post('https://myishu.top/yishu/home/yijie/essay/action/list_attention_essay', querystring.stringify({
 					token: localStorage.FS_token,
 				 	page: num
 				}))
@@ -71,7 +71,7 @@ export default {
 			}, 1000)
 		},
 		changeLike (contex, list) {
-			axios.post('http://myishu.top/yishu/home/yijie/votes/action/click_like', querystring.stringify({
+			axios.post('https://myishu.top/yishu/home/yijie/votes/action/click_like', querystring.stringify({
 				token: localStorage.FS_token,
 				essay_id: list.essay_id
 			}))
@@ -85,7 +85,7 @@ export default {
 		submitComment (contex, data) {
 			console.log(data)
 			let params = data.params
-			axios.post('http://myishu.top/yishu/home/yijie/comment/action/publish_comment',querystring.stringify({
+			axios.post('https://myishu.top/yishu/home/yijie/comment/action/publish_comment',querystring.stringify({
 				token: localStorage.FS_token,
 				essay_id: params.essayId,
 				message: params.text,
@@ -105,7 +105,7 @@ export default {
 		deleteComment (context) {
 			console.log(context)
 			
-			axios.post('http://myishu.top/yishu/home/yijie/comment/action/del_comment',querystring.stringify({
+			axios.post('https://myishu.top/yishu/home/yijie/comment/action/del_comment',querystring.stringify({
 				token: localStorage.FS_token,
 				comment_id: context.getters.delComment.id
 			}))

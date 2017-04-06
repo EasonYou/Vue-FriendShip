@@ -37,7 +37,7 @@ export default {
 		getProfileData (contex, vue) {
 			vue.loadingStatus = true
 			setTimeout(function(){
-				axios.post('http://myishu.top/yishu/home/user/action/get_user_homepage', querystring.stringify({
+				axios.post('https://myishu.top/yishu/home/user/action/get_user_homepage', querystring.stringify({
 					token: localStorage.FS_token,
 					id: vue.$route.params.id || contex.getters.userId
 				}))
@@ -53,7 +53,7 @@ export default {
 			}, 500)
 		},
 		submit (contex, data) {
-			axios.post('http://myishu.top/yishu/home/yishu/message/action/publish_message', querystring.stringify({
+			axios.post('https://myishu.top/yishu/home/yishu/message/action/publish_message', querystring.stringify({
 				token: localStorage.FS_token,
 				receive_id: data.receive,
 				message: data.message
@@ -71,9 +71,9 @@ export default {
 			let url
 			console.log(data.type)
 			if(data.type) {
-				url = 'http://myishu.top/yishu/home/friend/action/pay_attention'
+				url = 'https://myishu.top/yishu/home/friend/action/pay_attention'
 			} else {
-				url = 'http://myishu.top/yishu/home/friend/action/del_attention'
+				url = 'https://myishu.top/yishu/home/friend/action/del_attention'
 			}
 			axios.post(url, querystring.stringify({
 				token: localStorage.FS_token,
@@ -88,7 +88,7 @@ export default {
 			})
 		},
 		deletePicture (contex, data) {
-			axios.post('http://myishu.top/yishu/home/yijie/essay/action/del_essay', querystring.stringify({
+			axios.post('https://myishu.top/yishu/home/yijie/essay/action/del_essay', querystring.stringify({
 				token: localStorage.FS_token,
 				id: data.id
 			}))

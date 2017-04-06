@@ -65,7 +65,7 @@
 		transition:  0.2s;
 	}
 	.send-block {
-		position: fixed;
+		position: absolute;
 		width: 100%;
 		height: 3.4rem;
 		bottom: 0;

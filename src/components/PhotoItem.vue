@@ -25,16 +25,16 @@
 			return {
 				lists: [{
 					id: 10,
-					picture: 'http://myishu.top/yishu/uploads/11/20170210182654selo_small.jpg'
+					picture: 'https://myishu.top/yishu/uploads/11/20170210182654selo_small.jpg'
 				}, {
 					id: 10,
-					picture: 'http://myishu.top/yishu/uploads/11/20170210182654selo_small.jpg'
+					picture: 'https://myishu.top/yishu/uploads/11/20170210182654selo_small.jpg'
 				}, {
 					id: 10,
-					picture: 'http://myishu.top/yishu/uploads/11/20170210182654selo_small.jpg'
+					picture: 'https://myishu.top/yishu/uploads/11/20170210182654selo_small.jpg'
 				}, {
 					id: 10,
-					picture: 'http://myishu.top/yishu/uploads/11/20170210182654selo_small.jpg'
+					picture: 'https://myishu.top/yishu/uploads/11/20170210182654selo_small.jpg'
 				}]
 			}
 		},
@@ -72,7 +72,7 @@
 		}
 		.like-list {
 			margin-left: 20%;
-			width: 100%;
+			width: 80%;
 			display: flex;
 			.item {
 				width: 2rem;

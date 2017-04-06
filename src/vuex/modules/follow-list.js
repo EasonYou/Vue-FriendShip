@@ -38,9 +38,9 @@ export default {
 			let url
 			data.vue.loadingStatus = true
 			if(data.type) {
-				url = 'http://myishu.top/yishu/home/user/action/find_user'
+				url = 'https://myishu.top/yishu/home/user/action/find_user'
 			} else {
-				url = 'http://myishu.top/yishu/home/friend/action/list_attention'
+				url = 'https://myishu.top/yishu/home/friend/action/list_attention'
 			}
 			setTimeout(function() {
 				axios.post(url, querystring.stringify({
@@ -63,9 +63,9 @@ export default {
 		followListFollow (contex, data) {
 			let url
 			if(data.type) {
-				url = 'http://myishu.top/yishu/home/friend/action/pay_attention'
+				url = 'https://myishu.top/yishu/home/friend/action/pay_attention'
 			} else {
-				url = 'http://myishu.top/yishu/home/friend/action/del_attention'
+				url = 'https://myishu.top/yishu/home/friend/action/del_attention'
 			}
 			axios.post(url, querystring.stringify({
 				token: localStorage.FS_token,

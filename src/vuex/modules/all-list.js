@@ -38,8 +38,8 @@ export default {
 			// .catch(function (error) {
 			// 	console.log(error);
 			// });
-			setTimeout(function () {	
-				axios.post('http://myishu.top/yishu/home/yijie/essay/action/list_square_essay',querystring.stringify({
+			setTimeout(function () {
+				axios.post('https://myishu.top/yishu/home/yijie/essay/action/list_square_essay',querystring.stringify({
 					token: localStorage.FS_token,
 				 	page: 1
 				}))

@@ -176,7 +176,7 @@
 					height: 2rem;
 					width: 100%;
 					display: flex;
-					margin-bottom: 0.9rem;
+					margin-bottom: 2.1rem;
 					div {
 						width: 100%;
 						background-color: #5ab385;
