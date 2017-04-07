@@ -116,7 +116,9 @@ body,html{
   height: 100%;
   overflow: hidden;
   -webkit-text-size-adjust:100%;
-
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
   // background-color: #3c3c3c;
 }
 

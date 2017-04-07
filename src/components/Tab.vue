@@ -24,6 +24,7 @@
 				side: this.$store.getters[this.getter],
 				start: 0,
 				offset: 0,
+				scrollTop: 0,
 				refreshDesc: '下拉刷新'
 			}
 		},
@@ -39,6 +40,7 @@
 			},
 			init (e) {
 				this.start = e.changedTouches[0].pageY
+				this.scrollTop = document.getElementsByClassName('homeLeft')[0].scrollTop
 			},
 			refresh (e) {
 				if(e.currentTarget.style.transition) {
@@ -50,8 +52,8 @@
 				}
 				if(e.currentTarget.childNodes[0].scrollTop === 0 ) {
 					e.preventDefault()
-					e.currentTarget.style.transform = 'translateY('+ this.offset/2 +'px)'
-					if(this.offset > 200) {
+					e.currentTarget.style.transform = 'translateY('+ (this.offset-this.scrollTop)/2 +'px)'
+					if((this.offset-this.scrollTop)/2 > 80) {
 						this.refreshDesc = '↑释放刷新'
 					} else {
 						this.refreshDesc = '↓下拉刷新'
