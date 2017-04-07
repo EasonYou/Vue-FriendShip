@@ -149,6 +149,7 @@
 			.avadar-container {
 				position: absolute;
 				bottom: -8rem;
+				// background-color: #fff;
 			}
 			.mucont {
 				bottom: -9rem;
@@ -173,6 +174,7 @@
 				}
 			}
 			.picture-list-container {
+					background-color: #fff;
 					display: flex;
 					flex-wrap: wrap;
 			}
@@ -204,10 +206,10 @@
 			position: absolute;
 			margin-top: 9.5rem;
 			.btn-green {
-				background-color: #71d4a1;
+				background-color: #2ab7c2;
 			}
 			.btn-green:active {
-				background-color: #5dad84;
+				background-color: #22939c;
 			}
 		}
 

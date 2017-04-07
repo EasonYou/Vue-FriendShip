@@ -104,7 +104,7 @@
 	position: absolute;
 	top: 3rem;
 	overflow: hidden;
-	background-color: #4e7d64;
+	background-color: #28afb9;
 	.tab-btn-container {
 		width: 100%;
 		position: absolute;
@@ -117,13 +117,13 @@
 			// float: left;
 			height: 2rem;
 			line-height: 2rem;
-			background-color: #5ab385;
+			background-color: #28afb9;
 			color: #fff;
 			transition: all 0.3s;
 			transform: translateX(0);
 		}
 		.active {
-			background-color: #4c9870;
+			background-color: #22949d;
 		}
 	}
 	.tab-item {
@@ -133,6 +133,7 @@
 		position: absolute;
 		top: 2rem;
 		transition: all 0.3s;
+		// background-color: #fff;
 		.refresh-icon {
 			width: 50%;
 			position: absolute;

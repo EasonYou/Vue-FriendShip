@@ -101,18 +101,18 @@
 			height: 2.5rem;
 			display: flex;
 			margin-top: 3rem;
-			background-color: #71d4a1;
+			background-color: #2ab7c2;
 			box-shadow: 0 0 1rem rgba(0,0,0,0.2);
 			input {
 				transition: 0.2s all;
-				background-color: #5ab385;
+				background-color: #26a2ab;
 				border: 0;
 				width: 100%;
 				color: #fff;
 				padding-left: 1rem;
 			}
 			input:focus {
-				background-color: #4c9870;
+				background-color: #22939c;
 				box-shadow: 0 0 1rem rgba(0,0,0,0.2);
 				font-size: 1.3rem;
 			}
@@ -120,7 +120,7 @@
 				width: 5rem;
 				margin: 0;
 				background-color: #f8f8f8;
-				color: #4c9870;
+				color: #22939c;
 				border-radius: 0;
 				height: 2.5rem;
 				line-height: 2.5rem;

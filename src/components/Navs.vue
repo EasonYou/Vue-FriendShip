@@ -64,7 +64,7 @@
     width: 100%;
     position: fixed;
     top: 0;
-    background-color: #71d4a1;
+    background-color: #2ab7c2;
     z-index: 1000;
     box-shadow: 0 0 1rem rgba(0,0,0,0.2);
     h3{

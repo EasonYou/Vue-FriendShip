@@ -15,14 +15,12 @@
           <router-view v-on:navName="changeNavName"></router-view>
         </keep-alive>
       </transition>
-      <SendMessage v-if="sendBlock"></SendMessage>
       <PictureView :show="pictureView"></PictureView>
   </div>
 </template>
 <script>
 import Loading from './components/Loading'
 import Sidebar from './components/Sidebar'
-import SendMessage from './components/SendMessage'
 import Navs from './components/Navs'
 import store from './vuex'
 import Alert from './components/Alert'
@@ -32,7 +30,6 @@ import gestureBack from './util/gestureBack'
 export default {
   components:{
     Sidebar,
-    SendMessage,
     Navs,
     Alert,
     PictureView,
@@ -118,6 +115,8 @@ body,html{
   margin: 0;
   height: 100%;
   overflow: hidden;
+  -webkit-text-size-adjust:100%;
+
   // background-color: #3c3c3c;
 }
 
@@ -149,17 +148,17 @@ body,html{
     z-index: 999;
   }
   .container {
-    // margin-top: 4rem;
     position: absolute;
     top: 0;
     background-color: #fff;
     min-height: 100%;
-    box-shadow: 0 0 2rem 1rem rgba(0,0,0,0.3);
     height: 100%;
     overflow-y: scroll;
     max-width: 880px;
     margin: 0 auto;
     transform: translate3d(0,0,0);
+    box-shadow: 0 0 2rem 1rem rgba(0,0,0,0.1);
+    -webkit-overflow-scrolling:touch;
   }
   .right-to-left-fade-enter {
   transform: translate3d(120%, 0, 0);

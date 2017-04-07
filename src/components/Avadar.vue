@@ -6,7 +6,7 @@
 		</div>
 		<span class="avadar-name">{{ avadarName }}</span>
 		<div>
-			<Btn :className="{'btn-green': !leaveWordStatus, 'btn-red': leaveWordStatus}" 
+			<Btn :className="{'btn-green': !leaveWordStatus, 'btn-blue': leaveWordStatus}" 
 				 @click="changeLeaveWordStatus" 
 				 v-if="avadarName !== userName">
 				{{ leaveWordTitle }}
@@ -109,19 +109,19 @@
 			font-size: 1.1rem;
 		}
 		.btn-blue {
-			background-color: #71bfd4;
+			background-color: #22939c;
 		}
 		.btn-green {
-			background-color: #71d4a1;
+			background-color: #2ab7c2;
 		}
 		.btn-red {
 			background-color: #f37272;
 		}
 		.btn-blue:active {
-			background-color: #5a9bad;
+			background-color: #1e8088;
 		}
 		.btn-green:active {
-			background-color: #5dad84;
+			background-color: #22939c;
 		}
 		.btn-red:active {
 			background-color: #d06262;

@@ -41,10 +41,12 @@
 				</div>
 			</div>
 		</Tab>
+		<SendMessage v-if="sendBlock"></SendMessage>
 	</div>
 </transition>
 </template>
 <script>
+	import SendMessage from '../components/SendMessage'
 	import PhotoItem from '../components/PhotoItem'
 	import TopPicture from '../components/TopPicture'
 	import Navs from '../components/Navs'
@@ -60,7 +62,8 @@
 			Navs,
 			Alert,
 			Tab,
-			Btn
+			Btn,
+			SendMessage
 		},
 		mixins: [refresh],
 		data () {
@@ -151,7 +154,10 @@
 			},
 			allTopPictureAddress () {
 				return this.$store.getters.allTopPictureAddress
-			}
+			},
+			sendBlock () {
+				return this.$store.getters.sendBlock
+			},
 		},
 		deactivated () {
 			util.storeScrollTop(this)
@@ -170,22 +176,24 @@
 		.container {
 			width: 100%;
 			box-shadow: none;
+			background-color: #fff;
 			.photo-items-cont {
+				background-color: #fff;
 				position: relative;
 				.page-ctr {
 					height: 2rem;
 					width: 100%;
 					display: flex;
-					margin-bottom: 2.1rem;
+					margin-bottom: 2rem;
 					div {
 						width: 100%;
-						background-color: #5ab385;
+						background-color: #28afb9;
 						color: #fff;
 						line-height: 2.3rem;
 						box-shadow: 0 0 1rem rgba(0,0,0,0.3);
 					}
 					div:active {
-						background-color: #4c9870;
+						background-color: #22939c;
 					}
 				}
 			}

@@ -93,13 +93,13 @@
 				float: left;
 				margin: 0.8rem 0;
 				border: 0;
-				background-color: #71d4a1;
+				background-color: #2ab7c2;
 				margin-left: 3%;
 				color: #fff;
 				border-radius: 0.2rem;
 			}
 			button:active{
-				background-color: #5aab81;
+				background-color: #22939c;
 			}
 		}
 		.send-mask {

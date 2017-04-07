@@ -7,9 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+    <!-- <script src="http://cdn.bootcss.com/inobounce/0.1.4/inobounce.min.js"></script> -->
+    <script>
+        if ('addEventListener' in document) {
+          document.addEventListener('DOMContentLoaded', function() {
+            FastClick.attach(document.body);
+          }, false);
+        }
+    </script>
   </head>
   <body>
     <div id="app"></div>
-    <!-- built files will be auto injected -->
   </body>
 </html>
