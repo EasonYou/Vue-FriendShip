@@ -1,7 +1,7 @@
 <template>
 	<router-link class="link-avadar" :to="'/profile/' + id">
 		<div class="clearfix" v-on:click="emit" >
-			<img :src="avadarSrc" @:click="emit">
+			<img :src="avadarSrc === '-' ? 'http://myishu.top/yishu/avadar.png' : avadarSrc" @:click="emit">
 			<span @:click="emit">{{ name }}</span>
 		</div>
 	</router-link>

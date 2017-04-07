@@ -8,6 +8,7 @@
 		props: ['pictureAddress'],
 		methods: {		
 			showPictureView: function(e) {
+				console.log(this.address, 'sss')
 				let address
 				if (e.target.tagName === "IMG") {
 					address = e.target.getAttribute('src')
@@ -17,6 +18,14 @@
 				console.log(address)
 				this.$store.dispatch('setPicAdd', this.pictureAddress)
 				this.$store.dispatch('showPictureView', true)
+			}
+		},
+		computed: {
+			address () {
+				let add = typeof this.pictureAddress === 'object' ? this.pictureAddress.pictureAdd : this.pictureAddress
+				add = add === '-' ? 'http://myishu.top/yishu/cover.png' : add
+				return add
+				// console.log(add)
 			}
 		}
 	}

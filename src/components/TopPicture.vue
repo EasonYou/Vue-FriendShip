@@ -1,7 +1,7 @@
 <template>
 	<div class="top-item">
 		<div class="top-img-cont" >
-			<img :src="topPictureAddress">
+			<img :src="topPictureAddress==='-' ? 'http://myishu.top/yishu/avadar.png' : topPictureAddress">
 		</div>
 		<div class="shadow" @click="showPic"></div>
 		<span class="top-picture-desc">{{ topPictureDesc }}</span>

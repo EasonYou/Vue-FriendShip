@@ -2,7 +2,7 @@
 	<div class="avadar-container"
 		 :class="{mucont: avadarName === userName}">
 		<div class="avadar">
-			<img :src="avdarAdress" alt="">
+			<img :src="avdarAdress==='-' ?'http://myishu.top/yishu/avadar.png' : avdarAdress" alt="">
 		</div>
 		<span class="avadar-name">{{ avadarName }}</span>
 		<div>

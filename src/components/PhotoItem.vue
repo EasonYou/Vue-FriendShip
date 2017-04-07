@@ -5,10 +5,10 @@
 			<span class="item-desc" >{{ pictureList.desc }}</span>
 			<PictureLayer :pictureAddress="pictureList.pictureAdd"><PictureLayer>
 		</div>
-		<LikeandComment :pictureList="pictureList" ></LikeandComment>
+		<LikeandComment :pictureList="pictureList"></LikeandComment>
 		<div class="like-list">
-			<div class="item" v-for="data in lists" @click="likeRoute(data.id)">
-				<img :src="data.picture" alt="">
+			<div class="item" v-for="data in pictureList.voteLite" @click="likeRoute(data.id)">
+				<img :src="data.pic === '-' ? 'http://myishu.top/yishu/avadar.png' : data.pic" alt="">
 			</div>
 		</div>
 		<Comment :pictureList="pictureList"></Comment>

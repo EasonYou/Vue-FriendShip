@@ -6,7 +6,7 @@
 </template>
 <script>
 	export default {
-		props: ['pictureList'],
+		props: ['pictureList', 'index'],
 		methods: {
 			changeSendBlock: function(comments) {
 			console.log(this.pictureList)
@@ -20,7 +20,7 @@
 			},
 			isLike: function(pictureList) {
 				this.$store.dispatch('changeLike', pictureList)
-				console.log(pictureList)
+				console.log(this.index)
 				// pictureList.isLike = !pictureList.isLike
 			}
 		}
@@ -30,18 +30,34 @@
 	.oper {
 	float: right;
 	width: 100%;
+	position: relative;
 	.favor, .comment{
 		width: 1.7rem;
 		height: .4rem;
-		// background-color: #57a97f;
 		float: right;
-		top: 12rem;
 		border-radius: 0.2rem;
 		margin-right: 1rem;
 		margin-top: 0.1rem;
 	}
 	.comment{
-		border: 0.4rem solid #57a97f
+		background-color: #aeaeae;
+		height: 1.3rem;
+		width: 2.3rem;
+		position: relative;
+	}
+	.comment:after,  .comment:before{
+		content: '';
+		position: absolute;
+		width: 0.5rem;
+		height: 0.5rem;
+		top: 0;
+		border-radius: 50%;
+		top: 0.4rem;
+		left: 0.4rem;
+		background-color: #fff;
+	}
+	.comment:before {
+		left: 1.3rem;
 	}
 	.favor {
 		margin-right: 1rem;

@@ -45,6 +45,21 @@ export default {
 		},
 		DELET_COMMENT (state, obj) {
 			state.delComment.comments = state.delComment.comments.splice(obj.index, 1)
+		}, 
+		ADD_LIKE_AVADAR (state, like) {
+			console.log(state.data.userId)
+			let arr = {
+				id: state.data.userId,
+				pic: state.data.userPic
+			}
+			like.push(arr)
+		},
+		DELETE_LIKE_AVADAR (state, like) {
+			like.find(function(l, index) {
+				if(l.id == state.data.userId) {
+					like.splice(index, 1)
+				}
+			})
 		}
 	},
 	actions: {
@@ -76,7 +91,15 @@ export default {
 				essay_id: list.essay_id
 			}))
 			.then(function (response) {
+				// console.log(response, 'jehehe')
 				list.isLike = !list.isLike
+				if(response.data.message === '点赞成功') {
+					console.log(list)
+					contex.commit(types.ADD_LIKE_AVADAR, list.voteLite)
+				}
+				if(response.data.message === '取消赞成功') {
+					contex.commit(types.DELETE_LIKE_AVADAR, list.voteLite)
+				}
 			})
 			.catch(function (error) {
 				console.log(error);

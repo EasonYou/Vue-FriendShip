@@ -1,6 +1,6 @@
 <template>
 	<div class="picture-view" v-on:click="closePictureView" v-bind:class="{'picture-view-show': show}">
-		<img class="view-picture":src="typeof pictureViewAdd === 'string' ? pictureViewAdd : pictureViewAdd.pictureAdd">
+		<img class="view-picture":src="add === '-' ? 'http://myishu.top/yishu/cover.png' : add">
 		<div class="delete" @click="deletePicture" v-if="typeof pictureViewAdd === 'object' && flag">+</div>
 	</div>
 </template>
@@ -34,6 +34,10 @@
 			},
 			flag () {
 				return this.userId === this.id || this.$route.name === 'myinformation'
+			},
+			add () {
+				let add = typeof this.pictureViewAdd === 'string' ? this.pictureViewAdd : this.pictureViewAdd.pictureAdd
+				return add
 			}
 		},
 		mounted () {
